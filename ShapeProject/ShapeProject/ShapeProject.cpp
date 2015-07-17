@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "Shape.h"
 #include "Rect.h"
+#include "Triangle.h"
 #include <iostream> 
 
 using namespace std;
@@ -19,6 +20,22 @@ int main(int argc, _TCHAR* argv[])
 	cout<<"\nThe new width of rectangle is: "<<rectOne->getWidth();
 	cout << "\nThe new area is: " << rectOne->getArea();
 	cout << endl;
+
+
+	///second way: instance of Triangle class
+	 
+	Triangle triOne(2, 6, 5);
+	cout<<"\nIs triangle object valid? "<<triOne.checkValidity();
+	cout << "\nthe new side: ";
+
+		triOne.setB(5);
+		cout << triOne.getB();
+		cout << "\n the new area triangle: " <<triOne.getArea();
+		cout << endl;
+
+
+
+
 
 	system("pause");
 
