@@ -29,4 +29,8 @@ void Rect:: setLength(double a){
 	double Rect::getArea(){
 		return length*width;
 
+
+	}
+	bool Rect::checkValidity(){
+		return (length >= 0 && width >= 0);
 	}

@@ -19,5 +19,6 @@ public:
 	double getWidth();
 
 	double getArea();
+	bool checkValidity();
 };
 #endif
