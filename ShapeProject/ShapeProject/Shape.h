@@ -5,7 +5,7 @@
 class Shape{
 
 	//two public functions which will be overwritten by the inherited classes
-public:
+protected:
 bool	checkValidity();
 double getArea();
 
