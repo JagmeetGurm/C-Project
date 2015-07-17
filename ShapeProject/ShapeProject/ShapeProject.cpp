@@ -26,6 +26,7 @@ int main(int argc, _TCHAR* argv[])
 	 
 	Triangle triOne(2, 6, 5);
 	cout<<"\nIs triangle object valid? "<<triOne.checkValidity();
+	cout << "\nthe old area: " << triOne.getArea();
 	cout << "\nthe new side: ";
 
 		triOne.setB(5);
