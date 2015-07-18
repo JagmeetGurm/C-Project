@@ -70,6 +70,19 @@ int main(int argc, _TCHAR* argv[])
 	}
 	cout<<"\nnew area of 2nd rect: "<<recVector.at(1)->getArea();
 
+	vector<Shape*>triVector;
+	double c;
+	ifstream triSides;
+	Shape* triNew;
+	triSides.open("inpTri.txt");
+	while (triSides >> a >> b >> c){
+		triNew = new Triangle(a, b, c);
+		if (triNew->checkValidity())
+			triVector.push_back(triNew);
+
+	}
+	cout << "\nnew area of 2nd tri: " << triVector.at(2)->getArea();
+
 	system("pause");
 
 	return 0;
