@@ -6,9 +6,10 @@ using namespace std;
 class Shape{
 
 	//two public functions which will be overwritten by the inherited classes
-protected:
-	bool checkValidity();
-double getArea();
+public:
+	//pure virtual functions
+virtual	bool checkValidity()=0;
+virtual double getArea()=0;
 //double length, width;
 
 

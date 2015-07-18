@@ -47,7 +47,11 @@ int main(int argc, _TCHAR* argv[])
 
 		//4th way: instance of Triangle
 		Triangle t1(1, 2, 3);
-		Shape* triTwo = &t1;
+		Shape* triTwo = new Triangle(4,5, 8);
+	cout<<"\nLet's see this: "<<	triTwo->checkValidity();
+	cout<<"the area is: "<<triTwo->getArea();
+//	triTwo->setA(4);
+
 
 
 
