@@ -1,0 +1,5 @@
+
+area Rectangle 1: 33
+area Rectangle 2: 2
+area Rectangle 3: 12
+area Rectangle 4: 20.4

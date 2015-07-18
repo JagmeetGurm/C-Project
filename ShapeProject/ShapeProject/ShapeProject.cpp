@@ -12,6 +12,17 @@
 
 using namespace std;
 
+void saveRarea(vector<Shape*>v1){
+	ofstream outputRect;
+	outputRect.open("outRect.txt");
+	for (int i = 0; i < v1.size(); i++){
+		outputRect << "\narea Rectangle " << (i + 1) <<": "<< v1.at(i)->getArea();
+
+	}
+	outputRect.close();
+
+}
+
 int main(int argc, _TCHAR* argv[])
 
 {
@@ -68,7 +79,9 @@ int main(int argc, _TCHAR* argv[])
 
 
 	}
+	rectSides.close();
 	cout<<"\nnew area of 2nd rect: "<<recVector.at(1)->getArea();
+	saveRarea(recVector);
 
 	vector<Shape*>triVector;
 	double c;
@@ -81,7 +94,8 @@ int main(int argc, _TCHAR* argv[])
 			triVector.push_back(triNew);
 
 	}
-	cout << "\nnew area of 2nd tri: " << triVector.at(2)->getArea();
+	triSides.close();
+	cout << "\nnew area of 2nd tri: " << triVector.at(1)->getArea();
 
 	system("pause");
 
