@@ -6,6 +6,9 @@
 #include "Rect.h"
 #include "Triangle.h"
 #include <iostream> 
+#include <vector>
+#include <fstream>
+
 
 using namespace std;
 
@@ -47,13 +50,25 @@ int main(int argc, _TCHAR* argv[])
 
 		//4th way: instance of Triangle
 		Triangle t1(1, 2, 3);
+		t1.setA(4);
 		Shape* triTwo = new Triangle(4,5, 8);
 	cout<<"\nLet's see this: "<<	triTwo->checkValidity();
 	cout<<"the area is: "<<triTwo->getArea();
 //	triTwo->setA(4);
 
+	vector<Shape*>recVector;
+	double a, b;
+	Shape* recNew;
+	ifstream rectSides;
+	rectSides.open("inpRect.txt");
+	while (rectSides >> a >> b){
+		recNew = new Rect(a, b);
+		if (recNew->checkValidity())
+			recVector.push_back(recNew);
 
 
+	}
+	cout<<"\nnew area of 2nd rect: "<<recVector.at(1)->getArea();
 
 	system("pause");
 
