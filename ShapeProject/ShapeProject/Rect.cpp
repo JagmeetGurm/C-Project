@@ -31,6 +31,6 @@ void Rect:: setLength(double a){
 
 
 	}
-	bool Rect::checkValidity(){
+bool Rect::checkValidity(){
 		return (length >= 0 && width >= 0);
 	}

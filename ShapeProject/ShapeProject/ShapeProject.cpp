@@ -21,6 +21,17 @@ int main(int argc, _TCHAR* argv[])
 	cout << "\nThe new area is: " << rectOne->getArea();
 	cout << endl;
 
+	//3rd way: 
+	Rect r1(1,2);
+	
+	Rect* rectTwo = &r1;
+	
+	cout<<"is this valid rectangle? "<<rectTwo->checkValidity();
+	cout << "\n the old area of rectangle: " << rectTwo->getArea();
+	cout << endl;
+
+
+
 
 	///second way: instance of Triangle class
 	 
@@ -34,7 +45,9 @@ int main(int argc, _TCHAR* argv[])
 		cout << "\n the new area triangle: " <<triOne.getArea();
 		cout << endl;
 
-
+		//4th way: instance of Triangle
+		Triangle t1(1, 2, 3);
+		Shape* triTwo = &t1;
 
 
 
