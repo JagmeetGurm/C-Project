@@ -12,6 +12,8 @@
 
 using namespace std;
 
+//global functions to write output of vectors to txt file
+
 void saveRarea(vector<Shape*>v1){
 	ofstream outputRect;
 	outputRect.open("outRect.txt");
@@ -22,6 +24,8 @@ void saveRarea(vector<Shape*>v1){
 	outputRect.close();
 
 }
+//global functions to write output of vectors to txt file
+
 void saveTarea(vector<Shape*>v2){
 	ofstream outputTri;
 	outputTri.open("outTri.txt");
@@ -79,6 +83,8 @@ int main(int argc, _TCHAR* argv[])
 	cout<<"the area is: "<<triTwo->getArea();
 //	triTwo->setA(4);
 
+
+	//vector to hold Shape pointers to point ot rect objects
 	vector<Shape*>recVector;
 	double a, b;
 	Shape* recNew;
@@ -102,6 +108,8 @@ int main(int argc, _TCHAR* argv[])
 	cout<<"\nnew area of 2nd rect: "<<recVector.at(1)->getArea();
 	saveRarea(recVector);
 
+	//vector of Shape pointers which will point to triangle objects
+	//could have been just one vector instead of 2 
 	vector<Shape*>triVector;
 	double c;
 	ifstream triSides;
