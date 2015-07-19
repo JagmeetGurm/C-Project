@@ -9,15 +9,15 @@ public:
 	//function to print integer value
 	void print(int i)
 	{
-		cout << i << endl;
+		cout <<"print integer: "<< i << endl;
 	}
 	//function to print float value
-	void print(float i){
-		cout << i << endl;
+	void print(double i){
+		cout << "printing double: :"<<i << endl;
 	}
 	//function to print characters
 	void print(char* c){
-		cout << c << endl;
+		cout << "printing characters: "<<c << endl;
 	}
 
 };
