@@ -22,6 +22,18 @@ void saveRarea(vector<Shape*>v1){
 	outputRect.close();
 
 }
+void saveTarea(vector<Shape*>v2){
+	ofstream outputTri;
+	outputTri.open("outTri.txt");
+	if (!outputTri.is_open()){
+		cout << "error";
+	}
+	else{
+		for (int i = 0; i < v2.size(); i++)
+			outputTri << "\narea Triangle " << (i + 1) << v2.at(i)->getArea();
+	}
+	outputTri.close();
+}
 
 int main(int argc, _TCHAR* argv[])
 
@@ -72,14 +84,21 @@ int main(int argc, _TCHAR* argv[])
 	Shape* recNew;
 	ifstream rectSides;
 	rectSides.open("inpRect.txt");
-	while (rectSides >> a >> b){
-		recNew = new Rect(a, b);
-		if (recNew->checkValidity())
-			recVector.push_back(recNew);
-
-
+	if (!rectSides.is_open())
+	{
+		cout << "error opening file";
 	}
-	rectSides.close();
+	else{
+		while (rectSides >> a >> b){
+			recNew = new Rect(a, b);
+			if (recNew->checkValidity())
+				recVector.push_back(recNew);
+
+
+		}
+
+		rectSides.close();
+	}
 	cout<<"\nnew area of 2nd rect: "<<recVector.at(1)->getArea();
 	saveRarea(recVector);
 
@@ -88,15 +107,20 @@ int main(int argc, _TCHAR* argv[])
 	ifstream triSides;
 	Shape* triNew;
 	triSides.open("inpTri.txt");
-	while (triSides >> a >> b >> c){
-		triNew = new Triangle(a, b, c);
-		if (triNew->checkValidity())
-			triVector.push_back(triNew);
-
+	if (!triSides.is_open()){
+		cout << "\nerror opening file";
 	}
-	triSides.close();
-	cout << "\nnew area of 2nd tri: " << triVector.at(1)->getArea();
+	else{
+		while (triSides >> a >> b >> c){
+			triNew = new Triangle(a, b, c);
+			if (triNew->checkValidity())
+				triVector.push_back(triNew);
 
+		}
+		triSides.close();
+		cout << "\nnew area of 2nd tri: " << triVector.at(1)->getArea();
+		saveTarea(triVector);
+	}
 	system("pause");
 
 	return 0;
