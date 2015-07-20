@@ -14,7 +14,7 @@ public:
 
 	}
 
-	int getArea(){
+	virtual int getArea(){
 		cout << "the area is: ";
 		return 0;
 	}

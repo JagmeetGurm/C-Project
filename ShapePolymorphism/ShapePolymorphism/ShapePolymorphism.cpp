@@ -17,6 +17,8 @@ int main()
 	Rect rec(4, 5);
 	Shape* r = &rec;
 
+
+
 cout<<	r->getArea()<<endl;
 
 
