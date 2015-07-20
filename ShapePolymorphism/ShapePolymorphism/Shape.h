@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class Shape{
+class Shape {
 protected:
 	int length, width;
 public:
@@ -14,9 +14,7 @@ public:
 
 	}
 
-	virtual int getArea(){
-		cout << "the area is: ";
-		return 0;
-	}
+	virtual int getArea() = 0;
+	
 };
 #endif
