@@ -1,4 +1,4 @@
-﻿Build started 7/19/2015 1:17:15 PM.
+﻿Build started 7/19/2015 6:05:49 PM.
      1>Project "c:\Users\Jagmeet\Documents\Visual Studio 2013\Projects\Overloading\Overloading\Overloading.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Overloading.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Overloading.cpp
@@ -11,4 +11,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.13
+Time Elapsed 00:00:00.92

@@ -24,9 +24,12 @@ public:
 
 
 	//overloaded + operator to add two boxes
-	Box operator+(const Box& b){
+	Box operator+( const Box& b){
 		Box box;
 		box.length = this->length + b.length;
+	//	cout << "\nb2 length: " << b.length;
+	//	cout << endl << "length of calling box should be of b1 5: "<<this->length;
+	//	cout << endl << "width should be 7.9: " << this->width<<endl;
 		box.width = this->width + b.width;
 		box.height = this->height + b.height;
 		return box;
