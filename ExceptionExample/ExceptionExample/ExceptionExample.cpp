@@ -3,9 +3,10 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include "Box.h"
 
 using namespace std;
-double division(double a, double b){
+double division(int a, int b){
 	if (b == 0){
 		throw "exception! can't divide by 0.";
 	}
@@ -13,7 +14,7 @@ double division(double a, double b){
 }
 
 
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
 	int x = 45;
 	int b = 0;
@@ -33,6 +34,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	delete pvalue;         // free up the memory.
 
 	
+
+	// box objects to create 
+	Box* box1 = new Box[4]; //constructor will be called 4 times
+	delete[] box1;//destructor will be callled 4 times
 	system("pause");
 	return 0;
 }
