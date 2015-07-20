@@ -5,11 +5,18 @@
 using namespace std;
 
 class Shape{
-private:
+protected:
 	int length, width;
 public:
+	Shape(int a, int b){
+		length = a;
+		width = b;
+
+	}
+
 	int getArea(){
 		cout << "the area is: ";
+		return 0;
 	}
 };
 #endif
