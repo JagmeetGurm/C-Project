@@ -17,6 +17,9 @@ int main()
 	cout<<"int max: "<<Max(3, 5)<<endl;
 	cout << "double max: " << Max(4.5, 9.8) << endl;
 	cout << "string max: " << Max("jim", "abcd")<<endl;
+
+	//template example for class 
+	//
 	system("pause");
 	return 0;
 }

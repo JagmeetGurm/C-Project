@@ -34,4 +34,13 @@ using namespace std;
 		// remove last element 
 		ints.pop_back();
 	}
+
+	T Stack<T>::top(){
+		if (ints.empty()){
+			throw out_of_range("stack<T>::top():empty stack");
+
+		}
+		return ints.back();
+
+	}
 #endif
