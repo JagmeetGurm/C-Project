@@ -25,4 +25,13 @@ using namespace std;
 		ints.push_back(elem);
 	}
 
+	template <class T>
+	void Stack<T>::pop()
+	{
+		if (ints.empty()) {
+			throw out_of_range("Stack<>::pop(): empty stack");
+		}
+		// remove last element 
+		ints.pop_back();
+	}
 #endif
