@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "Stack.h"
+#include <string>
 
 using namespace std;
 
@@ -30,6 +31,14 @@ int main()
 		cout << "remove top ";
 		intStack.pop();cout << endl;
 		cout << "is empty?: " << intStack.empty() << endl;
+
+		//string stack
+		stringStack.push("jim doing great!");
+		cout << "top element:";
+		cout<<stringStack.top() << endl;
+		stringStack.pop() ;
+		cout << "is empty?: " << stringStack.empty()<<endl;
+
 	}
 	catch (exception const& ex){
 		cout << ex.what() << endl;
