@@ -17,3 +17,12 @@ using namespace std;
 			return ints.empty();
 		}
 	};
+
+	template <class T>
+	void Stack<T>::push(T const& elem)
+	{
+		// append copy of passed element 
+		ints.push_back(elem);
+	}
+
+#endif
