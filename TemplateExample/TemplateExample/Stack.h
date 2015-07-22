@@ -14,9 +14,8 @@ using namespace std;
 		void push(T const&);  // push element 
 		void pop();               // pop element 
 		T top() ;            // return top element 
-		bool empty() {       // return true if empty.
-			return elements.empty();
-		}
+		bool empty();
+		
 	};
 
 	template <class T>
@@ -43,5 +42,10 @@ using namespace std;
 		}
 		return elements.back();
 
+	}
+
+	template<class T>
+	bool Stack<T>::empty(){
+		return(elements.empty());
 	}
 #endif
