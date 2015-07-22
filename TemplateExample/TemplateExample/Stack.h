@@ -14,7 +14,7 @@ using namespace std;
 		void push(T const&);  // push element 
 		void pop();               // pop element 
 		T top() ;            // return top element 
-		bool empty();
+		bool empty(); // tells whether stack is empty or not
 		
 	};
 

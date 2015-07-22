@@ -36,7 +36,7 @@ int main()
 		stringStack.push("jim doing great!"); //pushing string
 		cout << "top element:";
 		cout<<stringStack.top() << endl; //returning the top element
-		stringStack.pop() ;
+		stringStack.pop() ; //pop the top most element
 		cout << "is empty?: " << stringStack.empty()<<endl;
 
 	}
