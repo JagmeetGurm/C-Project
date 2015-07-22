@@ -33,9 +33,9 @@ int main()
 		cout << "is empty?: " << intStack.empty() << endl;
 
 		//string stack
-		stringStack.push("jim doing great!");
+		stringStack.push("jim doing great!"); //pushing string
 		cout << "top element:";
-		cout<<stringStack.top() << endl;
+		cout<<stringStack.top() << endl; //returning the top element
 		stringStack.pop() ;
 		cout << "is empty?: " << stringStack.empty()<<endl;
 
