@@ -29,7 +29,28 @@ char findChar(string myString, int i){
 	return myString[i - 1];
 }
 
-//extracting a string from a string
+//checking a string from a string
+bool returnString(string myString, string retString){
+	for (int i = 0; i < myString.length(); i++){
+		
+		if (retString[0] == myString[i]){
+			int c = i;
+			for (int j = 0; j < retString.length()-1; j++){
+				c++;
+				if (retString[j+1] == myString[c])
+					continue;
+				else goto start;
+
+					
+			}
+			return true;
+		}
+		start://
+		
+		;
+	}
+	return false;
+}
 
 int main()
 {
@@ -38,7 +59,7 @@ int main()
 cout<<"the length of string is: "<<	lengthString(s)<<endl;
 cout << "lenght of string using 2nd way, not using the length method: " << lengthString2(s) << endl;
 cout << "third char: " << findChar(s, 3)<<endl;
-
+cout << "check string part of string: " << returnString(s, "isi")<<endl;
 system("pause");
 	return 0;
 }
