@@ -69,6 +69,20 @@ void reverseString(string myString){
 	cout<< rev[i];
 }
 
+//another way to reverse a string
+string revString(string myString){
+	int i = 0;
+	int j = (myString.length()) - 1;
+	while (i <(myString.length() / 2)){
+		char c = myString[j];
+		myString[j] = myString[i];
+//		cout << myString[j];
+		myString[i] = c;
+		i++;
+		j--;
+	}
+	return myString;
+}
 int main()
 {
 	string s;
@@ -79,6 +93,7 @@ cout << "third char: " << findChar(s, 3)<<endl;
 cout << "check string part of string: " << returnString(s, "isi")<<endl;
 cout << "the reverse string of jagmeet is: ";
 reverseString("jagmeet");
+cout << "reversing string 2nd method: " << revString("harsi");
 system("pause");
 	return 0;
 }
