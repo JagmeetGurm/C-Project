@@ -24,17 +24,21 @@ int lengthString2(string myString2){
 }
 
 //extracting a particular char from a string
-char extractChar(string myString, int i){
+char findChar(string myString, int i){
 
 	return myString[i - 1];
 }
+
+//extracting a string from a string
+
 int main()
 {
 	string s;
 	s = "jim is great";
 cout<<"the length of string is: "<<	lengthString(s)<<endl;
 cout << "lenght of string using 2nd way, not using the length method: " << lengthString2(s) << endl;
-cout << "third char: " << extractChar(s, 3)<<endl;
+cout << "third char: " << findChar(s, 3)<<endl;
+
 system("pause");
 	return 0;
 }
