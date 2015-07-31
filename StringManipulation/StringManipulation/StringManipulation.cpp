@@ -54,9 +54,9 @@ bool returnString(string myString, string retString){
 
 
 //function to reverse a string
-string reverseString(string myString){
+void reverseString(string myString){
 	string original = myString;
-	char* rev=new char;
+	char* rev=new char[myString.length()];
 	int i = 0;
 	int j = myString.length();
 	j--;
@@ -65,7 +65,8 @@ string reverseString(string myString){
 		i++;
 		j--;
 	}
-	return rev;
+	for (int i = 0; i < myString.length();i++)
+	cout<< rev[i];
 }
 
 int main()
@@ -76,7 +77,8 @@ cout<<"the length of string is: "<<	lengthString(s)<<endl;
 cout << "lenght of string using 2nd way, not using the length method: " << lengthString2(s) << endl;
 cout << "third char: " << findChar(s, 3)<<endl;
 cout << "check string part of string: " << returnString(s, "isi")<<endl;
-cout << "the reverse string of jagmeet is: " << reverseString("jagmeet");
+cout << "the reverse string of jagmeet is: ";
+reverseString("jagmeet");
 system("pause");
 	return 0;
 }
