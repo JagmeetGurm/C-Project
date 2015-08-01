@@ -119,6 +119,8 @@ bool isPalindrome(string myString){
 	}
 	return true;
 }
+
+
 int main()
 {
 	string s;
@@ -133,6 +135,7 @@ cout << "\nreversing string 2nd method: " << revString("harsi");
 cout << "\nrev a string efficient way: " << revString2("jimSGurm")<<endl;
 cout << "wtihout sing in-built swap: " << revString3("science")<<endl;
 cout << "is string palindrome: " << isPalindrome("jij") << endl;
+cout << "is this string palindrome: " << isPalindrome("mom i mom")<<endl;
 system("pause");
 	return 0;
 }
