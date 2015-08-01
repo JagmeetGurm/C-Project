@@ -103,6 +103,22 @@ string revString3(string myString){
 	}
 	return myString;
 }
+
+//function to check if string is palindrome
+bool isPalindrome(string myString){
+	int i = 0;
+	int len = myString.length();
+	while (i < len/2){
+		if (myString[i] == myString[len - 1 - i])
+		{
+			i++;
+			continue;
+		}
+		else return false;
+		
+	}
+	return true;
+}
 int main()
 {
 	string s;
@@ -116,6 +132,7 @@ reverseString("jagmeet");
 cout << "\nreversing string 2nd method: " << revString("harsi");
 cout << "\nrev a string efficient way: " << revString2("jimSGurm")<<endl;
 cout << "wtihout sing in-built swap: " << revString3("science")<<endl;
+cout << "is string palindrome: " << isPalindrome("jij") << endl;
 system("pause");
 	return 0;
 }
