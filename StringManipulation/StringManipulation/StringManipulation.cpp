@@ -92,6 +92,16 @@ string revString2(string myString){
 	}
 	return myString;
 }
+
+//rev in place without using in-built swap
+string revString3(string myString){
+	for (int i = 0; i < myString.length() / 2; i++){
+		char c = myString[(myString.length()) - 1 - i];
+		myString[(myString.length()) - 1 - i] = myString[i];
+		myString[i] = c;
+	}
+	return myString;
+}
 int main()
 {
 	string s;
@@ -104,6 +114,7 @@ cout << "the reverse string of jagmeet is: ";
 reverseString("jagmeet");
 cout << "\nreversing string 2nd method: " << revString("harsi");
 cout << "\nrev a string efficient way: " << revString2("jimSGurm")<<endl;
+cout << "wtihout sing in-built swap: " << revString3("science")<<endl;
 system("pause");
 	return 0;
 }
