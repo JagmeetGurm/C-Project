@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include <string>
+#include <array>
 using namespace std;
 //function to find the length of the string using length method of string
 int lengthString(string myString){
@@ -106,10 +107,17 @@ string revString3(string myString){
 
 //function to reverse  a string(stored in array)
 char* revStringArray(char str[]){
-	for (int i = 0; i < str.sizeof(); i++){
+	//calculating the size of array
+	
+	for (int i = 0; i<(sizeof(str)/sizeof(*str))/2; i++){
+		char c = str[i];
+		str[i] = str[(sizeof(str) / sizeof(*str))-1-i];
+		str[(sizeof(str) / sizeof(*str))-1-i]=c;
 
 	}
+	return str;
 }
+
 
 //function to check if string is palindrome
 bool isPalindrome(string myString){
@@ -132,7 +140,7 @@ bool isPalindrome(string myString){
 int main()
 {
 	string s;
-	char fullName[10]="jim gurm";
+	char fullName[8]="jimgurm";
 	
 //	char* name = new char;
 //	name = "jimmy gurm";
@@ -150,8 +158,8 @@ cout << "\nrev a string efficient way: " << revString2("jimSGurm")<<endl;
 cout << "wtihout sing in-built swap: " << revString3("science")<<endl;
 cout << "is string palindrome: " << isPalindrome("jij") << endl;
 cout << "is this string palindrome: " << isPalindrome("mom i mom")<<endl;
-cout << "reverse string: "<<
-for (int i = 0;i<)
+cout << "reverse string: " << revStringArray(fullName);
+
 system("pause");
 	return 0;
 }
