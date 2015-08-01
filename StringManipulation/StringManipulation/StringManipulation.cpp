@@ -104,6 +104,13 @@ string revString3(string myString){
 	return myString;
 }
 
+//function to reverse  a string(stored in array)
+char* revStringArray(char str[]){
+	for (int i = 0; i < str.sizeof(); i++){
+
+	}
+}
+
 //function to check if string is palindrome
 bool isPalindrome(string myString){
 	int i = 0;
@@ -121,9 +128,16 @@ bool isPalindrome(string myString){
 }
 
 
+//function to 
 int main()
 {
 	string s;
+	char fullName[10]="jim gurm";
+	
+//	char* name = new char;
+//	name = "jimmy gurm";
+
+
 	s = "jim is great";
 cout<<"the length of string is: "<<	lengthString(s)<<endl;
 cout << "lenght of string using 2nd way, not using the length method: " << lengthString2(s) << endl;
@@ -136,6 +150,8 @@ cout << "\nrev a string efficient way: " << revString2("jimSGurm")<<endl;
 cout << "wtihout sing in-built swap: " << revString3("science")<<endl;
 cout << "is string palindrome: " << isPalindrome("jij") << endl;
 cout << "is this string palindrome: " << isPalindrome("mom i mom")<<endl;
+cout << "reverse string: "<<
+for (int i = 0;i<)
 system("pause");
 	return 0;
 }
