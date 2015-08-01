@@ -93,10 +93,11 @@ string revString2(string myString){
 	return myString;
 }
 
+
 //rev in place without using in-built swap
 string revString3(string myString){
 	for (int i = 0; i < myString.length() / 2; i++){
-		char c = myString[(myString.length()) - 1 - i];
+		char c = myString[(myString.length()) - 1 - i]; //using temp char to store and swap
 		myString[(myString.length()) - 1 - i] = myString[i];
 		myString[i] = c;
 	}
