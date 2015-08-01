@@ -85,9 +85,10 @@ string revString(string myString){
 }
 
 //another efficent way
+//reverse in place
 string revString2(string myString){
 	for (int i = 0; i < (myString.length()) / 2; i++){
-		swap(myString[i], myString[myString.length() - 1 - i]);
+		swap(myString[i], myString[myString.length() - 1 - i]); //using built-in swap function
 	}
 	return myString;
 }
@@ -101,8 +102,8 @@ cout << "third char: " << findChar(s, 3)<<endl;
 cout << "check string part of string: " << returnString(s, "isi")<<endl;
 cout << "the reverse string of jagmeet is: ";
 reverseString("jagmeet");
-cout << "reversing string 2nd method: " << revString("harsi");
-cout << "rev a string efficient way: " << revString2("jimSGurm");
+cout << "\nreversing string 2nd method: " << revString("harsi");
+cout << "\nrev a string efficient way: " << revString2("jimSGurm")<<endl;
 system("pause");
 	return 0;
 }
