@@ -129,7 +129,7 @@ void arrayString(string s[], int size){
 		}
 		cout << s[i] << endl;
 	}
-//	return s;
+
 }
 //function to check if string is palindrome
 bool isPalindrome(string myString){
@@ -175,6 +175,7 @@ cout << "is string palindrome: " << isPalindrome("jij") << endl;
 cout << "is this string palindrome: " << isPalindrome("mom i mom")<<endl;
 cout << "reverse string: " << revStringArray(fullName);
 cout << "\nreverse string of arrays: ";
+//passing array of strings and size as arguments
  arrayString(str,3);
 cout<< endl;
 system("pause");
