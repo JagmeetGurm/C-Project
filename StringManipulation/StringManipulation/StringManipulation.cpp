@@ -119,15 +119,15 @@ char* revStringArray(char str[]){
 }
 
 //function to reverse an aray of strings
-
-void arrayString(string s[3]){
-	for (int i = 0; i < 3; i++){
+//size of array passed as diff argument
+void arrayString(string s[], int size){
+	for (int i = 0; i < size; i++){
 		for (int j = 0; j < (s[i].length()) / 2; j++){
 			char c = s[i][j];
 			s[i][j] = s[i][(s[i].length()) - 1 - j];
 			s[i][(s[i].length()) - 1 - j] = c;
 		}
-		cout << "here"<<s[i] << endl;
+		cout << s[i] << endl;
 	}
 //	return s;
 }
@@ -175,7 +175,7 @@ cout << "is string palindrome: " << isPalindrome("jij") << endl;
 cout << "is this string palindrome: " << isPalindrome("mom i mom")<<endl;
 cout << "reverse string: " << revStringArray(fullName);
 cout << "\nreverse string of arrays: ";
- arrayString(str);
+ arrayString(str,3);
 cout<< endl;
 system("pause");
 	return 0;
