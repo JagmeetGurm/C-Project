@@ -118,7 +118,7 @@ char* revStringArray(char str[]){
 	return str;
 }
 
-
+//function to reverse and aray of strings
 //function to check if string is palindrome
 bool isPalindrome(string myString){
 	int i = 0;
