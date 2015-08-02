@@ -118,7 +118,18 @@ char* revStringArray(char str[]){
 	return str;
 }
 
-//function to reverse and aray of strings
+//function to reverse an aray of strings
+
+string arrayString(string s[]){
+	for (int i = 0; i < sizeof(s) / sizeof(*s); i++){
+		for (int j = 0; j < (s[i].length()) / 2; j++){
+			char c = s[i][j];
+			s[i][j] = s[i][(s[i].length()) - 1 - j];
+			s[i][(s[i].length()) - 1 - j] = c;
+		}
+	}
+	return s;
+}
 //function to check if string is palindrome
 bool isPalindrome(string myString){
 	int i = 0;
