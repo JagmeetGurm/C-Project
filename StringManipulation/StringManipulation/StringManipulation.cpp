@@ -194,6 +194,8 @@ cout << "\nreverse string of arrays: ";
 cout<< endl;
 cout << "printing duplicate chars: ";
 printDuplicateChar("java");
+printDuplicateChar("hhabj");
+
 cout<<endl;
 system("pause");
 	return 0;
