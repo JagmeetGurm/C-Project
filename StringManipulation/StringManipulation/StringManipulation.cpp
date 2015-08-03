@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <vector>
 using namespace std;
 //function to find the length of the string using length method of string
 int lengthString(string myString){
@@ -163,6 +164,32 @@ void printDuplicateChar(string s){
 			;
 	}
 }
+
+//more efficient function ot print duplicates char in string
+void printDuplicateChar2(string s){
+	int len = s.length();
+	vector<int>v;
+	for (int i = 0; i < len - 1; i++){
+		for (int j = i + 1; j < len; j++){
+			if (s[i] == s[j]){
+				
+				for (int k = 0; k < v.size(); k++){
+					if (s[i] != v[k]&&k<v.size())
+						continue;
+					else if (s[i] != v[k] && k + 1 == v.size())
+					v.push_back( s[i]);
+					else goto back;
+				}
+			
+			}
+		}
+	back:;
+
+	}
+	
+}
+
+
 int main()
 {
 	string str[3];
