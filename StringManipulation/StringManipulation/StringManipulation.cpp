@@ -150,7 +150,18 @@ bool isPalindrome(string myString){
 
 //function to print dupicates char in a string
 void printDuplicateChar(string s){
-
+	int len = s.length();
+	for (int i = 0; i < len-1; i++){
+		for (int j = i + 1; j < len; j++){
+			if (s[i] == s[j])
+			{
+				cout << s[i] << endl;
+				goto done;
+			}
+		}
+		done:
+			;
+	}
 }
 int main()
 {
@@ -181,6 +192,9 @@ cout << "\nreverse string of arrays: ";
 //passing array of strings and size as arguments
  arrayString(str,3);
 cout<< endl;
+cout << "printing duplicate chars: ";
+printDuplicateChar("java");
+cout<<endl;
 system("pause");
 	return 0;
 }
