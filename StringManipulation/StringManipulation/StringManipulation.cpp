@@ -195,7 +195,8 @@ cout<< endl;
 cout << "printing duplicate chars: ";
 printDuplicateChar("java");
 printDuplicateChar("hhabj");
-
+printDuplicateChar("habcdh");
+printDuplicateChar("abcdee");
 cout<<endl;
 system("pause");
 	return 0;
