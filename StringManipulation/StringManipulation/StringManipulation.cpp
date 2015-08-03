@@ -193,11 +193,15 @@ cout << "\nreverse string of arrays: ";
  arrayString(str,3);
 cout<< endl;
 cout << "printing duplicate chars: ";
+//simple cases
 printDuplicateChar("java");
+//little border line cases
 printDuplicateChar("hhabj");
 printDuplicateChar("habcdh");
 printDuplicateChar("abcdee");
+// edge cases 
 printDuplicateChar("b");
+//null case
 printDuplicateChar("");
 printDuplicateChar(" ");
 //printDuplicateChar("abcbdeb");
