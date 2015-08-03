@@ -172,8 +172,8 @@ void printDuplicateChar2(string s){
 	for (int i = 0; i < len - 1; i++){
 		for (int j = i + 1; j < len; j++){
 			if (s[i] == s[j]){
-				
-				for (int k = 0; k < v.size(); k++){
+				//later look into it
+				for (int k = 0; k <v.size(); k++){
 					if (s[i] != v[k]&&k<v.size())
 						continue;
 					else if (s[i] != v[k] && k + 1 == v.size())
@@ -236,7 +236,7 @@ printDuplicateChar("b");
 printDuplicateChar("");
 printDuplicateChar(" ");
 cout <<"this shd work fine:" << endl;
-printDuplicateChar2("abcbdeb");
+printDuplicateChar2("abcbeb");
 cout<<endl;
 system("pause");
 	return 0;
