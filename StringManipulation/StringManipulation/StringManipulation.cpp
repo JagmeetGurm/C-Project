@@ -177,7 +177,7 @@ void printDuplicateChar2(string s){
 					if (s[i] != v[k]&&k<v.size())
 						continue;
 					else if (s[i] != v[k] && k + 1 == v.size())
-					v.push_back( s[i]);
+					v.push_back( s[i]);//pushing duplicates into a vector
 					else goto back;
 				}
 			
@@ -185,6 +185,10 @@ void printDuplicateChar2(string s){
 		}
 	back:;
 
+	}
+	//prnting out the vector
+	for (int i = 0; i < v.size(); i++){
+		cout << v.at(i)<<" ";
 	}
 	
 }
@@ -231,7 +235,8 @@ printDuplicateChar("b");
 //null case
 printDuplicateChar("");
 printDuplicateChar(" ");
-//printDuplicateChar("abcbdeb");
+cout <<"this shd work fine:" << endl;
+printDuplicateChar2("abcbdeb");
 cout<<endl;
 system("pause");
 	return 0;
