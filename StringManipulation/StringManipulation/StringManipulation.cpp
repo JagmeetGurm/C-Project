@@ -192,7 +192,11 @@ void printDuplicateChar2(string s){
 	}
 	
 }
+//function to check if 2 strings are anagrams
+bool isAnagram(string s1, string s2)
+{
 
+}
 
 int main()
 {
