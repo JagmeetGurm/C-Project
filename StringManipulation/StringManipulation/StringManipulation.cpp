@@ -148,7 +148,10 @@ bool isPalindrome(string myString){
 }
 
 
-//function to 
+//function to print dupicates char in a string
+void printDuplicateChar(string s){
+
+}
 int main()
 {
 	string str[3];
