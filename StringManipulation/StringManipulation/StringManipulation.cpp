@@ -258,6 +258,7 @@ printDuplicateChar(" ");
 cout <<"this shd work fine:" << endl;
 printDuplicateChar2("abcbeb");
 cout<<endl;
+cout << "is anagram: " << isAnagram("army", "mary");//simple test case
 system("pause");
 	return 0;
 }
