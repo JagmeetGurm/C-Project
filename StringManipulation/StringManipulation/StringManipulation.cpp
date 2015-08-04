@@ -203,6 +203,8 @@ bool isAnagram(string s1, string s2)
 		{
 			if (s1[i] == s2[j])
 				goto done;
+			else if ((s1[i] != s2[j]) && (j + 1 == len2))
+				return false;
 			else continue;
 
 		}
