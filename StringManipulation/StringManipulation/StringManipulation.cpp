@@ -201,9 +201,11 @@ bool isAnagram(string s1, string s2)
 	{
 		for (int j = 0; j < len2; j++)
 		{
-			if (s1[i] == s2[j])
-				goto done;
-			else if ((s1[i] != s2[j]) && (j + 1 == len2))
+			if (len1 != len2)
+				return false;
+			else if (s1[i] == s2[j])
+			goto done;
+			else if ((s1[i] != s2[j]) && (j + 1 == len2) )
 				return false;
 			else continue;
 
@@ -212,6 +214,7 @@ bool isAnagram(string s1, string s2)
 		;
 	}
 	return true;
+
 }
 
 int main()
@@ -258,7 +261,7 @@ printDuplicateChar(" ");
 cout <<"this shd work fine:" << endl;
 printDuplicateChar2("abcbeb");
 cout<<endl;
-cout << "is anagram: " << isAnagram("army", "mary");//simple test case
+cout << "is anagram: " << isAnagram("army", "marsy");//simple test case
 system("pause");
 	return 0;
 }
