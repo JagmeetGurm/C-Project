@@ -264,6 +264,7 @@ cout<<endl;
 cout << "is anagram: " << isAnagram("army", "mary");//simple test case
 cout << "is anagram: " << isAnagram("army", "marsy"); //test case
 cout << "is anagram: " << isAnagram("jim", "img");
+cout << "is: " << isAnagram("abc", "abcd");
 //cout << "is anagram: " << isAnagram("mummy", "ummyt");
 system("pause");
 	return 0;
