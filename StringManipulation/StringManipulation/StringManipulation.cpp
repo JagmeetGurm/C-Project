@@ -193,6 +193,8 @@ void printDuplicateChar2(string s){
 	
 }
 //function to check if 2 strings are anagrams
+//doesn't work for all cases
+//will look into it later on
 bool isAnagram(string s1, string s2)
 {
 	int len1 = s1.length();
