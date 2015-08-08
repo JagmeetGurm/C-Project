@@ -286,6 +286,7 @@ cout << "is: " << isAnagram("abc", "ab");
 cout << "is anagram: " << isAnagram("ab", "ba");
 cout << "reverse iteratively: " << revIteration("jagmeet Singh");
 cout << endl;
+cout << "test case: " << revIteration("Jim is Great")<<endl;
 system("pause");
 	return 0;
 }
