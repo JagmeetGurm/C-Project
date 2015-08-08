@@ -218,6 +218,10 @@ bool isAnagram(string s1, string s2)
 	return true;
 
 }
+//reverse a string using iteration
+string revIteration(string s){
+	return s;
+}
 
 int main()
 {
