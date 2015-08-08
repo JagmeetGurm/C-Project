@@ -220,9 +220,17 @@ bool isAnagram(string s1, string s2)
 }
 //reverse a string using iteration
 string revIteration(string s){
+	int len = s.length();
+	int i = 0;
+	while (i < len / 2){
+		char c = s[i];
+		s[i] = s[len - 1 - i];
+		s[len - 1 - i] = c;
+	}
 	return s;
 }
 
+//recursive function to reverse a string
 int main()
 {
 	string str[3];
