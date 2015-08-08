@@ -232,6 +232,10 @@ string revIteration(string s){
 }
 
 //recursive function to reverse a string
+string recursiveRevString(string s){
+	return s;
+}
+
 int main()
 {
 	string str[3];
