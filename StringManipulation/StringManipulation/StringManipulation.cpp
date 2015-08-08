@@ -233,6 +233,13 @@ string revIteration(string s){
 
 //recursive function to reverse a string
 string recursiveRevString(string s){
+	int len = s.length();
+	if (len == 1) //base case added
+		return s;
+	else{
+		//
+	}
+	
 	return s;
 }
 
