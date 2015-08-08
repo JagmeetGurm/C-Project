@@ -226,6 +226,7 @@ string revIteration(string s){
 		char c = s[i];
 		s[i] = s[len - 1 - i];
 		s[len - 1 - i] = c;
+		i++;
 	}
 	return s;
 }
@@ -283,7 +284,8 @@ cout << "is anagram: " << isAnagram("mummy", "ummyt");//will look later into it
 cout << "is: " << isAnagram("abc", "abcde");
 cout << "is: " << isAnagram("abc", "ab");
 cout << "is anagram: " << isAnagram("ab", "ba");
-
+cout << "reverse iteratively: " << revIteration("jagmeet Singh");
+cout << endl;
 system("pause");
 	return 0;
 }
