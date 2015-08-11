@@ -281,6 +281,7 @@ void printDuplicates(string s){
 	 for (int i = 0; i < len-1; i++){
 		 if (c[i] == c[i + 1])
 			 number[i] = number[i] + 1;
+		 
 	 }
 
 }
