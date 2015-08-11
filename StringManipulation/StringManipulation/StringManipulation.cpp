@@ -236,7 +236,7 @@ void recursiveRevString(char s[], int firstIndex, int lastIndex){
 	//int len = s.length();
 	char temp = s[firstIndex];
 	s[firstIndex] = s[lastIndex-firstIndex];
-	s[lastIndex] = temp;
+	s[lastIndex-firstIndex] = temp;
 	if (firstIndex==lastIndex/2 ) //base case added
 		return ;
 	recursiveRevString(s, firstIndex + 1, lastIndex );
