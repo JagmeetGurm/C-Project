@@ -268,6 +268,23 @@ bool areDigits(string s){
 	return (t);
 }
 
+//count and print all duplicates in a string
+void printDuplicates(string s){
+	int len = s.length();
+	int* number=new int[len];
+	char* c;
+	 c=new char[len];
+	 for (int i = 0; i < len; i++){
+		 c[i] = s[i];
+		 number[i] = 1;
+	 }
+	 for (int i = 0; i < len-1; i++){
+		 if (c[i] == c[i + 1])
+			 number[i] = number[i] + 1;
+	 }
+
+}
+
 int main()
 {
 	string str[3];
@@ -341,7 +358,8 @@ cout<< endl;
 char s6[] = "my name is this";
 recString(s6);//another example
 cout << endl;
-cout << areDigits("1234");
+cout << areDigits("1234")<<endl;
+cout << "2nd test case: " << areDigits("12av45")<<endl;//test case
 
 system("pause");
 	return 0;
