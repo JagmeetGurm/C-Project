@@ -278,10 +278,15 @@ void printDuplicates(string s){
 		 c[i] = s[i];
 		 number[i] = 1;
 	 }
-	 for (int i = 0; i < len-1; i++){
-		 if (c[i] == c[i + 1])
-			 number[i] = number[i] + 1;
-		 
+	 for (int i = 0; i < len; i++){
+		 for (int j = i + 1; j < len; j++){
+
+
+			 if (c[i] == c[i + 1])
+				 number[i] = number[i] + 1;
+			 cout << c[i] << " : ";
+			 cout << number[i] << endl;
+		 }
 	 }
 
 }
@@ -361,7 +366,7 @@ recString(s6);//another example
 cout << endl;
 cout << areDigits("1234")<<endl;
 cout << "2nd test case: " << areDigits("12av45")<<endl;//test case
-
+printDuplicates("programming");
 system("pause");
 	return 0;
 }
