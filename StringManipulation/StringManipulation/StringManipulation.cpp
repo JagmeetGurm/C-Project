@@ -235,11 +235,11 @@ string revIteration(string s){
 void recursiveRevString(char s[], int firstIndex, int lastIndex){
 	//int len = s.length();
 	char temp = s[firstIndex];
-	s[firstIndex] = s[lastIndex];
+	s[firstIndex] = s[lastIndex-firstIndex];
 	s[lastIndex] = temp;
-	if (firstIndex==lastIndex ) //base case added
+	if (firstIndex==lastIndex/2 ) //base case added
 		return ;
-	recursiveRevString(s, firstIndex + 1, lastIndex - 1);
+	recursiveRevString(s, firstIndex + 1, lastIndex );
 		//return s;
 }
 
@@ -299,10 +299,13 @@ cout << "reverse iteratively: " << revIteration("jagmeet Singh");
 cout << endl;
 cout << "test case: " << revIteration("Jim is Great")<<endl;
 char strng[] = "I'm good!";
-
+// strng = "yes seems right!";
 cout << "rev recursion: ";
 recursiveRevString(strng, 0, strlen(strng) - 1);
 cout << strng << endl;//simple test case
+ char strng2[] = "yes seems right!";
+recursiveRevString(strng2, 0, strlen(strng2) - 1);
+cout << strng2 << endl;
 system("pause");
 	return 0;
 }
