@@ -304,8 +304,12 @@ cout << "rev recursion: ";
 recursiveRevString(strng, 0, strlen(strng) - 1);
 cout << strng << endl;//simple test case
  char strng2[] = "yes seems right!";
-recursiveRevString(strng2, 0, strlen(strng2) - 1);
+recursiveRevString(strng2, 0, strlen(strng2) - 1); //another test case
 cout << strng2 << endl;
+char strng3[] = "hi im here";
+recursiveRevString(strng3, 0, strlen(strng3) - 1);
+
+cout << strng3 << endl;
 system("pause");
 	return 0;
 }
