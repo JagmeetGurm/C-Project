@@ -242,6 +242,21 @@ void recursiveRevString(char s[], int firstIndex, int lastIndex){
 	recursiveRevString(s, firstIndex + 1, lastIndex );
 		//return s;
 }
+//another way of recursively reverse a string
+void recString(char *s){
+	if (*s){
+		recString(s + 1);
+		cout << *s;
+	}
+}
+
+//check if a string only contain digits
+bool areDigits(string s){
+
+//	std::string myString = "45";
+	int value = atoi(s.c_str()); //value = 45 
+	return (value-value==0);
+}
 
 int main()
 {
@@ -310,6 +325,14 @@ char strng3[] = "hi im here"; //another case for testing
 recursiveRevString(strng3, 0, strlen(strng3) - 1);
 
 cout << strng3 << endl;
+char  s5[] = "jagmeet Gurm";
+recString(s5);//test case
+cout<< endl;
+char s6[] = "my name is this";
+recString(s6);//another example
+cout << endl;
+cout << areDigits("123s4");
+
 system("pause");
 	return 0;
 }
