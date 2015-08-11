@@ -232,15 +232,15 @@ string revIteration(string s){
 }
 
 //recursive function to reverse a string
-string recursiveRevString(string s){
-	int len = s.length();
-	if (len == 1) //base case added
-		return s;
-	else{
-		//
-	}
-	
-	return s;
+void recursiveRevString(char s[], int firstIndex, int lastIndex){
+	//int len = s.length();
+	char temp = s[firstIndex];
+	s[firstIndex] = s[lastIndex];
+	s[lastIndex] = temp;
+	if (firstIndex==lastIndex ) //base case added
+		return ;
+	recursiveRevString(s, firstIndex + 1, lastIndex - 1);
+		//return s;
 }
 
 int main()
@@ -298,6 +298,11 @@ cout << "is anagram: " << isAnagram("ab", "ba");
 cout << "reverse iteratively: " << revIteration("jagmeet Singh");
 cout << endl;
 cout << "test case: " << revIteration("Jim is Great")<<endl;
+char strng[] = "I'm good!";
+
+cout << "rev recursion: ";
+recursiveRevString(strng, 0, strlen(strng) - 1);
+
 system("pause");
 	return 0;
 }
