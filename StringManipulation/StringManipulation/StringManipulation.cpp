@@ -302,7 +302,7 @@ char strng[] = "I'm good!";
 
 cout << "rev recursion: ";
 recursiveRevString(strng, 0, strlen(strng) - 1);
-
+cout << strng << endl;//simple test case
 system("pause");
 	return 0;
 }
