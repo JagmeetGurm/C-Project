@@ -252,10 +252,20 @@ void recString(char *s){
 
 //check if a string only contain digits
 bool areDigits(string s){
-
+	int len = s.length();
+	bool t = true;
+	for (int i = 0; i < len; i++)
+	{
+		if (s[i] >= '0' &&s[i] <= '9')
+			continue;
+		else {
+			t = false;
+			break;
+		}
+	}
 //	std::string myString = "45";
-	int value = atoi(s.c_str()); //value = 45 
-	return (value-value==0);
+//	int value = atoi(s.c_str()); //value = 45 
+	return (t);
 }
 
 int main()
@@ -331,7 +341,7 @@ cout<< endl;
 char s6[] = "my name is this";
 recString(s6);//another example
 cout << endl;
-cout << areDigits("123s4");
+cout << areDigits("1234");
 
 system("pause");
 	return 0;
