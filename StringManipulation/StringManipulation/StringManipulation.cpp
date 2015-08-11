@@ -282,11 +282,12 @@ void printDuplicates(string s){
 		 for (int j = i + 1; j < len; j++){
 
 
-			 if (c[i] == c[i + 1])
+			 if (c[i] == c[j])
 				 number[i] = number[i] + 1;
+		 }
 			 cout << c[i] << " : ";
 			 cout << number[i] << endl;
-		 }
+		 
 	 }
 
 }
