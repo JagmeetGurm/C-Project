@@ -28,7 +28,8 @@ using namespace std;
 
 int main()
 {
-	string a[10];
+	char letter[26]; //array to store unique letters
+	int frequency[26]; //array to store frequency for each letter
 	string input;
 	ifstream inputFile;
 	vector<string> v;
