@@ -12,7 +12,7 @@
 //2. Then, We need a way to calculate each strings maximum beauty
 //This can be done by assigning the letter with maximum repitition, the maximum value
 //the next max, the next max value and so on.
-//
+// For this, we will read the file line by line and then will assign max beauty to each line
 
 #include "stdafx.h"
 
