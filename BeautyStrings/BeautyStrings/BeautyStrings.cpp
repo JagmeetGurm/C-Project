@@ -43,9 +43,9 @@ int main()
 	//	getline(inputFile, input, '$');
 		while (!inputFile.eof())
 		{
-			getline(inputFile, input, '$');
+			getline(inputFile, input);// , '$');
 
-		//	cout << input << endl;
+			cout << input << endl;
 			v.push_back(input);
 		}
 	}
