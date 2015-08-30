@@ -15,11 +15,42 @@
 // For this, we will read the file line by line and then will assign max beauty to each line
 //Now we need to find a way to first calculate frequency of each char and then assign it a max value
 
+
+
 #include "stdafx.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+using namespace std;
 
 
-int _tmain(int argc, _TCHAR* argv[])
+
+int main()
 {
+	string a[10];
+	string input;
+	ifstream inputFile;
+	vector<string> v;
+	//reading a file line by line
+	inputFile.open("beautyStrings.txt");
+
+	if (!inputFile){ //if not able to open file 
+		cout << "cannot open file";
+
+	}
+	else{
+	//	getline(inputFile, input, '$');
+		while (!inputFile.eof())
+		{
+			getline(inputFile, input, '$');
+
+		//	cout << input << endl;
+			v.push_back(input);
+		}
+	}
+	cout << v.size()<<endl;
+	system("pause");
 	return 0;
 }
 
