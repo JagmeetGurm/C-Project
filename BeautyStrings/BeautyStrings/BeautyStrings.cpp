@@ -13,6 +13,7 @@
 //This can be done by assigning the letter with maximum repitition, the maximum value
 //the next max, the next max value and so on.
 // For this, we will read the file line by line and then will assign max beauty to each line
+//Now we need to find a way to first calculate frequency of each char and then assign it a max value
 
 #include "stdafx.h"
 
