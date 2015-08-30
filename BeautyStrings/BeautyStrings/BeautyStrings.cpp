@@ -6,8 +6,13 @@
 
 
 //Methodology 
-//First we need to accept filename as an argument.
-//Then, We need a way to calculate each strings maximum beauty
+//1. First we need to accept filename as an argument.
+//program will read file if successful else will quit the file
+
+//2. Then, We need a way to calculate each strings maximum beauty
+//This can be done by assigning the letter with maximum repitition, the maximum value
+//the next max, the next max value and so on.
+//
 
 #include "stdafx.h"
 
