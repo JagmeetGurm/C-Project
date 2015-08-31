@@ -65,25 +65,35 @@ int main()
 					frequency.push_back( 1);
 				}
 				else {
+					bool t;
 					for (int j = 0; j < letter.size(); j++){
+						t = false;
 						if (s[k] == letter[j])
 						{
+							t = true;
 							frequency[j]++;
 						}
 						else continue;
 					}
-					letter.push_back(s[k]);
-					frequency.push_back( 1);
-					//cout << letter[l] << " "<<frequency[l]<<endl;
-					//l++;
+						if (t == false)
+						{
+							letter.push_back(s[k]);
+							frequency.push_back(1);
+							//cout << letter[l] << " "<<frequency[l]<<endl;
+							//l++;
+						}
+					
 				}
 			}
 
 
 		}
+		cout << letter[0] << " " << frequency[0] << endl;
+		cout << letter[1] << " " << frequency[1] << endl;
+		cout << letter[2] << " " << frequency[2] << endl;
+		cout << letter[3] << " " << frequency[3] << endl;
 	}
-	cout << letter[0] << " " << frequency[0] << endl;
-	cout << letter[1] << " " << frequency[1] << endl;
+	
 	system("pause");
 	return 0;
 }
