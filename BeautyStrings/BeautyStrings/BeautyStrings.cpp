@@ -65,23 +65,25 @@ int main()
 					frequency.push_back( 1);
 				}
 				else {
-					for (int j = 0; j < leter.size(); j++){
+					for (int j = 0; j < letter.size(); j++){
 						if (s[k] == letter[j])
 						{
 							frequency[j]++;
 						}
 						else continue;
 					}
-					letter[l] = s[k];
-					frequency[l] = 1;
-					cout << letter[l] << " "<<frequency[l]<<endl;
-					l++;
+					letter.push_back(s[k]);
+					frequency.push_back( 1);
+					//cout << letter[l] << " "<<frequency[l]<<endl;
+					//l++;
 				}
 			}
 
 
 		}
 	}
+	cout << letter[0] << " " << frequency[0] << endl;
+	cout << letter[1] << " " << frequency[1] << endl;
 	system("pause");
 	return 0;
 }
