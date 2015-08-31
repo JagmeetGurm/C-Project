@@ -58,6 +58,7 @@ int main()
 		for (int k = 0; k < s.length(); k++){
 			if (('a' <= s[k] <= 'z') || ('A'<=s[k] <='Z'))
 			{
+				cout << s[k];
 				letter[l] = s[k];
 				frequency[l] = 1;
 				for (int j = 0; j < 26; j++){
