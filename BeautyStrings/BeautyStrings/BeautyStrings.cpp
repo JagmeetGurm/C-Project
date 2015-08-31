@@ -51,6 +51,27 @@ int main()
 		}
 	}
 	cout << v.size()<<endl;
+
+	for (int i = 0; i < v.size(); i++){
+		string s = v[i];
+		
+		for (int k = 0; k < s.length(); k++){
+			if (('a' <= s[k] <= 'z') || ('A'<=s[k] <='Z'))
+			{
+				for (int j = 0; j < 26; j++){
+					if (s[k] == letter[j])
+					{
+						frequency[j]++;
+					}
+					else continue;
+
+					letter[j] = s[k];
+					frequency[k] = 1;
+				}
+			}
+
+		}
+	}
 	system("pause");
 	return 0;
 }
