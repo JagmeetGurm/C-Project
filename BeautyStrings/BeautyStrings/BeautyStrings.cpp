@@ -54,30 +54,34 @@ int main()
 	int l=0;
 	for (int i = 0; i < v.size(); i++){
 		string s = v[i];
-		
+
 		for (int k = 0; k < s.length(); k++){
-			if (('a' <= s[k] <= 'z') || ('A'<=s[k] <='Z'))
+			if (('a' <= s[k] <= 'z') || ('A' <= s[k] <= 'Z'))
 			{
-				cout << s[k];
-				letter[l] = s[k];
-				frequency[l] = 1;
-				for (int j = 0; j < 26; j++){
-					if (s[k] == letter[j])
-					{
-						frequency[j]++;
-					}
-					else continue;
+				if (letter.size() == 0)
+				{
+					//cout << s[k];
+					letter.push_back( s[k]);
+					frequency.push_back( 1);
 				}
+				else {
+					for (int j = 0; j < leter.size(); j++){
+						if (s[k] == letter[j])
+						{
+							frequency[j]++;
+						}
+						else continue;
+					}
 					letter[l] = s[k];
 					frequency[l] = 1;
+					cout << letter[l] << " "<<frequency[l]<<endl;
 					l++;
-					cout << letter[l];
 				}
 			}
 
-		
+
+		}
 	}
-	
 	system("pause");
 	return 0;
 }
