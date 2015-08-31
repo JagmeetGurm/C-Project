@@ -30,8 +30,7 @@ using namespace std;
 
 int main()
 {
-	vector<char> letter; //array to store unique letters
-	vector<int> frequency; //array to store frequency for each letter
+	
 	string input;
 	ifstream inputFile;
 	vector<string> v;
@@ -56,9 +55,10 @@ int main()
 	int l=0;
 	for (int i = 0; i < v.size(); i++){
 		string s = v[i];
-
+		vector<char> letter; //array to store unique letters
+		vector<int> frequency; //array to store frequency for each letter
 		for (int k = 0; k < s.length(); k++){
-			if (('a' <= s[k] <= 'z') || ('A' <= s[k] <= 'Z'))
+			if (s[k] != ' ' && ('a' <= s[k] <= 'z') || ('A' <= s[k] <= 'Z') )
 			{
 				if (letter.size() == 0)
 				{
@@ -94,6 +94,8 @@ int main()
 		cout << letter[1] << " " << frequency[1] << endl;
 		cout << letter[2] << " " << frequency[2] << endl;
 		cout << letter[3] << " " << frequency[3] << endl;
+		//cout << letter[4] << " " << frequency[4] << endl;
+		//cout << letter[5] << " " << frequency[5] << endl; 
 	}
 	
 	system("pause");
