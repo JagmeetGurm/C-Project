@@ -22,6 +22,8 @@
 #include <fstream>
 #include <string>
 #include <vector>
+//#include <boost/algorithm/string.hpp>
+//#include <boost/algorithm/string/predicate.hpp>
 using namespace std;
 
 
@@ -68,7 +70,7 @@ int main()
 					bool t;
 					for (int j = 0; j < letter.size(); j++){
 						t = false;
-						if (s[k] == letter[j])
+						if (tolower(s[k]) == tolower(letter[j])) //case insensitive comparison
 						{
 							t = true;
 							frequency[j]++;
