@@ -101,8 +101,29 @@ int main()
 		cout << endl << endl << endl;
 		for (int i = 0; i < letter.size(); i++){
 		//	cout << letter[i] << " " << frequency[i] << endl;
+//sleection sort
+		int	pos_max = i;//set pos_min to the current index of array
 
+			for (int j = i + 1; j < letter.size(); j++)
+			{
+
+				if (frequency[j] > frequency[pos_max])
+					pos_max = j;
+				//pos_min will keep track of the index that min is in, this is needed when a swap happens
+			}
+
+			//if pos_min no longer equals i than a smaller value must have been found, so a swap must occur
+			if (pos_max != i)
+			{
+				int temp = frequency[i];
+				frequency[i] = frequency[pos_max];
+				frequency[pos_max] = temp;
+			}
+			cout << frequency[i] << endl;
 		}
+//		for (int i = 0; i < letter.size(); i++){
+	//		cout << frequency[i] << endl;
+		//}
 	}
 	
 	system("pause");
