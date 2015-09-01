@@ -58,7 +58,8 @@ int main()
 		vector<char> letter; //array to store unique letters
 		vector<int> frequency; //array to store frequency for each letter
 		for (int k = 0; k < s.length(); k++){
-			if (s[k] != ' ' && ('a' <= s[k] <= 'z') || ('A' <= s[k] <= 'Z') )
+		//	bool t=true;
+			if (( (s[k]>=65) &&(s[k]<= 90)) || ((s[k]>=97) && (s[k] <= 122) ))
 			{
 				if (letter.size() == 0)
 				{
@@ -67,9 +68,9 @@ int main()
 					frequency.push_back( 1);
 				}
 				else {
-					bool t;
+					bool t=false;
 					for (int j = 0; j < letter.size(); j++){
-						t = false;
+						//t = false;
 						if (tolower(s[k]) == tolower(letter[j])) //case insensitive comparison
 						{
 							t = true;
@@ -90,12 +91,18 @@ int main()
 
 
 		}
-		cout << letter[0] << " " << frequency[0] << endl;
+	/*	cout << letter[0] << " " << frequency[0] << endl;
 		cout << letter[1] << " " << frequency[1] << endl;
 		cout << letter[2] << " " << frequency[2] << endl;
 		cout << letter[3] << " " << frequency[3] << endl;
 		//cout << letter[4] << " " << frequency[4] << endl;
 		//cout << letter[5] << " " << frequency[5] << endl; 
+		*/
+		cout << endl << endl << endl;
+		for (int i = 0; i < letter.size(); i++){
+		//	cout << letter[i] << " " << frequency[i] << endl;
+
+		}
 	}
 	
 	system("pause");
