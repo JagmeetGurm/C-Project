@@ -121,9 +121,9 @@ int main()
 			}
 			cout << frequency[i] << endl;
 		}
-//		for (int i = 0; i < letter.size(); i++){
-	//		cout << frequency[i] << endl;
-		//}
+		for (int i = 0, val = 26; i < letter.size(); i++, val--){
+			cout << letter[i] <<" "<<frequency[i]*val<< endl; //calculated the beauty of each char 
+		}
 	}
 	
 	system("pause");
