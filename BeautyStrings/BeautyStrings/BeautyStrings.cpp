@@ -90,14 +90,7 @@ int main()
 			}
 
 
-		}
-	/*	cout << letter[0] << " " << frequency[0] << endl;
-		cout << letter[1] << " " << frequency[1] << endl;
-		cout << letter[2] << " " << frequency[2] << endl;
-		cout << letter[3] << " " << frequency[3] << endl;
-		//cout << letter[4] << " " << frequency[4] << endl;
-		//cout << letter[5] << " " << frequency[5] << endl; 
-		*/
+	
 		cout << endl << endl << endl;
 		for (int i = 0; i < letter.size(); i++){
 		//	cout << letter[i] << " " << frequency[i] << endl;
@@ -126,7 +119,7 @@ int main()
 			cout << letter[i] <<" "<<frequency[i]*val<< endl; //calculated the beauty of each char 
 			sum += frequency[i] * val;
 			
-			//cout<< endl;
+			
 		}
 		cout << sum<<endl;
 	}
