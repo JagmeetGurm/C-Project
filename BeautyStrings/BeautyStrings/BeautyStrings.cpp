@@ -22,8 +22,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-//#include <boost/algorithm/string.hpp>
-//#include <boost/algorithm/string/predicate.hpp>
+
 using namespace std;
 
 
@@ -42,17 +41,17 @@ int main()
 
 	}
 	else{
-		//	getline(inputFile, input, '$');
+		
 		while (!inputFile.eof())
 		{
-			getline(inputFile, input);// , '$');
+			getline(inputFile, input);
 
-			cout << input << endl;
+		//	cout << input << endl;
 			v.push_back(input);
 		}
 	}
-	cout << v.size() << endl;
-	int l = 0;
+//	cout << v.size() << endl;
+	
 	for (int i = 0; i < v.size(); i++){
 		string s = v[i];
 		vector<char> letter; //array to store unique letters
@@ -70,7 +69,7 @@ int main()
 				else {
 					bool t = false;
 					for (int j = 0; j < letter.size(); j++){
-						//t = false;
+						
 						if (tolower(s[k]) == tolower(letter[j])) //case insensitive comparison
 						{
 							t = true;
@@ -82,8 +81,7 @@ int main()
 					{
 						letter.push_back(s[k]);
 						frequency.push_back(1);
-						//cout << letter[l] << " "<<frequency[l]<<endl;
-						//l++;
+						
 					}
 
 				}
@@ -93,19 +91,19 @@ int main()
 
 			cout << endl << endl << endl;
 			for (int i = 0; i < letter.size(); i++){
-				//	cout << letter[i] << " " << frequency[i] << endl;
+				
 				//sleection sort
-				int	pos_max = i;//set pos_min to the current index of array
+				int	pos_max = i;//set pos_max to the current index of array
 
 				for (int j = i + 1; j < letter.size(); j++)
 				{
 
 					if (frequency[j] > frequency[pos_max])
 						pos_max = j;
-					//pos_min will keep track of the index that min is in, this is needed when a swap happens
+					//pos_max will keep track of the index that min is in, this is needed when a swap happens
 				}
 
-				//if pos_min no longer equals i than a smaller value must have been found, so a swap must occur
+				//if pos_max no longer equals i than a bigger value must have been found, so a swap must occur
 				if (pos_max != i)
 				{
 					int temp = frequency[i];
