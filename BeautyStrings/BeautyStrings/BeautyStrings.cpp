@@ -30,7 +30,7 @@ using namespace std;
 
 int main()
 {
-	
+
 	string input;
 	ifstream inputFile;
 	vector<string> v;
@@ -42,7 +42,7 @@ int main()
 
 	}
 	else{
-	//	getline(inputFile, input, '$');
+		//	getline(inputFile, input, '$');
 		while (!inputFile.eof())
 		{
 			getline(inputFile, input);// , '$');
@@ -51,24 +51,24 @@ int main()
 			v.push_back(input);
 		}
 	}
-	cout << v.size()<<endl;
-	int l=0;
+	cout << v.size() << endl;
+	int l = 0;
 	for (int i = 0; i < v.size(); i++){
 		string s = v[i];
 		vector<char> letter; //array to store unique letters
 		vector<int> frequency; //array to store frequency for each letter
 		for (int k = 0; k < s.length(); k++){
-		//	bool t=true;
-			if (( (s[k]>=65) &&(s[k]<= 90)) || ((s[k]>=97) && (s[k] <= 122) ))
+			//	bool t=true;
+			if (((s[k] >= 65) && (s[k] <= 90)) || ((s[k] >= 97) && (s[k] <= 122)))
 			{
 				if (letter.size() == 0)
 				{
 					//cout << s[k];
-					letter.push_back( s[k]);
-					frequency.push_back( 1);
+					letter.push_back(s[k]);
+					frequency.push_back(1);
 				}
 				else {
-					bool t=false;
+					bool t = false;
 					for (int j = 0; j < letter.size(); j++){
 						//t = false;
 						if (tolower(s[k]) == tolower(letter[j])) //case insensitive comparison
@@ -78,53 +78,52 @@ int main()
 						}
 						else continue;
 					}
-						if (t == false)
-						{
-							letter.push_back(s[k]);
-							frequency.push_back(1);
-							//cout << letter[l] << " "<<frequency[l]<<endl;
-							//l++;
-						}
-					
+					if (t == false)
+					{
+						letter.push_back(s[k]);
+						frequency.push_back(1);
+						//cout << letter[l] << " "<<frequency[l]<<endl;
+						//l++;
+					}
+
 				}
 			}
 
+		}
 
+			cout << endl << endl << endl;
+			for (int i = 0; i < letter.size(); i++){
+				//	cout << letter[i] << " " << frequency[i] << endl;
+				//sleection sort
+				int	pos_max = i;//set pos_min to the current index of array
+
+				for (int j = i + 1; j < letter.size(); j++)
+				{
+
+					if (frequency[j] > frequency[pos_max])
+						pos_max = j;
+					//pos_min will keep track of the index that min is in, this is needed when a swap happens
+				}
+
+				//if pos_min no longer equals i than a smaller value must have been found, so a swap must occur
+				if (pos_max != i)
+				{
+					int temp = frequency[i];
+					frequency[i] = frequency[pos_max];
+					frequency[pos_max] = temp;
+				}
+				cout << frequency[i] << endl;
+			}
+			int sum = 0;
+			for (int i = 0, val = 26; i < letter.size(); i++, val--){
+				cout << letter[i] << " " << frequency[i] * val << endl; //calculated the beauty of each char 
+				sum += frequency[i] * val;
+
+
+			}
+			cout << sum << endl;
+		}
 	
-		cout << endl << endl << endl;
-		for (int i = 0; i < letter.size(); i++){
-		//	cout << letter[i] << " " << frequency[i] << endl;
-//sleection sort
-		int	pos_max = i;//set pos_min to the current index of array
-
-			for (int j = i + 1; j < letter.size(); j++)
-			{
-
-				if (frequency[j] > frequency[pos_max])
-					pos_max = j;
-				//pos_min will keep track of the index that min is in, this is needed when a swap happens
-			}
-
-			//if pos_min no longer equals i than a smaller value must have been found, so a swap must occur
-			if (pos_max != i)
-			{
-				int temp = frequency[i];
-				frequency[i] = frequency[pos_max];
-				frequency[pos_max] = temp;
-			}
-			cout << frequency[i] << endl;
-		}
-		int sum = 0;
-		for (int i = 0, val = 26; i < letter.size(); i++, val--){
-			cout << letter[i] <<" "<<frequency[i]*val<< endl; //calculated the beauty of each char 
-			sum += frequency[i] * val;
-			
-			
-		}
-		cout << sum<<endl;
+		system("pause");
+		return 0;
 	}
-	
-	system("pause");
-	return 0;
-}
-
