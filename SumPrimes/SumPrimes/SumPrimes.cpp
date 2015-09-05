@@ -17,7 +17,7 @@ int main()
 	while (t){
 		for (int i = 3;; i = i + 2){ // outer loop to go through all possible first primes
 			int j;
-			for (j = 2; j <= (i / 2); j++){ //inner loop to check if no is prime
+			for (j = 2; j < (i / 2); j++){ //inner loop to check if no is prime
 				if (i%j == 0)
 					j = (i / 2)+1;
 				else continue;
@@ -26,7 +26,7 @@ int main()
 			if (j > (i / 2)){//that means no is prime
 
 				sum += i;  //add prime no to total
-				count++;
+				count++; //keep track of total no of primes
 			}
 			if (count == 1000){
 				t = false;
