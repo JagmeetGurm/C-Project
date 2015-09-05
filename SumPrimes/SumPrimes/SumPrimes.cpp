@@ -3,9 +3,8 @@
 
 #include "stdafx.h"
 #include <iostream>
-#include <vector>
 
-using namespace std;
+//using namespace std;
 
 //program to give sum of first 1000 primes
 int main()
@@ -24,18 +23,18 @@ int main()
 
 			}
 			if (j ==(i / 2)){//that means no is prime
-				//cout <<"printing primes"<< i << endl;
+				
 				sum += i;  //add prime no to total
 				count++; //keep track of total no of primes
 			}
-			if (count == 10){
+			if (count == 1000){
 				t = false;
 			}
 
 		}
 	
-	cout << sum;
-	system("pause");
+	std::cout << sum;
+
 	return 0;
 }
 
