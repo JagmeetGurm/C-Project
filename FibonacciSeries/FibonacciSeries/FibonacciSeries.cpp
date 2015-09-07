@@ -24,7 +24,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	inputFile.open("Fibonacci.txt");
 	int a;
 	while (inputFile >> a){
-	
+		std::cout << fibo(a) << std::endl;
 		
 
 	}
