@@ -10,12 +10,17 @@ using namespace std;
 //then print corresponding fibonacci number
 
 
+int fibo(int n){
+
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	ifstream inputFile;
 	inputFile.open("Fibonacci.txt");
 	int a;
 	while (inputFile >> a){
+		fibo(a);
 
 	}
 	return 0;
