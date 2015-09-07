@@ -1,7 +1,7 @@
 // FibonacciSeries.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <iostream>
 #include <fstream>
 
@@ -9,7 +9,23 @@
 //first will read numbers from file line by line and 
 //then print corresponding fibonacci number
 
+//iterative version added
+int fibo2(int n){
+	
+	if (n == 0)
+		return n;
+	if( n == 1)
+		return n;
+	int fib1 = 0, fib2=1, sum=0;
 
+	for (int i = 0; i < n-1; i++){
+		sum = fib1 + fib2;
+
+		fib1 = fib2;
+		fib2 = sum;
+		}
+	return sum;
+}
 int fibo(int n){
 	if (n == 0)
 		return 0;
@@ -18,14 +34,14 @@ int fibo(int n){
 	else return fibo(n - 1) + fibo(n - 2);
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
 	std::ifstream inputFile;
-	inputFile.open("Fibonacci.txt");
+	inputFile.open(argv[1]);
 	int a;
 	while (inputFile >> a){
-		std::cout << fibo(a) << std::endl;
-		
+	//	std::cout << fibo(a) << std::endl;
+		std::cout << fibo2(a) << std::endl;
 
 	}
 	system("pause");
