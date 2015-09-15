@@ -13,6 +13,7 @@ using namespace std;
 //structure for points
 class point{
 public:
+	point();
 	point(double a, double b){
 		x = a;
 		y = b;
@@ -29,10 +30,17 @@ private:
 class lineSegment{
 public:
 	//line segment format: l1(x1, y1, x2, y2)
-	lineSegment(point A, point B){
+	//lineSegment(point A(double a1, double b1), point B(double a2, double b2)){
+	lineSegment(point, point){
+
+	}
+	void aX(point a){
+		cout<< a.X();
 	}
 	//void a(double a)
-
+	void aY(point a){
+		cout<<a.Y();
+	}
 	
 
 };
@@ -46,7 +54,8 @@ int main(int argc, _TCHAR* argv[])
 	cout << A.X()<<endl; //this should print x coordinate of x.
 	cout << A.Y()<<endl;
 	lineSegment l1(A, B);
-	//l1.
+	cout << "lets see: ";
+	 l1.aX(A);
 	system("pause");
 	return 0;
 }
