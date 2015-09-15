@@ -29,7 +29,7 @@ private:
 class lineSegment{
 public:
 	//line segment format: l1(x1, y1, x2, y2)
-	lineSegment(point A(double a1, double b1), point B(double a2, double b2)){
+	lineSegment(point A, point B){
 	}
 	//void a(double a)
 
@@ -43,9 +43,10 @@ int main(int argc, _TCHAR* argv[])
 	point B(8, 9);
 	
 	//testing points 
-	cout << A.X(); //this should print x coordinate of x.
-
-//	lineSegment l1([2, 3], [4, 5]);
+	cout << A.X()<<endl; //this should print x coordinate of x.
+	cout << A.Y()<<endl;
+	lineSegment l1(A, B);
+	//l1.
 	system("pause");
 	return 0;
 }
