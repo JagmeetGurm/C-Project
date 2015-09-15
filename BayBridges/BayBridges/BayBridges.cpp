@@ -2,7 +2,9 @@
 //
 
 #include "stdafx.h"
+#include <iostream>
 
+using namespace std;
 // need an algo for finding intersection of two lines
 
 //reading file 
@@ -10,6 +12,7 @@
 //structure for coordinate values
 //structure for points
 class point{
+public:
 	point(double a, double b){
 		x = a;
 		y = b;
@@ -17,28 +20,33 @@ class point{
 	double X(){
 		return x;
 	}
+	double Y(){
+		return y;
+	}
 private:
 	double x, y;
 };
 class lineSegment{
 public:
 	//line segment format: l1(x1, y1, x2, y2)
-	lineSegment(double a1, double b1, double a2, double b2){
-		x1 = a1;
-		y1 = b1;
-		x2 = a2;
-		y2 = b2;
+	lineSegment(point A(double a1, double b1), point B(double a2, double b2)){
 	}
 	//void a(double a)
-private:
-	double x1, y1, x2, y2;
+
 	
 
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, _TCHAR* argv[])
 {
-	lineSegment l1([2, 3], [4, 5]);
+	point A(3.4, 5);
+	point B(8, 9);
+	
+	//testing points 
+	cout << A.X(); //this should print x coordinate of x.
+
+//	lineSegment l1([2, 3], [4, 5]);
+	system("pause");
 	return 0;
 }
 
