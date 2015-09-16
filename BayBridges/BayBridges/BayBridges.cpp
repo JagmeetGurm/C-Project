@@ -3,6 +3,9 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <sstream>
+#include <fstream>
+
 
 using namespace std;
 // need an algo for finding intersection of two lines
@@ -27,6 +30,8 @@ public:
 private:
 	double x, y;
 };
+
+
 class lineSegment {
 public:
 	//line segment format: l1(x1, y1, x2, y2)
@@ -61,7 +66,15 @@ private:
 };
 
 int main(int argc, _TCHAR* argv[])
+
 {
+	//now reading from file
+	ifstream infile("inputCoordinate.txt");
+	string s;
+
+	while (getline(infile, s)){
+		cout << s << endl;
+	}
 	point A(3.4, 5);
 	point B(8, 9);
 	
