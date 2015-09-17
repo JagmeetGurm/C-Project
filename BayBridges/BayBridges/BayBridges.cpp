@@ -112,7 +112,7 @@ int main(int argc, _TCHAR* argv[])
 	lineSegment l( A,  B);
 	line.push_back(l);
 	//m++;
-	cout << "next" << endl;
+	cout << l.ptA()->X() << endl; //this should return x1 of pt A. 
 		}
 		
 		
