@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <vector>
 
 
 using namespace std;
@@ -36,6 +37,7 @@ class lineSegment {
 public:
 	//line segment format: l1(x1, y1, x2, y2)
 	//lineSegment(point A(double a1, double b1), point B(double a2, double b2)){
+	//lineSegment();
 	lineSegment(point a, point b){
 		z1 = new point(a.X(), a.Y()); //creating a new point to which z1 points
 		z2 = new point(b.X(), b.Y());
@@ -71,11 +73,16 @@ int main(int argc, _TCHAR* argv[])
 	//now reading from file
 	ifstream infile("inputCoordinate.txt");
 	string s;
+	double x1, y1, x2, y2;
+	vector<lineSegment> line;
 
-	while (getline(infile, s)){
-		
+//	int m=0;
+
+	while (getline(infile, s)){ //reading from file line by line
+		int k = 0;
 	for (int i = 3; i < s.length(); i++){ //starting the loop from 3
 		//checking if char is a digit
+		
 		if ((s[i]=='-')||(s[i]=='0') || (s[i] == '1') || (s[i] == '2') || (s[i] == '3') || (s[i] == '4') || (s[i] == '5') || (s[i] == '6') || (s[i] == '7') || (s[i] == '8') || (s[i] == '9'))
 		{
 			int j = i + 1; //if it is then moving to next char
@@ -85,16 +92,32 @@ int main(int argc, _TCHAR* argv[])
 			
 			string s2 = s.substr(i, (j - i)); //extracting out the double number from string
 			i = j;
+			
 			double num = stod(s2);  //converting the string to double 
-			cout << num+100<<endl; //chekcing if the num ber is actually double now
+			k++;
+			if (k == 1)
+				x1 = num;
+			if (k == 2)
+				y1 = num;
+			if (k == 3)
+				x2 = num;
+			if (k == 4)
+				y2 = num;
+
+			//cout << num+100<<endl; //chekcing if the num ber is actually double now
 		}
 	}
+	point A(x1, y1);
+	point B(x2, y2);
+	lineSegment l( A,  B);
+	line.push_back(l);
+	//m++;
 	cout << "next" << endl;
 		}
-		double a, b, c, d;
 		
 		
-	
+		
+	/*
 	point A(3.4, 5);
 	point B(8, 9);
 	
@@ -110,6 +133,7 @@ int main(int argc, _TCHAR* argv[])
 	 cout << l1.ptB()->Y();
 	//cout<< p.Y();
 //	cout<< p.Y();
+	 */
 	system("pause");
 	return 0;
 }
