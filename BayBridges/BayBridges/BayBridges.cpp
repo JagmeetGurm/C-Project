@@ -80,6 +80,7 @@ int main(int argc, _TCHAR* argv[])
 
 	while (getline(infile, s)){ //reading from file line by line
 		int k = 0;
+		//cout << s << endl;
 	for (int i = 3; i < s.length(); i++){ //starting the loop from 3
 		//checking if char is a digit
 		
@@ -107,6 +108,8 @@ int main(int argc, _TCHAR* argv[])
 			//cout << num+100<<endl; //chekcing if the num ber is actually double now
 		}
 	}
+	//cout << s << endl;
+//	cout << "hi"<<endl;
 	point A(x1, y1);
 	point B(x2, y2);
 	lineSegment l( A,  B);
