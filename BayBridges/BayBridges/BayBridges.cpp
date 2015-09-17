@@ -62,6 +62,14 @@ private:
 
 };
 
+bool intersectPoint(point* A, point* B, point* C){
+	return (C->Y() - A->Y())* (B->X() - A->X()) > (B->Y() - A->Y())*(C->X() - A->X());
+}
+
+/*bool intersectLineSegment(lineSegment l1, lineSegment l2){
+	return (intersectPoint(l1.ptA(), l2.ptA(), l2.ptB()));
+}
+*/
 int main(int argc, _TCHAR* argv[])
 
 {
@@ -107,12 +115,17 @@ int main(int argc, _TCHAR* argv[])
 	point A(x1, y1);
 	point B(x2, y2);
 	lineSegment l( A,  B);
-	line.push_back(l);
+	line.push_back(l); //the vector line contains all the 6 line segments with each of their 2 points
 	
-//	cout << l.ptA()->X() << endl; //this should return x1 of pt A. 
+
 		}
+	//lets check if line segments intersect
+	cout<<intersectLineSegment(line[0], line[1])<<endl;
+	cout << "next" << endl;
+	cout << intersectLineSegment(line[3], line[4]);
+
 		
-	for (int i = 0; i < 6; i++){
+/*	for (int i = 0; i < 6; i++){
 		cout << line[i].ptA()->X()<<endl; //printing x coordinate of point A
 		cout << line[i].ptB()->X() << endl; //printing x coordinate of point B
 
