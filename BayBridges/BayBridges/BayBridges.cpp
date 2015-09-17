@@ -109,10 +109,14 @@ int main(int argc, _TCHAR* argv[])
 	lineSegment l( A,  B);
 	line.push_back(l);
 	
-	cout << l.ptA()->X() << endl; //this should return x1 of pt A. 
+//	cout << l.ptA()->X() << endl; //this should return x1 of pt A. 
 		}
 		
-		
+	for (int i = 0; i < 6; i++){
+		cout << line[i].ptA()->X()<<endl; //printing x coordinate of point A
+		cout << line[i].ptB()->X() << endl; //printing x coordinate of point B
+
+	}
 		
 	/*
 	point A(3.4, 5);
