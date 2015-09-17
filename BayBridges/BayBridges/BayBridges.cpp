@@ -74,18 +74,19 @@ int main(int argc, _TCHAR* argv[])
 
 	while (getline(infile, s)){
 		
-	for (int i = 3; i < s.length(); i++){
+	for (int i = 3; i < s.length(); i++){ //starting the loop from 3
+		//checking if char is a digit
 		if ((s[i]=='-')||(s[i]=='0') || (s[i] == '1') || (s[i] == '2') || (s[i] == '3') || (s[i] == '4') || (s[i] == '5') || (s[i] == '6') || (s[i] == '7') || (s[i] == '8') || (s[i] == '9'))
 		{
-			int j = i + 1;
-			while ((s[j] != ',')&& s[j] != ']'){
+			int j = i + 1; //if it is then moving to next char
+			while ((s[j] != ',')&& s[j] != ']'){ //traversing till the number ends
 				j++;
 			}
-			//j--;
-			string s2 = s.substr(i, (j - i));
+			
+			string s2 = s.substr(i, (j - i)); //extracting out the double number from string
 			i = j;
-			double num = stod(s2);
-			cout << num+100<<endl;
+			double num = stod(s2);  //converting the string to double 
+			cout << num+100<<endl; //chekcing if the num ber is actually double now
 		}
 	}
 	cout << "next" << endl;
