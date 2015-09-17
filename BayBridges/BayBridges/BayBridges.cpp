@@ -73,8 +73,31 @@ int main(int argc, _TCHAR* argv[])
 	string s;
 
 	while (getline(infile, s)){
-		cout << s << endl;
+		//istringstream iss(s);; 
+	//	for(int i = 2; i < s.length(); i++){
+			//if (s[i]==(' ')|| s[i]){
+	//s = "1: ([37.788353, -122.387695], [37.829853, -122.294312])";
+	for (int i = 3; i < s.length(); i++){
+		if ((s[i]=='-')||(s[i]=='0') || (s[i] == '1') || (s[i] == '2') || (s[i] == '3') || (s[i] == '4') || (s[i] == '5') || (s[i] == '6') || (s[i] == '7') || (s[i] == '8') || (s[i] == '9'))
+		{
+			int j = i + 1;
+			while ((s[j] != ',')&& s[j] != ']'){
+				j++;
+			}
+			//j--;
+			string s2 = s.substr(i, (j - i));
+			i = j;
+			double num = stod(s2);
+			cout << num+100<<endl;
+		}
 	}
+	cout << "next" << endl;
+		}
+		double a, b, c, d;
+		
+		
+	//	cout << s << endl;
+	//}
 	point A(3.4, 5);
 	point B(8, 9);
 	
