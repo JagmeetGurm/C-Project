@@ -35,16 +35,11 @@ private:
 
 class lineSegment {
 public:
-	//line segment format: l1(x1, y1, x2, y2)
-	//lineSegment(point A(double a1, double b1), point B(double a2, double b2)){
-	//lineSegment();
+	
 	lineSegment(point a, point b){
 		z1 = new point(a.X(), a.Y()); //creating a new point to which z1 points
 		z2 = new point(b.X(), b.Y());
-	//	cout << "print pointer: ";
-	//	cout << z1->Y();
-		//z2 = b;
-		//B = b;
+	
 	}
 	void aX(point a){
 		//z1 = a;
@@ -54,10 +49,10 @@ public:
 	void aY(point a){
 		cout<<a.Y();
 	}
-	point* ptA(){
+	point* ptA(){  //accessint the point A of line segment
 		return z1;
 	}
-	point* ptB(){
+	point* ptB(){ //accessing the point B of line segment
 		return z2;
 	}
 
@@ -105,16 +100,15 @@ int main(int argc, _TCHAR* argv[])
 			if (k == 4)
 				y2 = num;
 
-			//cout << num+100<<endl; //chekcing if the num ber is actually double now
+			
 		}
 	}
-	//cout << s << endl;
-//	cout << "hi"<<endl;
+	
 	point A(x1, y1);
 	point B(x2, y2);
 	lineSegment l( A,  B);
 	line.push_back(l);
-	//m++;
+	
 	cout << l.ptA()->X() << endl; //this should return x1 of pt A. 
 		}
 		
