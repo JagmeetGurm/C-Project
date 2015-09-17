@@ -66,10 +66,11 @@ bool intersectPoint(point* A, point* B, point* C){
 	return (C->Y() - A->Y())* (B->X() - A->X()) > (B->Y() - A->Y())*(C->X() - A->X());
 }
 
-/*bool intersectLineSegment(lineSegment l1, lineSegment l2){
-	return (intersectPoint(l1.ptA(), l2.ptA(), l2.ptB()));
+bool intersectLineSegment(lineSegment l1, lineSegment l2){
+	return (((intersectPoint(l1.ptA(), l2.ptA(), l2.ptB())) != (intersectPoint(l1.ptB(), l2.ptA(), l2.ptB())) && 
+		(intersectPoint(l1.ptA(), l1.ptB(), l2.ptA())) != (intersectPoint(l1.ptA(), l1.ptB(), l2.ptB()))));
 }
-*/
+
 int main(int argc, _TCHAR* argv[])
 
 {
@@ -122,7 +123,7 @@ int main(int argc, _TCHAR* argv[])
 	//lets check if line segments intersect
 	cout<<intersectLineSegment(line[0], line[1])<<endl;
 	cout << "next" << endl;
-	cout << intersectLineSegment(line[3], line[4]);
+	cout << intersectLineSegment(line[3], line[1]);
 
 		
 /*	for (int i = 0; i < 6; i++){
