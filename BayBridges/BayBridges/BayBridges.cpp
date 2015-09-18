@@ -35,7 +35,7 @@ private:
 
 class lineSegment {
 public:
-	
+//	lineSegment();
 	lineSegment(point a, point b){
 		z1 = new point(a.X(), a.Y()); //creating a new point to which z1 points
 		z2 = new point(b.X(), b.Y());
@@ -64,7 +64,8 @@ private:
 
 class BayBridge{
 public:
-	lineSegment lseg; //linesegment aka bridge 
+
+	lineSegment* lseg; //linesegment aka bridge 
 	int id; //id of bridge
 	int count; //
 	BayBridge* next;
@@ -72,7 +73,7 @@ public:
 };
 class infrastructure{
 public:
-	infrastructure( BayBridge b){
+	infrastructure(){
 	//	b.next = NULL;
 
 	}
@@ -144,7 +145,19 @@ int main(int argc, _TCHAR* argv[])
 	
 
 		}
-//	cout << id.at(2) << endl;
+	
+	//lest built the infrastructure
+	for (int i = 0; i < line.size(); i++){
+		// (line[i], id[i], 0);
+		BayBridge* bb;
+		bb = new BayBridge();
+
+		bb->lseg = &line[i];
+		bb->id = id[i];
+		bb->count = 0;
+		cout<<bb->lseg->ptA()->Y()<<endl; //this shd print all the y coordinates of A pt.
+	}
+	
 	//lets check if line segments intersect
 //	cout<<intersectLineSegment(line[0], line[1])<<endl;
 	//cout << "next" << endl;
