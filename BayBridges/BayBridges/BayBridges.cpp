@@ -62,6 +62,24 @@ private:
 
 };
 
+class infrastructure{
+public:
+	infrastructure(){
+
+
+	}
+	BayBridge* front;
+	BayBridge* back;
+};
+class BayBridge{
+public:
+	lineSegment lseg; //linesegment aka bridge 
+	int id; //id of bridge
+	int count; //
+	BayBridge* next;
+
+};
+
 bool intersectPoint(point* A, point* B, point* C){
 	return (C->Y() - A->Y())* (B->X() - A->X()) > (B->Y() - A->Y())*(C->X() - A->X());
 }
@@ -124,7 +142,7 @@ int main(int argc, _TCHAR* argv[])
 //	cout<<intersectLineSegment(line[0], line[1])<<endl;
 	//cout << "next" << endl;
 	//cout << intersectLineSegment(line[5], line[0]);
-
+	/*
 	int* count = new int[line.size()];
 	for (int i = 0; i < line.size(); i++){
 		count[i] = 0;
@@ -144,6 +162,7 @@ int main(int argc, _TCHAR* argv[])
 			}
 
 		}
+		if (check){
 		//lets find max count and delete the corresponding linesegment
 		for (int i = 0; i < 1; i++){
 		//	cout << count[i] << endl;
@@ -154,34 +173,20 @@ int main(int argc, _TCHAR* argv[])
 
 				}
 			}
-			//swap 
-		//	cout << count[max];
+			//deleting corresponding line segment
+			for (int k = max; k < size-1; k++){
+				line[k] = line[k + 1];
+			}
 		}
 
-		if (check)
-		{
-			//line.size() = line.size() - 1;
 	//	line.resize(size-1);
 			size--;
 		}
 	}
 	
-	/*
-	point A(3.4, 5);
-	point B(8, 9);
-	
-	//testing points 
-	cout << A.X()<<endl; //this should print x coordinate of x.
-	cout << A.Y()<<endl;
-	lineSegment l1(A, B);
-	cout << "lets see: ";
-	 l1.aX(A); //this should print the x coordinate of point passed to line segment
-	 cout << "now this should print y coordinate of point A: ";
-	 cout<< l1.ptA()->Y();
-	 cout << "print y coordinate of b: ";
-	 cout << l1.ptB()->Y();
-	//cout<< p.Y();
-//	cout<< p.Y();
+
+
+
 	 */
 	system("pause");
 	return 0;
