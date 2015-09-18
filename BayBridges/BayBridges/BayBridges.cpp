@@ -74,11 +74,30 @@ public:
 class infrastructure{
 public:
 	infrastructure(){
-	//	b.next = NULL;
+		total = 0;
+		front = NULL;
 
+	} 
+	void	create(BayBridge* b){
+
+		BayBridge* temp;
+		temp = b;
+		if (total == 0){
+			back = temp;
+			front = temp;
+		
+			total++;
+		}
+		else{
+			back->next = temp;
+			back=temp;
+			total++;
+		}
 	}
-//	BayBridge* front;
-//	BayBridge* back;
+
+	int total=0;
+	BayBridge* front;
+	BayBridge* back;
 };
 
 
@@ -147,6 +166,7 @@ int main(int argc, _TCHAR* argv[])
 		}
 	
 	//lest built the infrastructure
+	infrastructure infra;
 	for (int i = 0; i < line.size(); i++){
 		// (line[i], id[i], 0);
 		BayBridge* bb;
@@ -155,7 +175,9 @@ int main(int argc, _TCHAR* argv[])
 		bb->lseg = &line[i];
 		bb->id = id[i];
 		bb->count = 0;
-		cout<<bb->lseg->ptA()->Y()<<endl; //this shd print all the y coordinates of A pt.
+		bb->next = NULL;
+		infra.create(bb);
+	//	cout<<bb->lseg->ptA()->Y()<<endl; //this shd print all the y coordinates of A pt.
 	}
 	
 	//lets check if line segments intersect
