@@ -121,17 +121,27 @@ int main(int argc, _TCHAR* argv[])
 
 		}
 	//lets check if line segments intersect
-	cout<<intersectLineSegment(line[0], line[1])<<endl;
-	cout << "next" << endl;
-	cout << intersectLineSegment(line[3], line[1]);
+//	cout<<intersectLineSegment(line[0], line[1])<<endl;
+	//cout << "next" << endl;
+	//cout << intersectLineSegment(line[5], line[0]);
 
-		
-/*	for (int i = 0; i < 6; i++){
-		cout << line[i].ptA()->X()<<endl; //printing x coordinate of point A
-		cout << line[i].ptB()->X() << endl; //printing x coordinate of point B
+	int* count = new int[line.size()];
+	for (int i = 0; i < line.size(); i++){
+		count[i] = 0;
+	}
+	for (int i = 0; i < line.size()-1; i++){
+		for (int j = i + 1; j < line.size(); j++){
+			if (intersectLineSegment(line[i], line[j])){
+				count[i]++;
+				count[j]++;
+			}
+		}
 
 	}
-		
+	
+	for (int i = 0; i < line.size(); i++){
+		cout << count[i] << endl;
+	}
 	/*
 	point A(3.4, 5);
 	point B(8, 9);
