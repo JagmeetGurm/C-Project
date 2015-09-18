@@ -64,8 +64,8 @@ private:
 
 class infrastructure{
 public:
-	infrastructure(){
-
+	infrastructure( BayBridge b){
+		b.next = NULL;
 
 	}
 	BayBridge* front;
