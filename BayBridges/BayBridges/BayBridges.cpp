@@ -130,10 +130,12 @@ int main(int argc, _TCHAR* argv[])
 		count[i] = 0;
 	}
 	bool check = true;
+	int size = line.size();
 	while (check){
-		for (int i = 0; i < line.size() - 1; i++){
+	
+		for (int i = 0; i < size- 1; i++){
 			check = false;
-			for (int j = i + 1; j < line.size(); j++){
+			for (int j = i + 1; j < size; j++){
 				if (intersectLineSegment(line[i], line[j])){
 					count[i]++;
 					count[j]++;
@@ -142,28 +144,26 @@ int main(int argc, _TCHAR* argv[])
 			}
 
 		}
-
-		for (int i = 0; i < line.size()-1; i++){
+		//lets find max count and delete the corresponding linesegment
+		for (int i = 0; i < 1; i++){
 		//	cout << count[i] << endl;
-			int min = i;
-			for (int j = i+1; j<line.size(); j++){
-				if (count[j] < count[min]){
-					min = j;
+			int max = i;
+			for (int j = i+1; j<size; j++){
+				if (count[j] > count[max]){
+					max = j;
 
 				}
 			}
 			//swap 
-			int temp = count[i];
-			count[i] = count[min];
-			count[min] = temp;
-			cout << count[i];
+		//	cout << count[max];
 		}
-//		if (check)
-//		{
-			//line.size() = line.size() - 1;
-//			line.resize(line.size()-1);
 
-	//	}
+		if (check)
+		{
+			//line.size() = line.size() - 1;
+	//	line.resize(size-1);
+			size--;
+		}
 	}
 	
 	/*
