@@ -129,16 +129,20 @@ int main(int argc, _TCHAR* argv[])
 	for (int i = 0; i < line.size(); i++){
 		count[i] = 0;
 	}
-	for (int i = 0; i < line.size()-1; i++){
-		for (int j = i + 1; j < line.size(); j++){
-			if (intersectLineSegment(line[i], line[j])){
-				count[i]++;
-				count[j]++;
+	bool check = true;
+	while (check){
+		for (int i = 0; i < line.size() - 1; i++){
+			check = false;
+			for (int j = i + 1; j < line.size(); j++){
+				if (intersectLineSegment(line[i], line[j])){
+					count[i]++;
+					count[j]++;
+					check = true;
+				}
 			}
-		}
 
+		}
 	}
-	
 	for (int i = 0; i < line.size(); i++){
 		cout << count[i] << endl;
 	}
