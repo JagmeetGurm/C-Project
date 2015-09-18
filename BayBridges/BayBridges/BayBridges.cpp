@@ -62,15 +62,6 @@ private:
 
 };
 
-class infrastructure{
-public:
-	infrastructure( BayBridge b){
-		b.next = NULL;
-
-	}
-	BayBridge* front;
-	BayBridge* back;
-};
 class BayBridge{
 public:
 	lineSegment lseg; //linesegment aka bridge 
@@ -79,6 +70,16 @@ public:
 	BayBridge* next;
 
 };
+class infrastructure{
+public:
+	infrastructure( BayBridge b){
+	//	b.next = NULL;
+
+	}
+//	BayBridge* front;
+//	BayBridge* back;
+};
+
 
 bool intersectPoint(point* A, point* B, point* C){
 	return (C->Y() - A->Y())* (B->X() - A->X()) > (B->Y() - A->Y())*(C->X() - A->X());
@@ -99,10 +100,15 @@ int main(int argc, _TCHAR* argv[])
 	vector<lineSegment> line;
 
 //	int m=0;
-
+	vector<int> id;
 	while (getline(infile, s)){ //reading from file line by line
 		int k = 0;
 		//cout << s << endl;
+		//a loop to collect ids of each bridge by accessing ist char of each line
+		int myId = s[0] - '0';
+	//	cout << myId << endl;
+		id.push_back(myId); ///);
+	
 	for (int i = 3; i < s.length(); i++){ //starting the loop from 3
 		//checking if char is a digit
 		
@@ -138,6 +144,7 @@ int main(int argc, _TCHAR* argv[])
 	
 
 		}
+//	cout << id.at(2) << endl;
 	//lets check if line segments intersect
 //	cout<<intersectLineSegment(line[0], line[1])<<endl;
 	//cout << "next" << endl;
