@@ -142,10 +142,30 @@ int main(int argc, _TCHAR* argv[])
 			}
 
 		}
+
+		for (int i = 0; i < line.size()-1; i++){
+		//	cout << count[i] << endl;
+			int min = i;
+			for (int j = i+1; j<line.size(); j++){
+				if (count[j] < count[min]){
+					min = j;
+
+				}
+			}
+			//swap 
+			int temp = count[i];
+			count[i] = count[min];
+			count[min] = temp;
+			cout << count[i];
+		}
+//		if (check)
+//		{
+			//line.size() = line.size() - 1;
+//			line.resize(line.size()-1);
+
+	//	}
 	}
-	for (int i = 0; i < line.size(); i++){
-		cout << count[i] << endl;
-	}
+	
 	/*
 	point A(3.4, 5);
 	point B(8, 9);
