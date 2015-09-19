@@ -1,6 +1,7 @@
 // BayBridges.cpp : Defines the entry point for the console application.
 //
 
+
 #include "stdafx.h"
 #include <iostream>
 #include <sstream>
@@ -9,12 +10,12 @@
 
 
 using namespace std;
-// need an algo for finding intersection of two lines
 
-//reading file 
 
 //structure for coordinate values
 //structure for points
+
+
 class point{
 public:
 	point();
@@ -41,14 +42,8 @@ public:
 		z2 = new point(b.X(), b.Y());
 	
 	}
-	void aX(point a){
-		//z1 = a;
-		cout<< a.X();
-	}
-	//void a(double a)
-	void aY(point a){
-		cout<<a.Y();
-	}
+	
+	
 	point* ptA(){  //accessint the point A of line segment
 		return z1;
 	}
@@ -71,10 +66,26 @@ public:
 	BayBridge* next;
 
 };
+
+//referenced from: http://bryceboe.com/2006/10/23/line-segment-intersection-algorithm/ 
+//checking if points are in counterclockwise ordrer
+bool intersectPoint(point* A, point* B, point* C){
+	return (C->Y() - A->Y())* (B->X() - A->X()) > (B->Y() - A->Y())*(C->X() - A->X());
+}
+
+
+//chekcing if linesegments intersect
+bool intersectLineSegment(lineSegment* l1, lineSegment* l2){
+	return (intersectPoint(l1->ptA(), l2->ptA(), l2->ptB())) != (intersectPoint(l1->ptB(), l2->ptA(), l2->ptB())) &&
+		(intersectPoint(l1->ptA(), l1->ptB(), l2->ptA())) != (intersectPoint(l1->ptA(), l1->ptB(), l2->ptB()));
+}
+
+//int total;
+
 class infrastructure{
 public:
 	infrastructure(){
-		total = 0;
+		//total = 0;
 		front = NULL;
 
 	} 
@@ -82,39 +93,112 @@ public:
 
 		BayBridge* temp;
 		temp = b;
-		if (total == 0){
+		if (front==NULL){
 			back = temp;
 			front = temp;
 		
-			total++;
+		//	total++;
 		}
 		else{
 			back->next = temp;
 			back=temp;
-			total++;
+			//total++;
+		}
+	}
+	void print(){
+		BayBridge* temp;
+		temp = front;
+		for (temp = front; temp != back->next; temp=temp->next){
+			cout << temp->id<<endl;
+		//	temp = temp->next;
+		}
+
+	}
+	int max(){
+		BayBridge* temp = front;
+		int m = temp->count;
+		//finding the max
+		for (temp = front; temp != back->next; temp = temp->next){
+			if (m < temp->count){
+				m = temp->count;
+			}
+			//temp = temp->next;
+
+		}
+		
+		
+		return m;
+	}
+	void maxDelete(){
+	//	BayBridge* a;
+		BayBridge* temp4; //= front;
+		BayBridge* temp5 = front;
+		BayBridge* temp3;// = front->next;
+	//cout << m << endl;
+	if (max() == front->count){
+		temp4 = front;
+		front = front->next;
+		delete temp4;
+	}
+	if (max() == back->count){
+		BayBridge* temp9 = front;
+		BayBridge* temp10 = front->next;
+		for (temp9 = front; temp9->next != back; temp9 = temp9->next){
+			temp10 = temp10->next;
+		}
+		delete temp10;
+		back = temp9;
+		back->next = NULL;
+	}
+	else{
+		
+		for (temp3 = front->next; temp3 != back->next; temp3 = temp3->next){
+			if (temp3->count == max()){
+				temp5->next = temp3->next;
+			//	BayBridge* temp3 = temp->next;
+				delete temp3;
+				break;
+			}
+			temp5 = temp5->next;
 		}
 	}
 
-	int total=0;
+
+	}
+
+
+
+	bool inter(){
+		bool yes = false;
+		BayBridge* temp = front;
+		BayBridge* temp2 = front->next;
+		for ( temp=front; temp !=back; temp=temp->next){
+			for (temp2 = temp->next; temp2!=back->next; temp2=temp2->next){
+				if (intersectLineSegment(temp->lseg, temp2->lseg)){
+					temp->count++;
+					temp2->count++;
+					yes = true;
+				}
+			}
+		}
+		return yes;
+	}
+
+	//int total=0;
 	BayBridge* front;
 	BayBridge* back;
 };
 
 
-bool intersectPoint(point* A, point* B, point* C){
-	return (C->Y() - A->Y())* (B->X() - A->X()) > (B->Y() - A->Y())*(C->X() - A->X());
-}
 
-bool intersectLineSegment(lineSegment l1, lineSegment l2){
-	return (((intersectPoint(l1.ptA(), l2.ptA(), l2.ptB())) != (intersectPoint(l1.ptB(), l2.ptA(), l2.ptB())) && 
-		(intersectPoint(l1.ptA(), l1.ptB(), l2.ptA())) != (intersectPoint(l1.ptA(), l1.ptB(), l2.ptB()))));
-}
 
-int main(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 
 {
 	//now reading from file
-	ifstream infile("inputCoordinate.txt");
+	ifstream infile;
+	//infile.open(argv[1]);
+	infile.open("inputCoordinate.txt");
 	string s;
 	double x1, y1, x2, y2;
 	vector<lineSegment> line;
@@ -167,9 +251,10 @@ int main(int argc, _TCHAR* argv[])
 	
 	//lest built the infrastructure
 	infrastructure infra;
+	BayBridge* bb;
 	for (int i = 0; i < line.size(); i++){
 		// (line[i], id[i], 0);
-		BayBridge* bb;
+		
 		bb = new BayBridge();
 
 		bb->lseg = &line[i];
@@ -177,60 +262,51 @@ int main(int argc, _TCHAR* argv[])
 		bb->count = 0;
 		bb->next = NULL;
 		infra.create(bb);
+		//cout << total;
+	//	infra.print();
 	//	cout<<bb->lseg->ptA()->Y()<<endl; //this shd print all the y coordinates of A pt.
 	}
+	while (infra.inter()){
+
+		infra.maxDelete();
 	
-	//lets check if line segments intersect
-//	cout<<intersectLineSegment(line[0], line[1])<<endl;
-	//cout << "next" << endl;
-	//cout << intersectLineSegment(line[5], line[0]);
-	/*
-	int* count = new int[line.size()];
-	for (int i = 0; i < line.size(); i++){
-		count[i] = 0;
+		//
 	}
-	bool check = true;
-	int size = line.size();
-	while (check){
+	infra.print();
 	
-		for (int i = 0; i < size- 1; i++){
-			check = false;
-			for (int j = i + 1; j < size; j++){
-				if (intersectLineSegment(line[i], line[j])){
-					count[i]++;
-					count[j]++;
-					check = true;
-				}
-			}
-
-		}
-		if (check){
-		//lets find max count and delete the corresponding linesegment
-		for (int i = 0; i < 1; i++){
-		//	cout << count[i] << endl;
-			int max = i;
-			for (int j = i+1; j<size; j++){
-				if (count[j] > count[max]){
-					max = j;
-
-				}
-			}
-			//deleting corresponding line segment
-			for (int k = max; k < size-1; k++){
-				line[k] = line[k + 1];
-			}
-		}
-
-	//	line.resize(size-1);
-			size--;
-		}
-	}
-	
-
-
-
-	 */
+	 
 	system("pause");
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
