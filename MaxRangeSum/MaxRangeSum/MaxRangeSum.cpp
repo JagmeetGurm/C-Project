@@ -16,7 +16,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	vector<int>numDays;
+	int numDays;
 	ifstream infile;
 	infile.open("inputSum.txt");
 	string s;
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 		//cout << s1<<endl;
 		int day = stoi(s1);
 		//cout << day << endl;
-			numDays.push_back(day);
+			numDays=day;
 			int z = j+1;
 		//	cout << s[j + 1];
 			while (z  < s.length()){
@@ -51,8 +51,21 @@ int main(int argc, char* argv[])
 				z++;
 
 			}
+			for (int i = 0; i < profit.size(); i++){
+			//	cout << profit[i] << endl;
+			}
+			int maxSum = 0; 
 			
-			
+			for (int i = 0; (profit.size()-i)>=numDays; i++){
+				int Sum = 0;
+				for (int j = i, l=0; l < numDays ; j++, l++){
+					Sum = Sum + profit[j];
+				}
+				if (Sum > maxSum){
+					maxSum = Sum;
+				}
+			}
+			cout << maxSum<<endl;
 	}
 	
 	
