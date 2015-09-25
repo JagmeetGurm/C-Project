@@ -25,19 +25,19 @@ int main(int argc, char* argv[])
 		int i = 0; 
 		int j = 0;
 		//string parsing begins
-		while (s[i] != ';'){   
+		while (s[i] != ';'){   //rading the no. of days
 			j++;
 			i++;
 		}	
 	
-		string s1 = s.substr(0, j);
+		string s1 = s.substr(0, j);  //extracting the no. of days
 		//cout << s1<<endl;
-		int day = stoi(s1);
+		int day = stoi(s1); //converting string to number
 		//cout << day << endl;
-			numDays=day;
+			numDays=day; //
 			int z = j+1;
 		//	cout << s[j + 1];
-			while (z  < s.length()){
+			while (z  < s.length()){   //reading the loss/profit for each day
 				int k = 0;
 				j = z;
 				while (z<s.length() && s[z] != ' '){
@@ -52,11 +52,10 @@ int main(int argc, char* argv[])
 				z++;
 
 			}
-			for (int i = 0; i < profit.size(); i++){
-			//	cout << profit[i] << endl;
-			}
-			int maxSum = 0; 
 			
+			int maxSum = 0;  //a variable to hold max sum at all time begin with 0 as initiation
+			
+			//looping through to get the max sum
 			for (int i = 0; (profit.size()-i)>=numDays; i++){
 				int Sum = 0;
 				for (int j = i, l=0; l < numDays ; j++, l++){
@@ -66,7 +65,7 @@ int main(int argc, char* argv[])
 					maxSum = Sum;
 				}
 			}
-			cout << maxSum<<endl;
+			cout << maxSum<<endl; //printing the max sum
 	}
 	
 	
