@@ -16,15 +16,16 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	int numDays;
-	ifstream infile;
-	infile.open("inputSum.txt");
-	string s;
+	int numDays; //variable to store num of days for each line
+	ifstream infile; //for reading the file
+	infile.open("inputSum.txt"); //opening the file
+	string s;   //string for storing each line
 	while (getline(infile, s)){
-		vector<int>profit;
+		vector<int>profit;  //a vector for storing gain/loss for each line
 		int i = 0; 
 		int j = 0;
-		while (s[i] != ';'){
+		//string parsing begins
+		while (s[i] != ';'){   
 			j++;
 			i++;
 		}	
