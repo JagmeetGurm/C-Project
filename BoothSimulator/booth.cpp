@@ -23,6 +23,13 @@ void andGate(int a, int b){
 	sum=1;
 	else sum=0;
 }
+
+void orGate(int a, int b){
+	if(a==0 && b==0)
+	sum=0;
+	else sum=1;
+}
+
 int main(int argc, char** argv) {
 int ai=0b1;
 int bi=0b1;
@@ -38,7 +45,8 @@ cin>>carryIn;
 cout<<"Enter the op signal: ";
 cin>>op;
 //adder(ai, bi);
-andGate(ai, bi);
+//andGate(ai, bi);
+orGate(ai, bi);
 bitset<1>result(sum);
 cout<<"result: "<<result<<endl;
 cout<<"carryout: "<<carryOut<<endl;
