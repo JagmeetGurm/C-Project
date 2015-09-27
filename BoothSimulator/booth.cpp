@@ -18,7 +18,11 @@ void adder(int a, int b){
 	
 }
 
-void
+void andGate(int a, int b){
+	if(a==1 && b==1)
+	sum=1;
+	else sum=0;
+}
 int main(int argc, char** argv) {
 int ai=0b1;
 int bi=0b1;
@@ -33,7 +37,8 @@ cout<<"Enter the carryin: ";
 cin>>carryIn;
 cout<<"Enter the op signal: ";
 cin>>op;
-adder(ai, bi);
+//adder(ai, bi);
+andGate(ai, bi);
 bitset<1>result(sum);
 cout<<"result: "<<result<<endl;
 cout<<"carryout: "<<carryOut<<endl;
