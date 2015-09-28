@@ -36,7 +36,7 @@ int orGate(int a, int b){
 }
 bitset<1> mux(int andResult, int orResult, bitset<1> addResult, int opSignal){
 	if(opSignal==0)
-	return addResult;
+	return andResult;
 	if(opSignal==01)
 	return orResult;
 	if(opSignal==10)
@@ -49,6 +49,7 @@ bitset<1> alu(int a, int b, int c, int d){
 	int orResult=orGate(a, b);
 	bitset<1> addResult=adder(a, b);
 result=	mux(andResult, orResult, addResult, d);
+//cout<<"here: "<<result;
 return result;
 }
 
