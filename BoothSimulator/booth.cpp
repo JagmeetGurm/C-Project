@@ -32,15 +32,22 @@ int orGate(int a, int b){
 	else sum3=1;
 	return sum3;
 }
-void mux(int a, int b, int d){
-	if(d==0)
+void mux(int andResult, int orResult, int addResult, int opSignal){
+	if(opSignal==0)
+	return addResult;
+	if(opSignal==01)
+	return orResult;
+	if(opSignal==10)
+	return addResult;
+	 
 	
 }
-void alu(int a, int b, int c, int d){
+int alu(int a, int b, int c, int d){
 	int andResult=andGate(a, b);
 	int orResult=orGate(a, b);
 	int addResult=adder(a, b);
-	mux(andResult, orResult, addResult, d);
+result=	mux(andResult, orResult, addResult, d);
+return result;
 }
 
 int main(int argc, char** argv) {
