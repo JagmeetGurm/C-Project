@@ -10,6 +10,8 @@ int carryIn=0b0;
 int op=0b0;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+//funciton to add two var and return their sum in binary
+//it receives two inputs a and b
 bitset<1> adder(int a, int b){
 	int sum1=a+b;
 	bitset<1> result(sum1);
@@ -19,6 +21,9 @@ bitset<1> adder(int a, int b){
 return result;	
 }
 
+
+//function to do and operation
+//it receieves two inputs a and b
 int andGate(int a, int b){
 	int sum2;
 	if(a==1 && b==1)
@@ -27,6 +32,9 @@ int andGate(int a, int b){
 	return sum2;
 }
 
+//function to do or operation
+//it receives two inputs a and b
+
 int orGate(int a, int b){
 	int sum3;
 	if(a==0 && b==0)
@@ -34,6 +42,9 @@ int orGate(int a, int b){
 	else sum3=1;
 	return sum3;
 }
+
+
+//function mux reacting to op signal and returning binary output to alu
 bitset<1> mux(int andResult, int orResult, bitset<1> addResult, int opSignal){
 	if(opSignal==0)
 	return andResult;
@@ -44,6 +55,8 @@ bitset<1> mux(int andResult, int orResult, bitset<1> addResult, int opSignal){
 	 
 	
 }
+
+//alu function returning output received from mux
 bitset<1> alu(int a, int b, int c, int d){
 	int andResult=andGate(a, b);
 	int orResult=orGate(a, b);
