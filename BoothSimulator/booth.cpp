@@ -10,24 +10,37 @@ int carryIn=0b0;
 int op=0b0;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-void adder(int a, int b){
-	 sum=a+b;
-	bitset<1> result(sum);
-	
-	cout<<result;
-	
-}
-
-void andGate(int a, int b){
+int adder(int a, int b){
+	int sum1=a+b;
+	bitset<1> result(sum1);
 	if(a==1 && b==1)
-	sum=1;
-	else sum=0;
+	carryOut=1;
+	//cout<<result;
+return sum1;	
 }
 
-void orGate(int a, int b){
+int andGate(int a, int b){
+	if(a==1 && b==1)
+	int sum2=1;
+	else sum2=0;
+	return sum2;
+}
+
+int orGate(int a, int b){
 	if(a==0 && b==0)
-	sum=0;
-	else sum=1;
+	int sum3=0;
+	else sum3=1;
+	return sum3;
+}
+void mux(int a, int b, int d){
+	if(d==0)
+	
+}
+void alu(int a, int b, int c, int d){
+	int andResult=andGate(a, b);
+	int orResult=orGate(a, b);
+	int addResult=adder(a, b);
+	mux(andResult, orResult, addResult, d);
 }
 
 int main(int argc, char** argv) {
