@@ -1,22 +1,27 @@
 #include <iostream>
 #include <bitset>
+#include <string>
 
 using namespace std;
 
 //global variables result and carryOut, sum, carryIn, op;
-bitset<1> result=0b0, carryOut=0b0;
+bitset<1> result=0b0; 
+int carryOut=0b0;
 int sum=0b0;
 int carryIn=0b0;
 int op=0b0;
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */ 
 //funciton to add two var and return their sum in binary
 //it receives two inputs a and b
-bitset<1> adder(int a, int b){
-	int sum1=a+b;
+bitset<1> adder(int a, int b, int c){
+//	int con=(int)c;
+	int sum1=a+b+c;
+
 	bitset<1> result(sum1);
-	if(a==1 && b==1)
-	carryOut=1;
+	if((a==1 && b==0 &&c==0) ||(a==0 && b==1 && c==0) ||(a==0 && b==0 && c==0))
+	carryOut=0;
+	else carryOut=1;
 	//cout<<result;
 return result;	
 }
@@ -45,7 +50,7 @@ int orGate(int a, int b){
 
 
 //function mux reacting to op signal and returning binary output to alu
-bitset<1> mux(int andResult, int orResult, bitset<1> addResult, int opSignal){
+bitset<1> muxZero(int andResult, int orResult, bitset<1> addResult, int opSignal){
 	if(opSignal==0)
 	return andResult;
 	if(opSignal==01)
@@ -55,23 +60,32 @@ bitset<1> mux(int andResult, int orResult, bitset<1> addResult, int opSignal){
 	 
 	
 }
+bitset<1> aluOne(int a, int b, int c, int d, int binv){
+	bitset<1> addResult=adder(a,b, c);
+		int andResult=andGate(a, b);
+	int orResult=orGate(a, b);
+	result=muxZero(andResult, orResult, addResult, d);
+	return result;
+	
+}
 
 //alu function returning output received from mux
-bitset<1> alu(int a, int b, int c, int d){
+bitset<1> aluZero(int a, int b, int c, int d, int binv){
 	int andResult=andGate(a, b);
 	int orResult=orGate(a, b);
-	bitset<1> addResult=adder(a, b);
-result=	mux(andResult, orResult, addResult, d);
+	bitset<1> addResult=adder(a, b, c);
+result=	muxZero(andResult, orResult, addResult, d);
 //cout<<"here: "<<result;
 return result;
 }
 
 int main(int argc, char** argv) {
-int ai=0b1;
-int bi=0b1;
-//int c=a+b;
+string ai;//=0b1;
+string bi; //=0b1;
+int binv=0b0;
+int carryInOne=0b0;
+int carryIn=0;
 
-//entering the four inputs
 cout<<"Enter the ai: ";
 cin>>ai;
 cout<<"Enter the bi: ";
@@ -84,17 +98,22 @@ cin>>op;
 //andGate(ai, bi);
 //orGate(ai, bi);
 //bitset<1>result(sum);
+int a=(ai[ai.length()-1])- '0';
+int b=(bi[bi.length()-1])- '0';
 if(op==11)
-{if(bi==0)
-bi=1;
-else bi=0;
+{if(b==0)
+b=1;
+else b=0;
 }
-cout<<"result: "<<alu(ai, bi, carryIn, op);
+//cout<<"result: "<<aluZero(ai, bi, carryIn, op, binv);
 cout<<endl;
-if(op==10)
-cout<<"carryout: "<<carryOut<<endl;
-else cout<<"carryout: "<<0<<endl;
+
+//int carryInOne=carryOut;
+cout<<"result: "<<aluZero(a, b, carryIn, op, binv)<<endl;
+cout<<"carryout: "<<carryOut;
 //bitset<2> x(c);
 //cout<<x;
+
+
 	return 0;
 }
