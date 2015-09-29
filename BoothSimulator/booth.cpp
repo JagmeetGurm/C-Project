@@ -19,7 +19,7 @@ bitset<1> adder(int a, int b, int c){
 	int sum1=a+b+c;
 
 	bitset<1> result(sum1);
-	if((a==1 && b==0 &&c==0) ||(a==0 && b==1 && c==0) ||(a==0 && b==0 && c==0))
+	if((a==1 && b==0 &&c==0) ||(a==0 && b==1 && c==0) ||(a==0 && b==0 && (c==0 || c==1)))
 	carryOut=0;
 	else carryOut=1;
 	//cout<<result;
@@ -110,7 +110,7 @@ cout<<endl;
 
 //int carryInOne=carryOut;
 cout<<"ist: ";
-bitset<1> res=aluZero(a, b, carryIn, op, binv);
+bitset<1> res=aluZero(a, b, carryIn, op, binv); //storing the result 
 cout<<"carryout ist: "<<carryOut;
 a=ai[ai.length()-2]- '0';
 b=bi[bi.length()-2]- '0';
