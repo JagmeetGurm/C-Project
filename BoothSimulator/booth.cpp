@@ -109,8 +109,14 @@ else b=0;
 cout<<endl;
 
 //int carryInOne=carryOut;
-cout<<"result: "<<aluZero(a, b, carryIn, op, binv)<<endl;
-cout<<"carryout: "<<carryOut;
+cout<<"ist: ";
+bitset<1> res=aluZero(a, b, carryIn, op, binv);
+cout<<"carryout ist: "<<carryOut;
+a=ai[ai.length()-2]- '0';
+b=bi[bi.length()-2]- '0';
+
+cout<<"Result: "<<aluOne(a, b, carryOut, op, binv)<<res<<endl;
+cout<<"carryOut: "<<carryOut<<endl;
 //bitset<2> x(c);
 //cout<<x;
 
