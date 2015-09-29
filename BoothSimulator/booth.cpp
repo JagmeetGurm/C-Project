@@ -107,15 +107,28 @@ else b=0;
 }
 //cout<<"result: "<<aluZero(ai, bi, carryIn, op, binv);
 cout<<endl;
-
+bitset<1> v[16];
 //int carryInOne=carryOut;
-cout<<"ist: ";
+//cout<<"ist: ";
 bitset<1> res=aluZero(a, b, carryIn, op, binv); //storing the result 
-cout<<"carryout ist: "<<carryOut;
-a=ai[ai.length()-2]- '0';
-b=bi[bi.length()-2]- '0';
+//cout<<"carryout ist: "<<carryOut;
+int aSize=ai.length();
+int bSize=bi.length();
+for(int i=aSize-2; i>=0; i--){
+	a=ai[i]-'0';
+	b=bi[i] -'0';
+bitset<1> r=	aluOne(a, b, carryOut, op, binv);
+v[i]=r;
+}
+//a=ai[ai.length()-2]- '0';
+//b=bi[bi.length()-2]- '0';
 
-cout<<"Result: "<<aluOne(a, b, carryOut, op, binv)<<res<<endl;
+cout<<"Result: ";
+for(int i=0; i<=aSize-2; i++){
+cout<<v[i];
+////<res<<endl;
+}
+cout<<res;
 cout<<"carryOut: "<<carryOut<<endl;
 //bitset<2> x(c);
 //cout<<x;
