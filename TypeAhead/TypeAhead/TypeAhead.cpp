@@ -28,7 +28,14 @@ void ngram(int len, string test){
 			
 		}
 		if (len == 3){
-			freq[myString[i]]++;
+			if (myString[i] + myString[i + 1] + myString[i + 2] == test + myString[i + 2]){
+				freq[myString[i] + myString[i + 1] + myString[i + 2]]++;
+			}
+		}
+			if (len == 4){
+				if (myString[i] + myString[i + 1] + myString[i + 2]+myString[i+3] == test + myString[i + 3]){
+					freq[myString[i] + myString[i + 1] + myString[i + 2]+myString[i+3]]++;
+				}
 		}
 	}
 }
@@ -59,7 +66,7 @@ int main(int argc, char* argv[])
 		//cout << myString[j] << " ";
 	}
 
-	ngram(2, "the");
+	ngram(4, "ruleItmade");
 	//cout << freq["theteacher"];
 	int max = 0;
 	int total=0;
