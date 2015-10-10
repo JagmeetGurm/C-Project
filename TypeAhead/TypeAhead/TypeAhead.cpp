@@ -8,6 +8,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 
 
@@ -30,6 +31,10 @@ void ngram(int len, string test){
 			freq[myString[i]]++;
 		}
 	}
+}
+bool wayToSort(pair<int,string>m1, pair<int, string>m2){
+	return (m1.first>m2.first);
+		
 }
 int main(int argc, char* argv[])
 {
@@ -55,16 +60,31 @@ int main(int argc, char* argv[])
 	}
 
 	ngram(2, "the");
-	cout << freq["theteacher"];
+	//cout << freq["theteacher"];
 	int max = 0;
 	int total=0;
+	int k = 0;
+	int l = 0;
+	pair<int, string>p;
+	vector<std::pair<int, string>> items;
 	for (std::map<string, int>::iterator it = freq.begin(); it != freq.end(); ++it)
-		if (it->second > 0)
+	{
+		if (it->second >0)
 		{
-			std::cout << it->first << " => " << it->second << '\n';
+			p.first = it->second;
+			p.second = it->first;
+			items.push_back( p);
+		//	cout << items[k].second << ": " << items[k].first;
+		//	std::cout << it->first << " => " << it->second << '\n';
 			total += it->second;
+			k++;
 		}
-		
+		l++;
+	}
+	std::sort(items.begin(), items.end(), wayToSort);
+//	for (vector<pair<int, string>>::iterator it = items.begin(); it != items.end(); ++it){
+//		cout << it->second << ": " << it->first << endl;
+//	}
 //	}
 	
 	system("pause");
