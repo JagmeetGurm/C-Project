@@ -50,10 +50,30 @@ int main(int argc, char* argv[])
 //	infile.open(argv[1]);
 	infile.open("testFile.txt");
 	string check;
+	for (int i = 0, j = 0; i < text.length(); i++, j++){
+		string s = "";
+		while (text[i] != ' '){
+			s = s + text[i];
+			i++;
+		}
+		myString[j] = s;
+		freq[myString[j]] = 0;
+		size = j + 1;
+	}
 	while (getline(infile, check)){
 		//cout << check << endl;
+		string myLine="";// = check[0];
+		int num = (check[0])-'0';
+	//	cout << num<<endl;
+		for (int i = 2; i < check.length(); i++){
+			if (check[i] == ' ')
+				continue;
+			myLine += check[i];
+
+		}
+		cout << myLine << endl;
 	}
-	for (int i = 0, j=0; i < text.length(); i++, j++){
+/*	for (int i = 0, j=0; i < text.length(); i++, j++){
 		string s="";
 		while (text[i] != ' '){
 			s = s+text[i];
@@ -64,8 +84,9 @@ int main(int argc, char* argv[])
 		freq[myString[j]] = 0;
 		size = j+1;
 		//cout << myString[j] << " ";
+		
 	}
-
+	*/
 	ngram(4, "ruleItmade");
 	//cout << freq["theteacher"];
 	int max = 0;
