@@ -56,9 +56,11 @@ int main(int argc, char* argv[])
 
 	ngram(2, "the");
 	cout << freq["theteacher"];
-//	for (int i = 0; i < size-1; i++){
-//		cout << freq[myString[i]+myString[i+1]]<<endl;
-//		
+	int max = 0;
+	for(std::map<string, int>::iterator it = freq.begin(); it != freq.end(); ++it)
+		
+		std::cout << it->first << " => " << it->second << '\n';
+		
 //	}
 	
 	system("pause");
