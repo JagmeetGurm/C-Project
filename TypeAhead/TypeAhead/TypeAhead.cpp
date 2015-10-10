@@ -82,9 +82,11 @@ int main(int argc, char* argv[])
 		l++;
 	}
 	std::sort(items.begin(), items.end(), wayToSort);
-//	for (vector<pair<int, string>>::iterator it = items.begin(); it != items.end(); ++it){
-//		cout << it->second << ": " << it->first << endl;
-//	}
+	for (vector<pair<int, string>>::iterator it = items.begin(); it != items.end(); ++it){
+		cout << it->second << ": ";
+		cout.precision(3);
+		cout<<fixed<< (double)(it->first) / total << endl;
+	}
 //	}
 	
 	system("pause");
