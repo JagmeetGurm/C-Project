@@ -57,9 +57,13 @@ int main(int argc, char* argv[])
 	ngram(2, "the");
 	cout << freq["theteacher"];
 	int max = 0;
-	for(std::map<string, int>::iterator it = freq.begin(); it != freq.end(); ++it)
-		
-		std::cout << it->first << " => " << it->second << '\n';
+	int total=0;
+	for (std::map<string, int>::iterator it = freq.begin(); it != freq.end(); ++it)
+		if (it->second > 0)
+		{
+			std::cout << it->first << " => " << it->second << '\n';
+			total += it->second;
+		}
 		
 //	}
 	
