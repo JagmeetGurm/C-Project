@@ -18,6 +18,7 @@ int main(int argc, char* argv[])
 	stack<int> operand;
 	stack<char> operatorStack;
 	ifstream infile;
+	infile.open("inputTest.txt");
 	while (getline(infile, line)){
 		for (int i = 0; i < line.length(); i++){
 			if ((line[i] == '+') || (line[i] == '*') || (line[i] == '/') || (line[i] == '-')){
@@ -29,6 +30,12 @@ int main(int argc, char* argv[])
 
 		}
 	}
+	while (!operatorStack.empty()){
+		cout << "oepartor stack:";
+	cout<<	operatorStack.top()<<endl;
+	operatorStack.pop();
+	}
+	system("pause");
 	return 0;
 }
 
