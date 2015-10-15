@@ -23,6 +23,10 @@ int main(int argc, char* argv[])
 			if ((line[i] == '+') || (line[i] == '*') || (line[i] == '/') || (line[i] == '-')){
 				operatorStack.push(line[i]);
 			}
+			else {
+				operand.push(line[i]);
+			}
+
 		}
 	}
 	return 0;
