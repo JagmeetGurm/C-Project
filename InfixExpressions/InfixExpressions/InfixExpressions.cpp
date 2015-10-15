@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 
 {
 	string line;
-	stack<int> operand;
+	stack<string> operand;
 	stack<char> operatorStack;
 	ifstream infile;
 	infile.open("inputTest.txt");
@@ -24,17 +24,58 @@ int main(int argc, char* argv[])
 			if ((line[i] == '+') || (line[i] == '*') || (line[i] == '/') || (line[i] == '-')){
 				operatorStack.push(line[i]);
 			}
+			else if (line[i] == ' ')
+			{	//do nothing;
+			}
 			else {
-				operand.push(line[i]);
+				string s;
+				char c = line[i];
+				stringstream ss;
+				ss << c;
+				ss >> s;
+
+
+				operand.push(s);
+			}
+			if (operand.size() == 2){
+				std::string::size_type sz;
+				int a = stoi(operand.top(), &sz);
+				operand.pop();
+				int b = stoi(operand.top(), &sz);
+				operand.pop();
+				int result;
+				switch (operatorStack.top()){
+				case '+':
+					result = a + b;
+					break;
+				case '*':
+					result = a * b;
+					break;
+				case '/':
+					result = a / b;
+					break;
+					
+				}
+			//	cout << result;
+				operatorStack.pop();
+				operand.push(to_string(result));
+
 			}
 
 		}
 	}
-	while (!operatorStack.empty()){
+	cout << operand.top()<<endl;
+/*	while (!operatorStack.empty()){
 		cout << "oepartor stack:";
 	cout<<	operatorStack.top()<<endl;
 	operatorStack.pop();
 	}
+	while (!operand.empty()){
+		cout << "operand stack:";
+		cout << operand.top() << endl;
+		operand.pop();
+	}
+*/
 	system("pause");
 	return 0;
 }
