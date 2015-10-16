@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <stack>
+#include <typeinfo>
 
 using namespace std;
 
@@ -15,13 +16,15 @@ int main(int argc, char* argv[])
 
 {
 	string line;
-	stack<string> operand;
-	stack<char> operatorStack;
+	//stack<string> operand;
+	//stack<char> operatorStack;
 	ifstream infile;
-	infile.open("inputTest.txt");
+	infile.open("input.txt");
 	while (getline(infile, line)){
+		stack<string> operand;
+		stack<char> operatorStack;
 		for (int i = 0; i < line.length(); i++){
-			if ((line[i] == '+') || (line[i] == '*') || (line[i] == '/') || (line[i] == '-')){
+			if ((line[i] == '+') || (line[i] == '*') || (line[i] == '/') ){
 				operatorStack.push(line[i]);
 			}
 			else if (line[i] == ' ')
@@ -46,25 +49,34 @@ int main(int argc, char* argv[])
 				int result;
 				switch (operatorStack.top()){
 				case '+':
-					result = a + b;
+					result = b+a;
 					break;
 				case '*':
-					result = a * b;
+					result =  b*a;
 					break;
 				case '/':
-					result = a / b;
+					result =  b/a;
 					break;
 					
 				}
-			//	cout << result;
+				//cout << result;
 				operatorStack.pop();
 				operand.push(to_string(result));
 
 			}
 
 		}
+		if (typeid(operand.top()) != typeid(int())){
+			std::string::size_type sy;
+			cout<< stoi(operand.top(), &sy)<<endl;
+			operand.pop();
+		}
+		else{
+			cout << operand.top() << endl;
+			operand.pop();
+		}
 	}
-	cout << operand.top()<<endl;
+	
 /*	while (!operatorStack.empty()){
 		cout << "oepartor stack:";
 	cout<<	operatorStack.top()<<endl;
