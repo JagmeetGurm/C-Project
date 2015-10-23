@@ -1,7 +1,7 @@
 // InfixExpressions.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -19,7 +19,8 @@ int main(int argc, char* argv[])
 	//stack<string> operand;
 	//stack<char> operatorStack;
 	ifstream infile;
-	infile.open("input.txt");
+	//infile.open("input.txt");
+	infile.open(argv[1]);
 	while (getline(infile, line)){
 		stack<string> operand;
 		stack<char> operatorStack;
@@ -42,11 +43,11 @@ int main(int argc, char* argv[])
 			}
 			if (operand.size() == 2){
 				std::string::size_type sz;
-				int a = stoi(operand.top(), &sz);
+				double a = stod(operand.top(), &sz);
 				operand.pop();
-				int b = stoi(operand.top(), &sz);
+				double b = stod(operand.top(), &sz);
 				operand.pop();
-				int result;
+				double result;
 				switch (operatorStack.top()){
 				case '+':
 					result = b+a;
@@ -88,7 +89,7 @@ int main(int argc, char* argv[])
 		operand.pop();
 	}
 */
-	system("pause");
+	//system("pause");
 	return 0;
 }
 
