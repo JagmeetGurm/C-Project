@@ -1,7 +1,7 @@
 // InfixExpressions.cpp : Defines the entry point for the console application.
 //
 
-//#include "stdafx.h"
+#include "stdafx.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -16,17 +16,18 @@ int main(int argc, char* argv[])
 
 {
 	string line;
-	//stack<string> operand;
-	//stack<char> operatorStack;
+	
 	ifstream infile;
-	//infile.open("input.txt");
-	infile.open(argv[1]);
+	infile.open("input.txt");
+	//infile.open(argv[1]);
 	while (getline(infile, line)){
-		stack<string> operand;
-		stack<char> operatorStack;
+		stack<string> operand; //
+		//stack will contain all the operands which are read as string
+		stack<char> operatorStack; //another stack holding the operators
 		for (int i = 0; i < line.length(); i++){
+			//readint the file 
 			if ((line[i] == '+') || (line[i] == '*') || (line[i] == '/') ){
-				operatorStack.push(line[i]);
+				operatorStack.push(line[i]); //pushing operators in operator stack
 			}
 			else if (line[i] == ' ')
 			{	//do nothing;
@@ -43,11 +44,11 @@ int main(int argc, char* argv[])
 			}
 			if (operand.size() == 2){
 				std::string::size_type sz;
-				double a = stod(operand.top(), &sz);
+				float a = stod(operand.top(), &sz);
 				operand.pop();
-				double b = stod(operand.top(), &sz);
+				float b = stod(operand.top(), &sz);
 				operand.pop();
-				double result;
+				float result;
 				switch (operatorStack.top()){
 				case '+':
 					result = b+a;
@@ -77,19 +78,8 @@ int main(int argc, char* argv[])
 			operand.pop();
 		}
 	}
-	
-/*	while (!operatorStack.empty()){
-		cout << "oepartor stack:";
-	cout<<	operatorStack.top()<<endl;
-	operatorStack.pop();
-	}
-	while (!operand.empty()){
-		cout << "operand stack:";
-		cout << operand.top() << endl;
-		operand.pop();
-	}
-*/
-	//system("pause");
+
+	system("pause");
 	return 0;
 }
 
