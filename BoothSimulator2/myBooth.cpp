@@ -109,6 +109,16 @@ cout<<"enter op: ";
 cin>>op;
 cout<<"enter binv: ";
 cin>>binv;
+
+if(binv==1){
+	for(int i=0; i<bi.length(); i++)
+	{
+		if(bi[i]=='1')
+		bi[i]='0';
+		else bi[i]='1';
+		
+	}
+}
 //cout<<andGate(ai,bi)<<endl;
 //cout<<orGate(ai,bi)<<endl;
 //cout<<"sum: "<<adder(ai,bi,ci);
