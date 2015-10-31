@@ -64,6 +64,18 @@ bitset<1> muxZero(int andResult, int orResult, bitset<1> addResult, int opSignal
 	 
 	
 }//this alu represents the repeatedly calles n-2 alus
+
+
+
+bitset<1> aluFinal(int a, int b, int ci, int op, int binv){
+	bitset<1> addResult=adder(a,b, ci);
+		int andResult=andGate(a, b);
+	int orResult=orGate(a, b);
+	result=muxZero(andResult, orResult, addResult, op);
+	return result;
+	
+}
+
 bitset<1> aluOne(int a, int b, int c, int d, int binv){
 	bitset<1> addResult=adder(a,b, c);
 		int andResult=andGate(a, b);
@@ -84,7 +96,9 @@ return result;
 }
 
 int main(int argc, char** argv) {
-	int ai,bi,ci,op;
+	string ai,bi;
+	int ci,op,binv;
+	int res[16];
 cout<<"enter ai: ";
 cin>>ai;
 cout<<"enter bi: ";
@@ -93,12 +107,40 @@ cout<<"enter cin: ";
 cin>>ci;
 cout<<"enter op: ";
 cin>>op;
-cout<<andGate(ai,bi)<<endl;
-cout<<orGate(ai,bi)<<endl;
-cout<<"sum: "<<adder(ai,bi,ci);
-cout<<"carryout: "<<carryOut;
+cout<<"enter binv: ";
+cin>>binv;
+//cout<<andGate(ai,bi)<<endl;
+//cout<<orGate(ai,bi)<<endl;
+//cout<<"sum: "<<adder(ai,bi,ci);
+//cout<<"carryout: "<<carryOut;
+int aiLength=ai.length();
+int biLength=bi.length();
+cout<<"first alu: "<<endl;
+if(aluZero(ai[aiLength-1]-'0',bi[biLength-1]-'0',ci,op,binv)==1)
+	res[15]=1;
+	else res[15]=0;
 
-cout<<"result: "<<aluZero(ai,bi,ci,op,0)<<endl;
-cout<<"carryout: "<<carryOut;
+cout<<"result15: "<<res[15]<<endl;
+
+cout<<"carryout: "<<carryOut<<endl<<endl;
+for(int i=aiLength-2;i>0;i--){
+	ci=carryOut;
+if(aluOne(ai[i]-'0',bi[i]-'0',ci,op,binv)==1)
+res[i]=1;
+else res[i]=0;
+	
+}
+ci=carryOut;
+
+if(aluFinal(ai[0]-'0',bi[0]-'0',ci,op,binv)==1)
+	res[0]=1;
+	else res[0]=0;
+
+
+cout<<"finalresult:"<<endl;
+for(int i=0;i<16;i++){
+cout<<	res[i];
+}
+cout<<endl<<carryOut<<endl;
 	return 0;
 }
