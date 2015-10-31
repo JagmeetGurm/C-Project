@@ -9,7 +9,7 @@ using namespace std;
 ;and accordingly gives the output. If input bits(ai,bi) are (1,0),(0,1) or (0,0)
 ;output is 0 else if input is (1,1) output is 1. The output serves as the 
 ;input for MU */
-
+bitset<1> result=0b0; 
 int carryOut=0b0;
 int andGate(int a, int b){
 	int sum2;
@@ -50,17 +50,55 @@ bitset<1> adder(int a, int b, int c){
 	//cout<<result;
 return result;	
 }
+
+
+
+//function mux reacting to op signal and returning binary output to alu
+bitset<1> muxZero(int andResult, int orResult, bitset<1> addResult, int opSignal){
+	if(opSignal==0)
+	return andResult;
+	if(opSignal==01)
+	return orResult;
+	if(opSignal==10)
+	return addResult;
+	 
+	
+}//this alu represents the repeatedly calles n-2 alus
+bitset<1> aluOne(int a, int b, int c, int d, int binv){
+	bitset<1> addResult=adder(a,b, c);
+		int andResult=andGate(a, b);
+	int orResult=orGate(a, b);
+	result=muxZero(andResult, orResult, addResult, d);
+	return result;
+	
+}
+
+//alu function returning output received from mux
+bitset<1> aluZero(int a, int b, int ci, int op, int binv){
+	int andResult=andGate(a, b);
+	int orResult=orGate(a, b);
+	bitset<1> addResult=adder(a, b, ci);
+result=	muxZero(andResult, orResult, addResult, op);
+//cout<<"here: "<<result;
+return result;
+}
+
 int main(int argc, char** argv) {
-	int ai,bi,ci;
+	int ai,bi,ci,op;
 cout<<"enter ai: ";
 cin>>ai;
 cout<<"enter bi: ";
 cin>>bi;
 cout<<"enter cin: ";
 cin>>ci;
+cout<<"enter op: ";
+cin>>op;
 cout<<andGate(ai,bi)<<endl;
 cout<<orGate(ai,bi)<<endl;
 cout<<"sum: "<<adder(ai,bi,ci);
+cout<<"carryout: "<<carryOut;
+
+cout<<"result: "<<aluZero(ai,bi,ci,op,0)<<endl;
 cout<<"carryout: "<<carryOut;
 	return 0;
 }
