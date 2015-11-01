@@ -95,6 +95,88 @@ result=	muxZero(andResult, orResult, addResult, op);
 return result;
 }
 
+void multiplier(string a, string b){
+	cout<<"clockCounter      MD       MQ      MQ-1"<<endl;
+	string MD=a;
+	string MQ=b;
+	char dj1=MQ[MQ.length()-1];
+	char dj='0';
+	string AC="0000000000000000";
+	int clockCounter=0b10000;
+	while(clockCounter!=0){
+//		cout<<"here: "<<AC<<" "<<MQ<<" "<<dj<<endl;
+		MD=a;
+		carryOut=0;
+		int	ci=0, binv=0, op=10;
+		if((dj1=='0') && dj=='1'){
+		
+
+if(aluZero(AC[15]-'0', MD[15]-'0',ci,op,binv)==1)
+AC[15]='1';
+else AC[15]='0';
+//cout<<"AC3: "<<AC[3]<<" ";
+for(int i=MD.length()-2;i>=0;i--){	
+	ci=carryOut;
+if(aluOne(AC[i]-'0',MD[i]-'0',ci,op,binv)==1)
+AC[i]='1';
+else AC[i]='0';
+
+//cout<<"AC[i]: "<<AC[i]<<" ";
+		}
+	}
+	
+//	cout<<"ACC: "<<AC<<endl;
+	//sub
+	if((dj1=='1') && (dj=='0')){
+		binv=1;
+		for(int i=0; i<MD.length(); i++)
+		
+	{
+		if(MD[i]=='1')
+		MD[i]='0';
+		else MD[i]='1';
+		
+	}
+	ci=1, op=10;
+	if(aluZero(AC[15]-'0', MD[15]-'0',ci,op,binv)==1)
+AC[15]='1';
+else AC[15]='0';
+for(int i=MD.length()-2;i>=0;i--){	
+	ci=carryOut;
+if(aluOne(AC[i]-'0',MD[i]-'0',ci,op,binv)==1)
+AC[i]='1';
+else AC[i]='0';
+	}
+}
+//cout<<"befroe: "<<endl;
+//cout<<AC <<" "<<MQ<<endl;
+//arithmetic shift
+dj=dj1;
+char temp=AC[15];
+for(int i=AC.length()-1;i>0; i--){
+	MQ[i]=MQ[i-1];
+	AC[i]=AC[i-1];
+	
+}
+AC[0]=AC[1];
+MQ[0]=temp;
+dj1=MQ[15];
+cout<<clockCounter<<" ";
+clockCounter=clockCounter-1;
+cout<<" "<<AC<<"  ";
+cout<<MQ<< "  "<< dj<<endl;
+}
+
+for(int i=0;i<AC.length(); i++){
+	cout<<AC[i];
+	
+}
+cout<<" ";
+for(int i=0;i<AC.length(); i++){
+	cout<<MQ[i];
+	
+}
+}
 int main(int argc, char** argv) {
 	string ai,bi;
 	int ci,op,binv;
@@ -103,13 +185,21 @@ cout<<"enter ai: ";
 cin>>ai;
 cout<<"enter bi: ";
 cin>>bi;
-cout<<"enter cin: ";
+/*cout<<"enter cin: ";
 cin>>ci;
 cout<<"enter op: ";
 cin>>op;
 cout<<"enter binv: ";
 cin>>binv;
 
+*/
+//incase of subtraction, binv is 1 and then take 1's complement of b;
+multiplier(ai,bi);
+
+
+
+
+/*
 if(binv==1){
 	for(int i=0; i<bi.length(); i++)
 	{
@@ -152,5 +242,6 @@ for(int i=0;i<16;i++){
 cout<<	res[i];
 }
 cout<<endl<<carryOut<<endl;
+*/
 	return 0;
 }
