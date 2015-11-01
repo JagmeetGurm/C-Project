@@ -161,7 +161,7 @@ for(int i=AC.length()-1;i>0; i--){
 AC[0]=AC[1];
 MQ[0]=temp;
 dj1=MQ[15];
-cout<<clockCounter<<" ";
+cout<<(bitset<16>)clockCounter<<" ";
 clockCounter=clockCounter-1;
 cout<<" "<<AC<<"  ";
 cout<<MQ<< "  "<< dj<<endl;
