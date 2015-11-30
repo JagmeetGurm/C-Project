@@ -1,8 +1,10 @@
 #include <iostream>
 #include <queue>
 #include <string>
-
-using namespace std;
+#include <fstream>
+#include <sstream>
+//#include <-stdlib=libc++ >
+using namespace std ;
 
 //point class reflecting the coordinate position of each startup
 class point{
@@ -24,7 +26,43 @@ private:
 
 
 int main() {
-	point p(4,5);
-	cout<<p.X();
+	ifstream infile;
+	infile.open("C:\\Users\\Jagmeet\\Documents\\Visual Studio 2013\\Projects\\CommuteEngineer\\inputFile.txt");
+	string s, x, y;
+	while(getline(infile, s))
+{
+	
+	for(int i=0; i<s.length(); i++){
+		if(s[i]=='('){
+			int first=++i;
+			int k=0;
+			while(s[i]!=','){
+			k++;
+			i++;
+			}
+			 x=s.substr(first, k);
+			
+			 std::string::size_type sz;     // alias of size_t
+
+  double xPoint = strtod(x, &sz);
+   cout<<"x: "<<xPoint+100;
+			k=0;
+			first=++i;
+			while(s[i]!=')'){
+				k++;
+				i++;
+			}
+			 y=s.substr(first, k);
+			 cout<<" y: "<<y<<endl;
+			 std::string::size_type sz;     // alias of size_t
+
+  double yPoint = std::stod (y,&sz);
+		}
+		//cout<<"x: "<<x<<endl;
+	}
+	}
+	
+		point p(4,5);
+//	cout<<p.X();
 	return 0;
 }
