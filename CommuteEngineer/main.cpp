@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-//#include <-stdlib=libc++ >
+#include <cstdlib >
 using namespace std ;
 
 //point class reflecting the coordinate position of each startup
@@ -44,7 +44,7 @@ int main() {
 			
 			 std::string::size_type sz;     // alias of size_t
 
-  double xPoint = strtod(x, &sz);
+  double xPoint = stod(x, &sz);
    cout<<"x: "<<xPoint+100;
 			k=0;
 			first=++i;
@@ -54,7 +54,7 @@ int main() {
 			}
 			 y=s.substr(first, k);
 			 cout<<" y: "<<y<<endl;
-			 std::string::size_type sz;     // alias of size_t
+			 //std::string::size_type sz;     // alias of size_t
 
   double yPoint = std::stod (y,&sz);
 		}
