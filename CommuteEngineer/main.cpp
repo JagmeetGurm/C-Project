@@ -24,5 +24,7 @@ private:
 
 
 int main() {
+	point p(4,5);
+	cout<<p.X();
 	return 0;
 }
