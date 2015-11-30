@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <cstdlib >
+#include <math.h>
 using namespace std ;
 
 //point class reflecting the coordinate position of each startup
@@ -24,13 +24,22 @@ private:
 	double x, y; 
 };
 
+double costVisit(point A, point B){
+	return sqrt(pow((A.X()-B.X()), 2) + pow((A.Y()-B.Y()), 2));
+}
 
+void path(vector<point>vectorPoints){
+	//
+	
+}
 int main() {
 	ifstream infile;
 	infile.open("C:\\Users\\Jagmeet\\Documents\\Visual Studio 2013\\Projects\\CommuteEngineer\\inputFile.txt");
 	string s, x, y;
+	
+		queue<point>queuePoints;
 	while(getline(infile, s))
-{
+{double xPoint, yPoint;
 	
 	for(int i=0; i<s.length(); i++){
 		if(s[i]=='('){
@@ -44,8 +53,8 @@ int main() {
 			
 			 std::string::size_type sz;     // alias of size_t
 
-  double xPoint = stod(x, &sz);
-   cout<<"x: "<<xPoint+100;
+   xPoint = stod(x, &sz);
+   //cout<<"x: "<<xPoint+100;
 			k=0;
 			first=++i;
 			while(s[i]!=')'){
@@ -53,16 +62,19 @@ int main() {
 				i++;
 			}
 			 y=s.substr(first, k);
-			 cout<<" y: "<<y<<endl;
+			// cout<<" y: "<<y<<endl;
 			 //std::string::size_type sz;     // alias of size_t
 
-  double yPoint = std::stod (y,&sz);
+   yPoint = std::stod (y,&sz);
 		}
 		//cout<<"x: "<<x<<endl;
 	}
+	point p(xPoint, yPoint);
+queuePoints.push(p);
+
 	}
 	
-		point p(4,5);
-//	cout<<p.X();
+//	hk(queuePoints.pop(), queuePoints);	
+
 	return 0;
 }
