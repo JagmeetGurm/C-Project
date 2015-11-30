@@ -3,8 +3,26 @@
 #include <string>
 
 using namespace std;
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(int argc, char** argv) {
+//point class reflecting the coordinate position of each startup
+class point{
+public:
+	point();
+	point(double a, double b){
+		x = a; //the x coordinate of point
+		y = b; // the y coordinate of point
+	}
+	double X(){
+		return x;
+	}
+	double Y(){
+		return y;
+	}
+private:
+	double x, y; 
+};
+
+
+int main() {
 	return 0;
 }
