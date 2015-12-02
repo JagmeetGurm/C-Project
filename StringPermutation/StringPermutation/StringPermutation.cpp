@@ -18,7 +18,7 @@ vector<string>order;
 int factorial(int n){
 	if (n == 0|| n==1)
 		return 1;
-	else return n*(n - 1);
+	else return n*factorial (n - 1);
 
 }
 void swap(char& a, char& b){
@@ -27,11 +27,15 @@ void swap(char& a, char& b){
 	b = temp;
 }
 //permute function
+//reference:http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+
+
+
 void permute(string& s, int i, int n)
 {
 	
 	if (i == n){ 
-		//cout << s;
+	//	cout << s<<endl;
 		order.push_back(s);
 	//	times++;
 	//if (times < numOfPermutations)
@@ -46,7 +50,7 @@ void permute(string& s, int i, int n)
 		}
 	}
 }
-void print(vector<string>vs){
+void print(vector<string>&vs){
 	for (int i = 0; i<vs.size(); i++){
 		cout << vs[i];
 		times++;
@@ -55,12 +59,12 @@ void print(vector<string>vs){
 			cout << ",";
 	}
 }
-int main(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
 	vector<string> strings;
 	string word;
 	ifstream inputFile;
-	inputFile.open("stringInput.txt");
+	inputFile.open("stringInput2.txt");
 	while (getline(inputFile, word)){
 	//	cout << word << endl;
 		//storing words in string vector
@@ -77,6 +81,7 @@ int main(int argc, _TCHAR* argv[])
 		order = temp;
 		cout << endl;
 		times = 0;
+		
 	}
 	
 	
