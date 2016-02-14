@@ -15,36 +15,51 @@ public:
 		initialState = iState;
 		goalState = gState;
 		//count = 0;
-
+		current = NULL;
 
 	}
 	//void move()
 	void move(){
 		node* nn;
+	//	current = NULL;
 		nn = new node;
 		nn->state = initialState;
 		nn->parent = NULL;
 		nn->levelDepth = 0;
 		root = nn;
+		current = nn;
 		q.push(nn);
 		while (!q.empty()){
-			current = q.pop();
+			current= q.front();
+			q.pop();
 			
 			if (current->state == goalState){
 				cout << "found at level or after moves: " << current->levelDepth<<endl;
 				printSequence();
 			}
 			//left
-			else if (current->state.(0) != '0' && current->state.(3) != '0' && current->state.(6) != '0'){
-				string temp = current->state;
-				current-
+			 if (current->state[0] != '0' && current->state[3] != '0' && current->state[6] != '0'){
+				//string temp = current->state;
+				left(current->state);
 			}
+			 if (current->state[0] != '0' && current->state[1] != '0' && current->state[2] != '0'){
+				up(current->state);
+			}
+
+			 if (current->state[2] != '0' && current->state[5] != '0' && current->state[8] != '0'){
+				 right(current->state);
+			 }
+			 if (current->state[6] != '0' && current->state[7] != '0' && current->state[8] != '0'){
+				 down(current->state);
+			 }
+
 		}
 
 	}
+
 	void printSequence(){
 		vector<string>seq;
-		vector<string>dir;
+		vector<char>dir;
 		while (current != NULL){
 			seq.push_back(current->state);
 			dir.push_back(current->direction);
@@ -55,14 +70,76 @@ public:
 			cout << dir[i] << endl;
 		}
 	}
+	void up(string u){
+		string temp = u;
+		string nextState;
+		for (int i = 0; i < u.size(); i++){
+			if (u[i] == '0'){
+				nextState = u.substr(0, i - 4) + '0' + u.substr(i -2, 2)+ u[i-3]+ u.substr(i, (u.size() - 1 - i));
+			}
+		}
+		node* nn;
+		nn = new node;
+		nn->state = nextState;
+		nn->direction = 'U';
+		nn->parent = current;
+		nn->levelDepth = current->levelDepth + 1;
+	}
 
+	void down(string d){
+		string temp = d;
+		string nextState;
+		for (int i = 0; i < d.size(); i++){
+			if (d[i] == '0'){
+				nextState = d.substr(0, i - 1) + '0' + d.substr(i - 2, 2) + d[i + 3] + d.substr(i, (d.size() - 1 - i+3));
+			}
+		}
+		node* nn;
+		nn = new node;
+		nn->state = nextState;
+		nn->direction = 'D';
+		nn->parent = current;
+		nn->levelDepth = current->levelDepth + 1;
+	}
+	void left(string l){
+		string temp = l;
+		string nextState;
+		for (int i = 0; i < l.size(); i++){
+			if (l[i] == '0'){
+				nextState = l.substr(0, i - 1) + '0' + l[i - 1] + l.substr(i + 2, (l.size() - 1 - i));
+			}
+		}
+		node* nn;
+		nn = new node;
+		nn->state = nextState;
+		nn->direction = 'L';
+		nn->parent = current;
+		nn->levelDepth = current->levelDepth+1;
+	}
+	
+	void right(string r){
+		string temp = r;
+		string nextState;
+		for (int i = 0; i < r.size(); i++){
+			if (r[i] == '0'){
+				nextState = r.substr(0, i - 1) + r[i + 1] + '0' + r.substr(i + 2, (r.size() - 1 - i));
+			}
+		}
+		node* nn;
+		nn = new node;
+		nn->state = nextState;
+		nn->direction = 'R';
+		nn->parent = current;
+		nn->levelDepth = current->levelDepth + 1;
+	}
 private:
 	string initialState, goalState;
 	node* current;
 	node* root;
 	int count;
 
-	queue<puzzle>q;
+	queue<node*>q;
 };
+#endif
 
 

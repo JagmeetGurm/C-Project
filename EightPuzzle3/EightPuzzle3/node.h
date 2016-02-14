@@ -11,7 +11,7 @@ public:
 
 	string state;
 	node* parent;
-	string direction;
+	char direction;
 	int levelDepth;
 
 };
