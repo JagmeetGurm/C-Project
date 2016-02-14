@@ -42,13 +42,15 @@ public:
 				//string temp = current->state;
 				left(current->state);
 			}
+			 //up
 			 if (current->state[0] != '0' && current->state[1] != '0' && current->state[2] != '0'){
 				up(current->state);
 			}
-
+			 //right
 			 if (current->state[2] != '0' && current->state[5] != '0' && current->state[8] != '0'){
 				 right(current->state);
 			 }
+			 //down
 			 if (current->state[6] != '0' && current->state[7] != '0' && current->state[8] != '0'){
 				 down(current->state);
 			 }
@@ -75,7 +77,12 @@ public:
 		string nextState;
 		for (int i = 0; i < u.size(); i++){
 			if (u[i] == '0'){
-				nextState = u.substr(0, i - 4) + '0' + u.substr(i -2, 2)+ u[i-3]+ u.substr(i, (u.size() - 1 - i));
+				if (i > 4){
+					nextState = u.substr(0, i - 4) + '0' + u.substr(i - 2, 2) + u[i - 3] + u.substr(i + 1, (u.size() - 1 - i));
+				}
+				else {
+					nextState =  '0' + u.substr(i - 2, 2) + u[i - 3] + u.substr(i + 1, (u.size() - 1 - i));
+				}
 			}
 		}
 		node* nn;
@@ -91,7 +98,12 @@ public:
 		string nextState;
 		for (int i = 0; i < d.size(); i++){
 			if (d[i] == '0'){
-				nextState = d.substr(0, i - 1) + '0' + d.substr(i - 2, 2) + d[i + 3] + d.substr(i, (d.size() - 1 - i+3));
+				if (i < 5){
+					nextState = d.substr(0, i - 1) + d[i + 3] + d.substr(i + 1, 2) + '0' + d.substr(i + 4, (d.size() - 1-i));
+				}
+				else{
+					nextState = d.substr(0, i - 1) + d[i + 3] + d.substr(i + 1, 2) + '0' ;
+				}
 			}
 		}
 		node* nn;
@@ -106,7 +118,7 @@ public:
 		string nextState;
 		for (int i = 0; i < l.size(); i++){
 			if (l[i] == '0'){
-				nextState = l.substr(0, i - 1) + '0' + l[i - 1] + l.substr(i + 2, (l.size() - 1 - i));
+				nextState = l.substr(0, i -1) + '0' + l[i - 1] + l.substr(i + 1, (l.size() - 1 - i));
 			}
 		}
 		node* nn;
