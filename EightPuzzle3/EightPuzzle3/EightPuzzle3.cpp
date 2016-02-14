@@ -15,13 +15,16 @@ class puzzle{
 public:
 
 	void move(string iState, string gState){
-		state[iState] = '0';
+		currentState = iState;
+		state[currentState] = '0';
+		nextState = currentState;
 	//	p(iState, "0");
 		q.push(state);
 		goalState = gState;
 		while (!q.empty()){
-
-			if (q.pop(). == goalState){
+			pair<string, string>p(q.pop()[nextState]);
+			
+			if (q.pop()[nextState] == goalState){
 
 			}
 		}
@@ -41,6 +44,8 @@ private:
 	map<string, int>depthLevel;
 	string goalState;
 	pair<string, string>p;
+	string currentState;
+	string nextState;
 
 };
 

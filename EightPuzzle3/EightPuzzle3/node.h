@@ -7,8 +7,12 @@ using namespace std;
 
 class node{
 public:
-	string currentState;
+
+
+	string state;
 	node* parent;
+	string direction;
+	int levelDepth;
 
 };
 #endif
