@@ -8,6 +8,7 @@
 #include <map>
 #include <unordered_map>
 #include <queue>
+#include "node.h"
 #include "puzzle.h"
 using namespace std;
 
@@ -22,7 +23,7 @@ int main()
 
 	p.move();
 
-
+	system("pause");
 	return 0;
 }
 
