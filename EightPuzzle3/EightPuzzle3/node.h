@@ -13,6 +13,8 @@ public:
 	node* parent;
 	char direction;
 	int levelDepth;
+	int currentCost;
+	int totalCost;
 
 };
 #endif

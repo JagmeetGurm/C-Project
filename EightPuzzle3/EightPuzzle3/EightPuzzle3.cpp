@@ -20,9 +20,10 @@ int main()
 	string initialState = "123405786";// 123456708";
 	string finalState = "123456780";
 	puzzle p(initialState, finalState);
+	puzzle p2(initialState, finalState);
 
 	p.move(); //implements using breadth first search
-
+	p2.move2(); // A * search
 	system("pause");
 	return 0;
 }

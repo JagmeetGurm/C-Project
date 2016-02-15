@@ -6,6 +6,7 @@
 #include <string>
 #include <queue>
 #include "node.h"
+#include <stdlib.h>     /* abs */
 using namespace std;
 
 class puzzle{
@@ -68,6 +69,80 @@ public:
 	//	printSequence();
 
 	}
+	//A* search algorithm
+	void move2(){
+		node* nn;
+		//	current = NULL;
+		nn = new node;
+		nn->state = initialState;
+		nn->direction = ' ';
+		nn->parent = NULL;
+		nn->levelDepth = 0;
+		nn->currentCost = 0;
+		nn->totalCost = nn->currentCost + h(initialState, goalState);
+		root = nn;
+		current = nn;
+		q.push(nn);
+		while (!q.empty()){
+			current = q.front();
+		//	q.pop();
+
+			if (current->state == goalState){
+				cout << "found at level or after moves: " << current->levelDepth << endl;
+				printSequence();
+				break;
+			}
+
+			//left
+			if (current->state[0] != '0' && current->state[3] != '0' && current->state[6] != '0'){
+				//string temp = current->state;
+				left(current->state);
+			}
+			//up
+			if (current->state[0] != '0' && current->state[1] != '0' && current->state[2] != '0'){
+				up(current->state);
+			}
+
+			//down
+			if (current->state[6] != '0' && current->state[7] != '0' && current->state[8] != '0'){
+				down(current->state);
+			}
+			//right
+			if (current->state[2] != '0' && current->state[5] != '0' && current->state[8] != '0'){
+				right(current->state);
+			}
+
+		}
+		//	printSequence();
+	}
+
+	//heurisitic function
+	int h(string cState, string nState){
+		char arr1[3][3], arr2[3][3];
+		//converting to array
+		int k = 0, cost=0;
+		for (int i = 0; i < 3; i++){
+			for (int j = 0; j < 3; j++){
+				arr1[i][j] = cState[k];
+				arr2[i][j] = nState[k];
+				k++;
+			}
+		}
+		for (int i = 0; i < 3; i++){
+			for (int j = 0; j < 3; j++){
+				for (int k = 0; k < 3; k++)
+				{
+					for (int l = 0; l < 3; l++){
+						if (arr1[i][j] == arr2[k][l])
+							cost = cost + abs(i - k) + abs(j - l);
+
+					}
+				}
+			}
+		}
+		return cost;
+	}
+
 	//print function to print the sequence in which match is found
 	void printSequence(){
 		vector<string>seq;
@@ -105,8 +180,17 @@ public:
 		nn->state = nextState;
 		nn->direction = 'U';
 		nn->parent = current;
+		nn->currentCost = nn->parent->currentCost + h(nn->parent->state, nn->state);
+		nn->totalCost = nn->currentCost + h(nn->state, goalState);
 		nn->levelDepth = current->levelDepth + 1;
+		if (nn->totalCost>nn->parent->totalCost)
 		q.push(nn);
+		else{
+			node* temp = q.front();
+			q.pop();
+			q.push(nn);
+			q.push(temp);
+		}
 	}
 	//donw direction
 	void down(string d){
@@ -130,7 +214,18 @@ public:
 		nn->direction = 'D';
 		nn->parent = current;
 		nn->levelDepth = current->levelDepth + 1;
-		q.push(nn);
+		//q.push(nn);
+		nn->currentCost = nn->parent->currentCost + h(nn->parent->state, nn->state);
+		nn->totalCost = nn->currentCost + h(nn->state, goalState);
+		nn->levelDepth = current->levelDepth + 1;
+		if (nn->totalCost>nn->parent->totalCost)
+			q.push(nn);
+		else{
+			node* temp = q.front();
+			q.pop();
+			q.push(nn);
+			q.push(temp);
+		}
 	}
 	//left direction
 	void left(string l){
@@ -158,7 +253,19 @@ public:
 		nn->direction = 'L';
 		nn->parent = current;
 		nn->levelDepth = current->levelDepth+1;
-		q.push(nn);
+		//q.push(nn);
+
+		nn->currentCost = nn->parent->currentCost + h(nn->parent->state, nn->state);
+		nn->totalCost = nn->currentCost + h(nn->state, goalState);
+		nn->levelDepth = current->levelDepth + 1;
+		if (nn->totalCost>nn->parent->totalCost)
+			q.push(nn);
+		else{
+			node* temp = q.front();
+			q.pop();
+			q.push(nn);
+			q.push(temp);
+		}
 	}
 	//right direction
 	void right(string r){
@@ -184,7 +291,18 @@ public:
 		nn->direction = 'R';
 		nn->parent = current;
 		nn->levelDepth = current->levelDepth + 1;
-		q.push(nn);
+		//q.push(nn);
+		nn->currentCost = nn->parent->currentCost + h(nn->parent->state, nn->state);
+		nn->totalCost = nn->currentCost + h(nn->state, goalState);
+		nn->levelDepth = current->levelDepth + 1;
+		if (nn->totalCost>nn->parent->totalCost)
+			q.push(nn);
+		else{
+			node* temp = q.front();
+			q.pop();
+			q.push(nn);
+			q.push(temp);
+		}
 	}
 private:
 	//private members

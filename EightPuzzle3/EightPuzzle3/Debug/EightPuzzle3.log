@@ -1,12 +1,12 @@
-﻿Build started 2/14/2016 6:00:17 PM.
+﻿Build started 2/15/2016 2:29:10 AM.
      1>Project "C:\Users\Jagmeet\Documents\Visual Studio 2013\Projects\EightPuzzle3\EightPuzzle3\EightPuzzle3.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\EightPuzzle3.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt EightPuzzle3.cpp
          EightPuzzle3.cpp
-     1>c:\users\jagmeet\documents\visual studio 2013\projects\eightpuzzle3\eightpuzzle3\puzzle.h(90): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\jagmeet\documents\visual studio 2013\projects\eightpuzzle3\eightpuzzle3\puzzle.h(115): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\jagmeet\documents\visual studio 2013\projects\eightpuzzle3\eightpuzzle3\puzzle.h(139): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\jagmeet\documents\visual studio 2013\projects\eightpuzzle3\eightpuzzle3\puzzle.h(167): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\jagmeet\documents\visual studio 2013\projects\eightpuzzle3\eightpuzzle3\puzzle.h(165): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\jagmeet\documents\visual studio 2013\projects\eightpuzzle3\eightpuzzle3\puzzle.h(199): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\jagmeet\documents\visual studio 2013\projects\eightpuzzle3\eightpuzzle3\puzzle.h(234): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\jagmeet\documents\visual studio 2013\projects\eightpuzzle3\eightpuzzle3\puzzle.h(274): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jagmeet\Documents\Visual Studio 2013\Projects\EightPuzzle3\Debug\EightPuzzle3.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jagmeet\Documents\Visual Studio 2013\Projects\EightPuzzle3\Debug\EightPuzzle3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jagmeet\Documents\Visual Studio 2013\Projects\EightPuzzle3\Debug\EightPuzzle3.lib" /MACHINE:X86 Debug\EightPuzzle3.obj
          Debug\stdafx.obj
@@ -15,4 +15,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.14
+Time Elapsed 00:00:01.78
