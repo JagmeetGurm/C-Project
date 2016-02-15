@@ -24,6 +24,7 @@ public:
 	//	current = NULL;
 		nn = new node;
 		nn->state = initialState;
+		nn->direction = ' ';
 		nn->parent = NULL;
 		nn->levelDepth = 0;
 		root = nn;
@@ -38,10 +39,7 @@ public:
 				printSequence();
 				break;
 			}
-			//right
-			if (current->state[2] != '0' && current->state[5] != '0' && current->state[8] != '0'){
-				right(current->state);
-			}
+			
 			//left
 			 if (current->state[0] != '0' && current->state[3] != '0' && current->state[6] != '0'){
 				//string temp = current->state;
@@ -56,9 +54,13 @@ public:
 			 if (current->state[6] != '0' && current->state[7] != '0' && current->state[8] != '0'){
 				 down(current->state);
 			 }
+			 //right
+			 if (current->state[2] != '0' && current->state[5] != '0' && current->state[8] != '0'){
+				 right(current->state);
+			 }
 
 		}
-		printSequence();
+	//	printSequence();
 
 	}
 
@@ -71,8 +73,9 @@ public:
 			current = current->parent;
 		}
 		for (int i = seq.size() - 1; i >= 0; i--){
-			cout << seq[i]<<endl;
-			cout << dir[i] << endl;
+			cout << dir[i] << endl; 
+			cout << seq[i] << endl;
+			
 		}
 	}
 	void up(string u){
@@ -80,11 +83,14 @@ public:
 		string nextState;
 		for (int i = 0; i < u.size(); i++){
 			if (u[i] == '0'){
-				if (i > 4){
-					nextState = u.substr(0, i - 4) + '0' + u.substr(i - 2, 2) + u[i - 3] + u.substr(i + 1, (u.size() - 1 - i));
+
+				if (i == 8)
+					nextState = u.substr(0, i - 3) + '0' + u.substr(i - 2, 2) + u[i - 3]; // +u.substr(i + 1, (u.size() - 1 - i));
+				if (i > 3 ){
+					nextState = u.substr(0, i - 3) + '0' + u.substr(i - 2, 2) + u[i - 3] + u.substr(i + 1, (u.size()-1 - i));
 				}
 				else {
-					nextState =  '0' + u.substr(i - 2, 2) + u[i - 3] + u.substr(i + 1, (u.size() - 1 - i));
+					nextState =  '0' + u.substr(i - 2, 2) + u[i - 3] + u.substr(i + 1, (u.size() -1 - i));
 				}
 			}
 		}
@@ -102,8 +108,10 @@ public:
 		string nextState;
 		for (int i = 0; i < d.size(); i++){
 			if (d[i] == '0'){
+				if (i==0)
+					nextState =d[i + 3] + d.substr(i + 1, 2) + '0' + d.substr(i + 4, (d.size() - 1 - i));
 				if (i < 5){
-					nextState = d.substr(0, i - 1) + d[i + 3] + d.substr(i + 1, 2) + '0' + d.substr(i + 4, (d.size() - 1-i));
+					nextState = d.substr(0, i - 1) + d[i + 3] + d.substr(i + 1, 2) + '0' + d.substr(i + 4, (d.size() - 1-i-3));
 				}
 				else{
 					nextState = d.substr(0, i - 1) + d[i + 3] + d.substr(i + 1, 2) + '0' ;
@@ -123,9 +131,12 @@ public:
 		string nextState;
 		for (int i = 0; i < l.size(); i++){
 			if (l[i] == '0'){
+				if (i == 1){
+					nextState = "0"+ l[i+1] + l.substr(i + 1, (l.size() - 1 - i));
+				}
 				if (i<8)
-				nextState = l.substr(0, i -1) + '0' + l[i - 1] + l.substr(i + 1, (l.size() - 1 - i));
-				else nextState = l.substr(0, i - 1) + '0' + l[i - 1] ;
+				nextState = l.substr(0, i -2) + '0' + l[i - 1] + l.substr(i + 1, (l.size() - 1 - i));
+				else nextState = l.substr(0, i - 2) + '0' + l[i - 1] ;
 			}
 		}
 		node* nn;
@@ -142,18 +153,20 @@ public:
 		string nextState;
 		for (int i = 0; i < r.size(); i++){
 			if (r[i] == '0'){
+				if (i==0)
+					nextState = r.substr(1, 1) + '0' + r.substr(i + 2, (r.size() - 1 - i));
 				if (i < 7)
 				{
 					nextState = r.substr(0, i - 1) + r[i + 1] + '0' + r.substr(i + 2, (r.size() - 1 - i));
 				}
 				else{
-					nextState = r.substr(0, i - 1) + r[i + 1] + '0'; // +r.substr(i + 2, (r.size() - 1 - i));
+					nextState = r.substr(0, i ) + r[i + 1] + '0'; // +r.substr(i + 2, (r.size() - 1 - i));
 				}
 			}
 		}
 		node* nn;
 		nn = new node;
-		nextState = "123456780";
+	//	nextState = "123456780";
 		nn->state = nextState;
 		nn->direction = 'R';
 		nn->parent = current;
