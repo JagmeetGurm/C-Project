@@ -17,11 +17,11 @@ using namespace std;
 
 int main()
 {
-	string initialState = "123456708";
+	string initialState = "123405786";// 123456708";
 	string finalState = "123456780";
 	puzzle p(initialState, finalState);
 
-	p.move();
+	p.move(); //implements using breadth first search
 
 	system("pause");
 	return 0;

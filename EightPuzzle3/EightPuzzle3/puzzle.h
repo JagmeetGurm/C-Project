@@ -10,7 +10,10 @@ using namespace std;
 
 class puzzle{
 
+
+	//public functions
 public:
+	//constructor to set initial and goal state
 	puzzle(string iState, string gState){
 		initialState = iState;
 		goalState = gState;
@@ -19,6 +22,8 @@ public:
 
 	}
 	//void move()
+	//move function generates all the possible moves
+	//a queue is used to perform breadth first search 
 	void move(){
 		node* nn;
 	//	current = NULL;
@@ -63,7 +68,7 @@ public:
 	//	printSequence();
 
 	}
-
+	//print function to print the sequence in which match is found
 	void printSequence(){
 		vector<string>seq;
 		vector<char>dir;
@@ -78,6 +83,7 @@ public:
 			
 		}
 	}
+	//up direction
 	void up(string u){
 		string temp = u;
 		string nextState;
@@ -102,7 +108,7 @@ public:
 		nn->levelDepth = current->levelDepth + 1;
 		q.push(nn);
 	}
-
+	//donw direction
 	void down(string d){
 		string temp = d;
 		string nextState;
@@ -111,10 +117,10 @@ public:
 				if (i==0)
 					nextState =d[i + 3] + d.substr(i + 1, 2) + '0' + d.substr(i + 4, (d.size() - 1 - i));
 				if (i < 5){
-					nextState = d.substr(0, i - 1) + d[i + 3] + d.substr(i + 1, 2) + '0' + d.substr(i + 4, (d.size() - 1-i-3));
+					nextState = d.substr(0, i) + d[i + 3] + d.substr(i + 1, 2) + '0' + d.substr(i + 4);//, (d.size() - 1-i-3));
 				}
 				else{
-					nextState = d.substr(0, i - 1) + d[i + 3] + d.substr(i + 1, 2) + '0' ;
+					nextState = d.substr(0, i ) + d[i + 3] + d.substr(i + 1, 2) + '0' ;
 				}
 			}
 		}
@@ -126,17 +132,24 @@ public:
 		nn->levelDepth = current->levelDepth + 1;
 		q.push(nn);
 	}
+	//left direction
 	void left(string l){
 		string temp = l;
 		string nextState;
 		for (int i = 0; i < l.size(); i++){
 			if (l[i] == '0'){
-				if (i == 1){
+		/*		if (i == 1){
 					nextState = "0"+ l[i+1] + l.substr(i + 1, (l.size() - 1 - i));
 				}
 				if (i<8)
 				nextState = l.substr(0, i -2) + '0' + l[i - 1] + l.substr(i + 1, (l.size() - 1 - i));
 				else nextState = l.substr(0, i - 2) + '0' + l[i - 1] ;
+				*/
+				if (i==1)
+					nextState = "0" + l[i + 1] + l.substr(i + 1, (l.size() - 1 - i));
+				if (i<8)
+				 nextState = l.substr(0, i - 1) + "0" + l[i - 1] + l.substr(i+1, l.size()- 1-i); 
+				else nextState = l.substr(0, i - 1) + '0' + l[i - 1];
 			}
 		}
 		node* nn;
@@ -147,7 +160,7 @@ public:
 		nn->levelDepth = current->levelDepth+1;
 		q.push(nn);
 	}
-	
+	//right direction
 	void right(string r){
 		string temp = r;
 		string nextState;
@@ -157,7 +170,7 @@ public:
 					nextState = r.substr(1, 1) + '0' + r.substr(i + 2, (r.size() - 1 - i));
 				if (i < 7)
 				{
-					nextState = r.substr(0, i - 1) + r[i + 1] + '0' + r.substr(i + 2, (r.size() - 1 - i));
+					nextState = r.substr(0, i) + r[i + 1] + '0' + r.substr(i + 2, (r.size() - 1 - i));
 				}
 				else{
 					nextState = r.substr(0, i ) + r[i + 1] + '0'; // +r.substr(i + 2, (r.size() - 1 - i));
@@ -174,6 +187,7 @@ public:
 		q.push(nn);
 	}
 private:
+	//private members
 	string initialState, goalState;
 	node* current;
 	node* root;
