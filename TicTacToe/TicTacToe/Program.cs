@@ -14,6 +14,10 @@ namespace TicTacToe
     {
         static void Main(string[] args)
         {
+            string initialState = "";
+            int player = 1;
+            int opponent = 2;
+
         }
     }
 }
