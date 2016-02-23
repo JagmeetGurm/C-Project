@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    class game
+  public  class game
     {
-
+      public score(){
+         //if game win score=10;
+          //elseif game lose score=-10;
+          //else return 0;
+      }
     }
     class Program
     {
