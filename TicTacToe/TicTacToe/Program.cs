@@ -13,6 +13,17 @@ namespace TicTacToe
           //elseif game lose score=-10;
           //else return 0;
       }
+
+      //funct player{
+      //reurn the player who has return;
+  //      }
+
+      //func action/dfs{
+      //}
+      //func terminalTest{
+      //}
+      //func utility{
+      //}
     }
     class Program
     {
