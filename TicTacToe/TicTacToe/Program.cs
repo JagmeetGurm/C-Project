@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
+
+    public class node{
+        public int turn;
+        public int level;
+        public int score;
+     public   bool visited;
+    public List<node>adjList=new List<node>();  
+  
+
+    }
   public  class game
     {
       public score(){
@@ -13,9 +23,19 @@ namespace TicTacToe
           //elseif game lose score=-10;
           //else return 0;
       }
+      public Action(){
 
-      //funct player{
+      }
+
+      public string Player(string start, int currentLevel){
+
       //reurn the player who has return;
+          if(start=="PC" && currentLevel%2==0)
+          {
+return "PC";
+             
+        }
+           else return "player";
   //      }
 
       //func action/dfs{
