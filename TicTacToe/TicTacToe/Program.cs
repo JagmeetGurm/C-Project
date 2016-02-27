@@ -45,7 +45,11 @@ public char type;
             for (int i = 0; i < n.adjList.Count; i++)
             {
                 if (n.adjList[i].visited == false)
-                    dfs(ref n);
+                {
+                    node temp = new node();
+                    temp = n.adjList[i];
+                    dfs(ref temp);
+                }
             }
 
         }
