@@ -35,17 +35,22 @@ public char type;
             n.turn = start;
             n.level = 0;
             n.type = t;
-            dfs(n);
+            dfs(ref n);
 
         }
 
-        public void dfs(node n){
+        public void dfs(ref node n){
             n.visited = true;
-            Action(n);
+            Action(ref n);
+            for (int i = 0; i < n.adjList.Count; i++)
+            {
+                if (n.adjList[i].visited == false)
+                    dfs(ref n);
+            }
 
         }
 
-        public List<node> Action(node n)
+        public void Action(ref node n)
         {
 
 
@@ -78,7 +83,7 @@ public char type;
                 }
 
             }
-            return n.adjList;
+       //     return n.adjList;
         }
         public bool Terminal(node n)
         {
