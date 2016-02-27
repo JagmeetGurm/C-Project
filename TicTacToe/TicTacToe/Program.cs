@@ -10,17 +10,18 @@ namespace TicTacToe
     public class node{
         public string turn;
 public char[,] state=new char[3,3];
-
+public char type;
         public int level;
         public int score;
      public   bool visited;
     public List<node>adjList=new List<node>();  
+        
   
 
     }
     public class game
     {
-        public game(string start)
+        public game(string start, char t)
         {
             //create a new node
             node n = new node();
@@ -33,12 +34,32 @@ public char[,] state=new char[3,3];
             }
             n.turn = start;
             n.level = 0;
+            n.type = t;
+            dfs(n);
 
+        }
+
+        public void dfs(node n){
+            n.visited = true;
+            Action(n);
 
         }
 
         public List<node> Action(node n)
         {
+           
+            
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {node nn=new node();
+
+                         if (n.type == 'X'){
+                             n
+                         }
+                    }
+                }
+            
             return n.adjList;
         }
         public bool Terminal(node n)
@@ -93,9 +114,10 @@ public char[,] state=new char[3,3];
         {
             string initialState = "";
             string start="player";
+            char type = 'O';
             int player = 1;
             int opponent = 2;
-            game g=new game(start);
+            game g=new game(start, type);
 
         }
     }
