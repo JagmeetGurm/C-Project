@@ -8,7 +8,9 @@ namespace TicTacToe
 {
 
     public class node{
-        public int turn;
+        public string turn;
+public char[,] state=new char[3,3];
+
         public int level;
         public int score;
      public   bool visited;
@@ -16,42 +18,84 @@ namespace TicTacToe
   
 
     }
-  public  class game
+    public class game
     {
-      public score(){
-         //if game win score=10;
-          //elseif game lose score=-10;
-          //else return 0;
-      }
-      public Action(){
+        public game(string start)
+        {
+            //create a new node
+            node n = new node();
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    n.state[i, j] = ' ';
+                }
+            }
+            n.turn = start;
+            n.level = 0;
 
-      }
 
-      public string Player(string start, int currentLevel){
-
-      //reurn the player who has return;
-          if(start=="PC" && currentLevel%2==0)
-          {
-return "PC";
-             
         }
-           else return "player";
-  //      }
 
-      //func action/dfs{
-      //}
-      //func terminalTest{
-      //}
-      //func utility{
-      //}
+        public List<node> Action(node n)
+        {
+            return n.adjList;
+        }
+        public bool Terminal(node n)
+        {
+            if ((n.state[0, 0] == n.state[0, 1] && n.state[0, 0] == n.state[0, 2]) ||
+                (n.state[1, 0] == n.state[1, 1] && n.state[1, 0] == n.state[1, 2]) ||
+             (n.state[2, 0] == n.state[2, 1] && n.state[2, 0] == n.state[2, 2]) ||
+             (n.state[0, 0] == n.state[1, 0] && n.state[0, 0] == n.state[2, 0]) ||
+              (n.state[0, 1] == n.state[1, 1] && n.state[0, 0] == n.state[2, 1]) ||
+               (n.state[0, 2] == n.state[1, 2] && n.state[0, 2] == n.state[2, 2]) ||
+
+                (n.state[0, 0] == n.state[1, 1] && n.state[0, 0] == n.state[2, 2]) ||
+                 (n.state[0, 2] == n.state[1, 1] && n.state[0, 2] == n.state[2, 0]) ||
+                  (n.state[0, 0] != ' ' && n.state[0, 1] != ' ' && n.state[0, 2] != ' ' &&
+                  n.state[1, 0] != ' ' && n.state[1, 1] != ' ' && n.state[1, 2] != ' '
+                  && n.state[2, 0] != ' ' && n.state[2, 1] != ' ' && n.state[2, 2] != ' ')
+                  )
+            {
+
+                return true;
+            }
+
+              //return true;
+            else return false;
+
+
+        }
+
+        public string Player(string start, int currentLevel)
+        {
+
+            //reurn the player who has return;
+            if (start == "PC" && currentLevel % 2 == 0)
+            {
+                return "PC";
+
+            }
+            else return "player";
+            //      }
+
+            //func action/dfs{
+            //}
+            //func terminalTest{
+            //}
+            //func utility{
+            //}
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
             string initialState = "";
+            string start="player";
             int player = 1;
             int opponent = 2;
+            game g=new game(start);
 
         }
     }
