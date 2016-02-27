@@ -47,19 +47,37 @@ public char type;
 
         public List<node> Action(node n)
         {
-           
-            
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 0; j < 3; j++)
-                    {node nn=new node();
 
-                         if (n.type == 'X'){
-                             n
-                         }
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    node nn = new node();
+
+                    if (n.type == 'X')
+                    {
+                        if (n.state[i, j] != 'X' && n.state[i, j] != 'O')
+                        {
+                            nn.state[i, j] = 'X';
+                            nn.type = 'X';
+                        }
+
                     }
+                    else
+                    {
+                        if (n.state[i, j] != 'X' && n.state[i, j] != 'O')
+                        {
+                            nn.state[i, j] = 'O';
+                            nn.type = 'O';
+                        }
+
+                    }
+
+                    n.adjList.Add(nn);
                 }
-            
+
+            }
             return n.adjList;
         }
         public bool Terminal(node n)
