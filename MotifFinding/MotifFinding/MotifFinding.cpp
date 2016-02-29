@@ -11,16 +11,18 @@
 using namespace std;
 
 void generateComb(vector<string>& comb){
-	char	t[4] = { 'A', 'C', 'G', 'T' };
-//	string t = "ACGT";
-	string temp;
-	for (int a = 0; a < 6; a++){
-		for (int b = 0; b < 6; b++){
-			for (int c = 0; c < 6; c++){
-				for (int d = 0; d < 6; d++){
-					for (int e = 0; e < 6; e++){
-						for (int f = 0; f < 6; f++){
-							 temp =t[a]+ t[b] + t[c] + t[d] + t[e] + t[f];
+//	char	t[4] = { 'A', 'C', 'G', 'T' };
+	string t = "ACGT";
+	
+	for (int a = 0; a < 4; a++){
+		for (int b = 0; b < 4; b++){
+			for (int c = 0; c < 4; c++){
+				for (int d = 0; d < 4; d++){
+					for (int e = 0; e < 4; e++){
+						for (int f = 0; f < 4; f++){
+							string temp = "";
+							 temp =temp+t[a]+ t[b] + t[c] + t[d] + t[e] + t[f];
+						//	 cout << temp << endl;
 							comb.push_back(temp);
 						}
 					}
@@ -29,11 +31,26 @@ void generateComb(vector<string>& comb){
 		}
 	}
 }
+int hummingDistance(string& v, string& seq){
+
+}
+int totalDistance(string& v, unordered_map<string, string>& dna, vector<string>& labels){
+	int sum = 0;
+	for (int i = 0; i < 617; i++){
+		sum = sum + hummingDistance(v, dna[labels[i]]);
+	}
+}
 void medianSearch(unordered_map<string, string>& dna, vector<string>& labels, int l){
 	string bestWord = "AAAAAA";
 	int bestDistance = 5000;
 	vector<string>combinations;
 	generateComb(combinations);
+	for (int i = 0; i < 4096; i++){
+		string v = combinations[i];
+		if (totalDistance(v, dna, labels) < bestDistance){
+
+		}
+	}
 
 }
 int main()
@@ -84,8 +101,7 @@ int main()
 
 		}
 
-		cout << "label: " << labels[2] << endl;
-		cout << "seq: " << dna[labels[2]] << endl;
+		
 
 		medianSearch(dna, labels, 6);
 	}
