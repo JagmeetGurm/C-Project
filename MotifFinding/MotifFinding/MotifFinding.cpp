@@ -31,8 +31,25 @@ void generateComb(vector<string>& comb){
 		}
 	}
 }
+int comp(string v, string temp){
+	int diff = 0;
+	for (int i = 0; i < 6; i++){
+		if (v[i] != temp[i]){
+			diff++;
+		}
+	}
+	return diff;
+}
 int hummingDistance(string& v, string& seq){
+	int min=7;
+	for (int i = 0; i < seq.length() - 6; i++){
+		string temp = seq.substr(i, 6);
+		int t = comp(v, temp);
+		if (t< min){
+			min=t;
 
+	}
+		return min;
 }
 int totalDistance(string& v, unordered_map<string, string>& dna, vector<string>& labels){
 	int sum = 0;
