@@ -449,6 +449,17 @@ public void computerMove()
             else board[r1.x, r1.y] = 'O';
             //board[r1.x, r1.y] = r1.val;
         }
+public void playerMove()
+        {
+           // char move = ' ';
+            Console.WriteLine("enter your move: ");
+            string t = Console.ReadLine();
+            string[] move= t.Split(',');
+            int x = int.Parse(move[0]);
+            int y = int.Parse(move[1]);
+            board[x, y] = 'O';
+
+        }
 
 
 
