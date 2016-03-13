@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TicTacToe
 {
    
-
+/*
     public class node{
         public string turn;
 public char[,] state=new char[3,3];
@@ -141,11 +141,11 @@ public char type;
                             {
                                 for (int l = 0; l < 3; l++)
                                 {
-                                    nn.state[k, l] = ' ';
+                                    nn.state[k, l] = n.state[k,l];
                                 }
                             }
                                 nn.state[i, j] = 'X';
-                            nn.type = 'X';
+                            nn.type = 'O';
                         }
 
                     }
@@ -157,11 +157,11 @@ public char type;
                             {
                                 for (int l = 0; l < 3; l++)
                                 {
-                                    nn.state[k, l] = ' ';
+                                    nn.state[k, l] = n.state[k,l];
                                 }
                             }
                             nn.state[i, j] = 'O';
-                            nn.type = 'O';
+                            nn.type = 'X';
                         }
 
                     }
@@ -228,7 +228,8 @@ public char type;
             int player = 1;
             int opponent = 2;
             game g=new game(start, type);
-
+            Console.ReadLine();
         }
     }
-}
+ *///the return values are wrapped around this result class
+    
