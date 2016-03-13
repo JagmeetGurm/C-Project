@@ -439,6 +439,16 @@ public char type;
             // r2.val = bestValue;
             return r2;
         }
+public void computerMove()
+        {
+            result r1=new result();
+         //   r1 = minimax(0, 0, 'X');
+            r1 = prunning(0, 0, 'X', -10, 10);
+            if (r1.val == 1 || r1.val == 0)
+                board[r1.x, r1.y] = 'X';
+            else board[r1.x, r1.y] = 'O';
+            //board[r1.x, r1.y] = r1.val;
+        }
 
 
 
