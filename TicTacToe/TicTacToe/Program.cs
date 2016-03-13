@@ -232,4 +232,49 @@ public char type;
         }
     }
  *///the return values are wrapped around this result class
-    
+
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string initialState = "";
+            string start = "player";
+            char type = 'O';
+            int player = 1;
+            int opponent = 2;
+            //computer is X, player is O
+            //computer is going first
+            int choice = 2;//player is 2nd
+            //computer is 1, player is -1
+            game g = new game();
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    g.board[i, j] = ' ';
+                }
+            }
+            for (int i = 0; i < 9; i++)
+            {
+                if (g.checkResult() == 0)
+                    g.move(i);
+                else i = 9;
+            }
+            if (g.checkResult() == 1)
+            {
+                Console.WriteLine("Computer won. You lost.");
+            }
+            else if (g.checkResult() == -1)
+            {
+
+                Console.WriteLine("You won. congrats.");
+            }
+            else
+                Console.WriteLine("Its a draw.");
+            Console.ReadLine();
+        }
+    }
+}
+
