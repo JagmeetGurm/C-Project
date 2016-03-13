@@ -232,6 +232,43 @@ public char type;
         }
     }
  *///the return values are wrapped around this result class
+    class result
+    {
+     public   int val, x, y;
+    }
+    class game
+    {
+        public char[,] board = new char[3, 3];
+   
+        public void Action(ref List<char[,]>adj, char player){
+            if (player == 'X')
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (board[i, j] == ' ')
+                        {
+                            board[i, j] = 'X';
+                        }
+                    }
+                }
+            }
+            if (player == 'O')
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (board[i, j] == ' ')
+                        {
+                            board[i, j] = 'O';
+                        }
+
+                    }
+                }
+            }
+        }
 
 
 
