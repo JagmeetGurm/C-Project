@@ -351,6 +351,94 @@ public char type;
            // r2.val = bestValue;
             return r2;
         }
+// Algorithm Referenced from: 
+//Java Graphic Tutorial, http://www3.ntu.edu.sg/home/ehchua/programming/java/javagame_tictactoe_ai.html
+//PLAYING WITH GAME THEORY, https://gangsterveggies.wordpress.com/tag/alpha-beta-pruning/
+
+
+        public result prunning(int a, int b, char player, int alpha, int beta)
+        {
+            result r2 = new result();
+            int x1 = -1, y1 = -1;
+            int bestValue = (player == 'X') ? -10 : 10;
+            if (checkResult() != 0)
+            {
+                r2.x = a;
+                r2.y = b;
+                r2.val = checkResult();
+                return r2;
+            }
+            if (player == 'X')
+            {
+                bestValue = -10;
+                //      List<char[,]> adjList = new List<char[,]>();
+                //    Action( ref adjList, player);
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (board[i, j] == ' ')
+                        {//If legal,
+                            board[i, j] = 'X';
+
+
+                            int score = prunning(i, j, 'O', alpha, beta).val;
+                            if (score > alpha)
+                            {
+                                alpha = score;
+                          //      bestValue = score;
+                                r2.val = score;
+                                r2.x = i;
+                                r2.y = j;
+                                //  move = i;
+                            }//Pick the one that's worst for the opponent
+                            board[i, j] = ' ';//
+                            if (alpha >= beta) break;
+                        }
+
+                    }
+                }
+                return r2;
+            }
+
+
+            if (player == 'O')
+            {
+                bestValue = 10;
+                //      List<char[,]> adjList = new List<char[,]>();
+                //    Action( ref adjList, player);
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (board[i, j] == ' ')
+                        {//If legal,
+                            board[i, j] = 'O';
+
+                            int score = prunning(i, j, 'X', alpha, beta).val;
+                            if (score < beta)
+                            {
+                                beta = score;
+                              //  bestValue = score;
+                                r2.val = score;
+                                r2.x = i;
+                                r2.y = j;
+                             
+                                //  move = i;
+                            }//Pick the one that's worst for the opponent
+                            board[i, j] = ' ';//
+                            if (alpha >= beta) break;
+                        }
+
+                    }
+                }
+                //    return r2;
+            }
+            //    r2.x = x1;
+            //   r2.y = y1;
+            // r2.val = bestValue;
+            return r2;
+        }
 
 
 
