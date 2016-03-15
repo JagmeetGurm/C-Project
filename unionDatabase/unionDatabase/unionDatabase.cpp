@@ -56,9 +56,10 @@ int main()
 						string:: size_type sz;
 
 						 queryLength = stoi(lines[i].substr(7), &sz);
+						 cout << "queryLength: " << queryLength << endl << endl;
 					}
-					if (lines[i].substr(1, 12) == "Identities ="){
-						int j = 0; string temp = ""; string::size_type sz2;
+					if ((lines[i].find("Identities ="))!=string::npos){
+						int j = 14; string temp = ""; string::size_type sz2;
 						while (lines[i][j] != '/'){
 							temp += lines[i][j];
 							j++;
