@@ -30,7 +30,7 @@ int main()
 		string line;
 		string key;
 		vector<string>lines;
-		vector<string>labels;
+		unordered_map<string, string>nucl;
 	//	unordered_map<string, string>dna;
 		while (!inputFile2.eof())
 		{
@@ -40,18 +40,36 @@ int main()
 
 		}
 
-		for (int i = 0; i < 20; i++){
-			if (lines[i].substr(0, 7)  == "Length="){
+		for (int i = 14; i < 100; i++){
+			if (lines[i].substr(0, 6)  == "Query="){
 			key = lines[i];
 					cout << key << endl;
+					cout << endl;
+					cout << endl;
 			}
 			else{
 				string seq = "";
-				while (i < 20 && lines[i].substr(0, 7) != "Length="){
+				while (lines[i].substr(0, 6) != "Query="){
 					seq = seq + lines[i];
+					if (lines[i].substr(0, 7) == "Length"){
+						string:: size_type sz;
+
+						int queryLength = stoi(lines[i].substr(7), &sz);
+					}
+					if (lines[i].substr(1, 12) == "Identities ="){
+						int j = 0; string temp = ""; string::size_type sz2;
+						while (lines[i][j] != '/'){
+							temp += lines[i][j];
+							j++;
+						}
+						
+							int alignLength = stoi(temp, &sz2);
+							if ((90 / 100) <= alignLength)
+					}
 					i++;
 				}
 					cout << seq<<endl;
+					nucl[key] = seq;
 				i--;
 		//		dna[ex] = seq;
 
