@@ -29,6 +29,7 @@ int main()
 		string seq = "";
 		string line;
 		string key;
+		vector<string>labels;
 		vector<string>lines;
 		unordered_map<string, string>nucl;
 	//	unordered_map<string, string>dna;
@@ -50,11 +51,11 @@ int main()
 			else{
 				string seq = "";
 				while (lines[i].substr(0, 6) != "Query="){
-					seq = seq + lines[i];
+					seq = seq + lines[i]; int queryLength;
 					if (lines[i].substr(0, 7) == "Length"){
 						string:: size_type sz;
 
-						int queryLength = stoi(lines[i].substr(7), &sz);
+						 queryLength = stoi(lines[i].substr(7), &sz);
 					}
 					if (lines[i].substr(1, 12) == "Identities ="){
 						int j = 0; string temp = ""; string::size_type sz2;
@@ -63,8 +64,12 @@ int main()
 							j++;
 						}
 						
-							int alignLength = stoi(temp, &sz2);
-							if ((90 / 100) <= alignLength)
+							int alignLength = stoi(temp, &sz2); 
+							cout << alignLength + 10000<<endl<<endl;
+							if ((90 / 100) <= alignLength/queryLength <= 110 / 100){
+								labels.push_back(key);
+								cout << "key: " << labels[0]<<endl<<endl;
+							}
 					}
 					i++;
 				}
