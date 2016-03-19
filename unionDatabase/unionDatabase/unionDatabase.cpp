@@ -44,16 +44,22 @@ void unionFunc(unordered_map<string, string>&file1, unordered_map<string, string
 //the function receives tow inputs: the file and the list of query names to be removed
 void reduceFile(unordered_map<string, string>& comb, vector<string>& label){
 	cout << "now size: " << comb.size() << endl;
-	for (auto it = comb.begin(); it != comb.end(); ++it){
-
+	for (auto it = comb.begin(); it != comb.end(); ){
+		bool t = true;
 		for (int i = 0; i < label.size(); i++){
 			if (it->first == label[i]){
-				cout << it->first << endl;
-				comb.erase(label[i]);
-				goto done;
+			//	cout << it->first << endl;
+			it=	comb.erase(it);
+				i = label.size();
+				t = false;
+			//	goto done;
 			}
 		}
-	done:;
+		if(t)
+			it++;
+//	done:
+		//it++;
+//	done:;
 	}
 	
 
