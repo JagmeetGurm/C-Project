@@ -43,13 +43,19 @@ void unionFunc(unordered_map<string, string>&file1, unordered_map<string, string
 //function to remove the found redundant query list from the original database
 //the function receives tow inputs: the file and the list of query names to be removed
 void reduceFile(unordered_map<string, string>& comb, vector<string>& label){
-	for (auto& x : comb){
+	cout << "now size: " << comb.size() << endl;
+	for (auto it = comb.begin(); it != comb.end(); ++it){
+
 		for (int i = 0; i < label.size(); i++){
-			if (x.first == label[i]){
+			if (it->first == label[i]){
+				cout << it->first << endl;
 				comb.erase(label[i]);
+				goto done;
 			}
 		}
+	done:;
 	}
+	
 
 }
 
@@ -93,7 +99,7 @@ unordered_map<string,string> readSecondFile(){
 			}
 			else{
 				string seq = "";
-				while (lines[i].substr(0, 6) != "Query="){
+				while (i< lines.size() && lines[i].substr(0, 6) != "Query="){
 					seq = seq + lines[i]; int queryLength = 1;
 					if (lines[i].substr(0, 7) == "Length=" && lines[i - 2].substr(0, 6) == "Query="){
 						string::size_type sz;
@@ -187,7 +193,7 @@ int main()
 			else{
 				string seq = "";
 				while (i<lines.size() &&  lines[i].substr(0, 6) != "Query="){
-					cout << i << endl;
+				//	cout << i << endl;
 					seq = seq + lines[i]; int queryLength = 1;
 					if (lines[i].substr(0, 7) == "Length=" && lines[i-2].substr(0,6)=="Query="){
 						string:: size_type sz;
@@ -231,11 +237,11 @@ int main()
 
 		}
 
-	//	cout << "size: " << labels.size() << endl;
+		cout << "size: " << labels.size() << endl;
 
 	//	medianSearch(dna, labels, 6);
 	}
-//	reduceFile(nucl, labels);
+	reduceFile(nucl, labels);
 //	unordered_map<string,string>temp=readSecondFile();
 	//reduceFile(temp, labels);
 	//unionFunc(nucl, temp);
