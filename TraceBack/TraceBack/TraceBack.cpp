@@ -75,7 +75,7 @@ vector<int> score;
 	else{
 		while (!queryFile.eof()){
 			getline(queryFile, line);
-			//cout << line << endl;
+			
 		}
 	}
 	//opening db file and reading it in a vector 
