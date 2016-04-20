@@ -121,13 +121,13 @@ vector<int> score;
 	 string seq = "";
 	
 	 string ex;
-	// vector<string>lines;
+	
 	 vector<string>labels;
 	 unordered_map<string, string>dna;
 	 for (int i = 0; i < DBSeqs.size(); i++){
 		 if (DBSeqs[i][0] == '>'){
 			 ex = DBSeqs[i];
-			 //	cout << ex << endl;
+			 
 		 }
 		 else{
 			 //storing label and seq in unordered map
@@ -136,7 +136,7 @@ vector<int> score;
 				 seq = seq + DBSeqs[i];
 				 i++;
 			 }
-			 //	cout << seq<<endl;
+			 
 			 i--;
 			 dna[ex] = seq;
 
@@ -144,7 +144,7 @@ vector<int> score;
 		 }
 
 	 }
-	 //
+	
 	 for (auto it = dna.begin(); it != dna.end(); ++it)
 	 {
 		 //calling the smith-waterman function
