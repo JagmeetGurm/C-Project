@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <assert.h>
+#include <string>
 
 using namespace std;
 //first will read numbers from file line by line and 
@@ -77,15 +78,26 @@ int main(int argc, char* argv[])
 	std::ifstream inputFile;
 	inputFile.open("Fibonacci.txt");
 	int a;
+	string s;
 	if (!inputFile){
 		cout << "sorry can't open" << endl;
 	}
-	else{//one way of reading file
+/*	else{//one way of reading file
 		while (inputFile >> a){
 			cout << "a's fibonacci: ";
 			cout << fibo(a) << endl;
 			//cout<< fibo2(a) << std::endl;
 
+		}
+	}
+	*/
+	//reading file 2nd way
+	else{
+		while (!inputFile.eof()){
+			getline(inputFile, s);
+			string::size_type sz;
+		cout<<	fibo(stoi(s));
+			cout <<  endl;
 		}
 	}
 	//lets check fact
