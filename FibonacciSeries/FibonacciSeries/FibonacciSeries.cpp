@@ -53,6 +53,14 @@ void swapByRef(int& a, int& b){
 
 }
 
+//call by pointer
+void swapByPointer(int *a, int *b){
+	int c;
+	c = *a;
+	*a = *b;
+	
+	*b = c;
+}
 int main(int argc, char* argv[])
 {
 	std::ifstream inputFile;
@@ -70,6 +78,10 @@ int main(int argc, char* argv[])
 	//call swap by reference to swap values
 	swap(a, b);
 	//now a=10, b=5; lets see
+	cout << "a: " << a << " " << "b: " << b << endl;
+
+	swapByPointer(&a, &b);
+	//the a and b values should be back to what they were
 	cout << "a: " << a << " " << "b: " << b << endl;
 	system("pause");
 	return 0;
