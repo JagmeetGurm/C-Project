@@ -73,6 +73,23 @@ void passArray2(int a[]){
 }
 
 
+//sort the array, sort function(sequential sort)
+void sort(int* a, int l){
+	int min = 1000;
+	for (int j = 0; j < l; j++){
+		min = j;
+		for (int i = j+1; i < l; i++){
+			//find min index
+			if (a[min] > a[i])
+				min = i;
+		}
+	//swap the min value 
+		int temp = a[j];
+		a[j] = a[min];
+		a[min] = temp;
+	}
+
+}
 int main(int argc, char* argv[])
 {
 	std::ifstream inputFile;
@@ -112,9 +129,13 @@ int main(int argc, char* argv[])
 	swapByPointer(&a, &b);
 	//the a and b values should be back to what they were
 	cout << "a: " << a << " " << "b: " << b << endl;
-	int arr[5] = {2,3,4, 3, 6 };
+	int arr[5] = {2,4, 3, 6, 3 };
 	 passArray(arr,5);
 	 passArray2(arr);
+	 sort(arr, 5);
+	 for (int i = 0; i < 5; i++){
+		 cout << arr[i] << "    ";
+	 }
 	system("pause");
 	return 0;
 }
