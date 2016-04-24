@@ -61,6 +61,13 @@ void swapByPointer(int *a, int *b){
 	
 	*b = c;
 }
+
+//pass array-1st way
+void passArray(int* a, int len){
+	int size = len;
+	cout << "its 3rd element: " << a[2] << endl;
+}
+
 int main(int argc, char* argv[])
 {
 	std::ifstream inputFile;
@@ -83,6 +90,8 @@ int main(int argc, char* argv[])
 	swapByPointer(&a, &b);
 	//the a and b values should be back to what they were
 	cout << "a: " << a << " " << "b: " << b << endl;
+	int arr[5] = {2,3,4, 3, 6 };
+	 passArray(arr,5);
 	system("pause");
 	return 0;
 }
