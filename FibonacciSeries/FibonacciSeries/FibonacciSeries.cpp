@@ -70,16 +70,24 @@ void passArray(int* a, int len){
 void passArray2(int a[]){
 	cout <<" its 2nd element: "<< a[1] << endl;
 }
+
+
 int main(int argc, char* argv[])
 {
 	std::ifstream inputFile;
-//	inputFile.open(argv[1]);
+	inputFile.open("Fibonacci.txt");
 	int a;
-	//while (inputFile >> a){
-	//	std::cout << fibo(a) << std::endl;
-	//	std::cout << fibo2(a) << std::endl;
+	if (!inputFile){
+		cout << "sorry can't open" << endl;
+	}
+	else{//one way of reading file
+		while (inputFile >> a){
+			cout << "a's fibonacci: ";
+			cout << fibo(a) << endl;
+			//cout<< fibo2(a) << std::endl;
 
-//	}
+		}
+	}
 	//lets check fact
 	cout<<fact(5)<<endl;
 	a = 5;
