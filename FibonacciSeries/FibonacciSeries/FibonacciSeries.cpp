@@ -1,11 +1,11 @@
 // FibonacciSeries.cpp : Defines the entry point for the console application.
 //
 
-//#include "stdafx.h"
+#include "stdafx.h"
 #include <iostream>
 #include <fstream>
 
-//using namespace std;
+using namespace std;
 //first will read numbers from file line by line and 
 //then print corresponding fibonacci number
 
@@ -34,16 +34,25 @@ int fibo(int n){
 	else return fibo(n - 1) + fibo(n - 2);
 }
 
+//function to calculate factorial value
+int fact(int n){
+	if (n == 0)
+		return 1;
+	else return n*fact(n - 1);
+}
+
 int main(int argc, char* argv[])
 {
 	std::ifstream inputFile;
-	inputFile.open(argv[1]);
+//	inputFile.open(argv[1]);
 	int a;
-	while (inputFile >> a){
+	//while (inputFile >> a){
 	//	std::cout << fibo(a) << std::endl;
-		std::cout << fibo2(a) << std::endl;
+	//	std::cout << fibo2(a) << std::endl;
 
-	}
+//	}
+	//lets check fact
+	cout<<fact(5)<<endl;
 	system("pause");
 	return 0;
 }
