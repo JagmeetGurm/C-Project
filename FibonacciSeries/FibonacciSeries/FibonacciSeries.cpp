@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include <fstream>
+#include <assert.h>
 
 using namespace std;
 //first will read numbers from file line by line and 
@@ -36,9 +37,20 @@ int fibo(int n){
 
 //function to calculate factorial value
 int fact(int n){
+	//assert 
+	assert(n >= 0 && "n is less than 0");
 	if (n == 0)
 		return 1;
 	else return n*fact(n - 1);
+}
+//pass by reference
+void swapByRef(int& a, int& b){
+	int c;
+	c = a;
+	a = b;
+	b = c;
+	return;
+
 }
 
 int main(int argc, char* argv[])
@@ -53,6 +65,12 @@ int main(int argc, char* argv[])
 //	}
 	//lets check fact
 	cout<<fact(5)<<endl;
+	a = 5;
+	int b = 10;
+	//call swap by reference to swap values
+	swap(a, b);
+	//now a=10, b=5; lets see
+	cout << "a: " << a << " " << "b: " << b << endl;
 	system("pause");
 	return 0;
 }
