@@ -67,7 +67,9 @@ void passArray(int* a, int len){
 	int size = len;
 	cout << "its 3rd element: " << a[2] << endl;
 }
-
+void passArray2(int a[]){
+	cout <<" its 2nd element: "<< a[1] << endl;
+}
 int main(int argc, char* argv[])
 {
 	std::ifstream inputFile;
@@ -92,6 +94,7 @@ int main(int argc, char* argv[])
 	cout << "a: " << a << " " << "b: " << b << endl;
 	int arr[5] = {2,3,4, 3, 6 };
 	 passArray(arr,5);
+	 passArray2(arr);
 	system("pause");
 	return 0;
 }
