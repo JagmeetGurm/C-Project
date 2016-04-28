@@ -10,6 +10,8 @@
 #include <fstream>
 #include <sstream>
 #include <iterator>
+#include <algorithm>
+
 
 
 
@@ -44,6 +46,11 @@ private:
 	string strand;
 
 };
+
+void sortGene(vector<gene>& g){
+	//sort(g.begin(), g.end());
+
+}
 int main()
 {
 	
@@ -66,20 +73,16 @@ int main()
 			std::istream_iterator<std::string> beg(buf), end;
 
 			std::vector<std::string> tokens(beg, end); // done!
-		//	cout << tokens[2]<<endl;
-	//		for (auto& s : tokens)
-		//		std::cout << '"' << s << '"' << '\n';
+		
 //lets create the genes;
 			std::string::size_type sz;
 			
 			gene g(stoi(tokens[1]), stoi(tokens[2]), tokens[3]);
 			geneStorage.push_back(g);
-		//	cout << geneStorage.size() << endl;
+		
 		}
 	}
-	cout<<geneStorage[0].sourceID()<<endl;
-	cout << geneStorage[1].destID() << endl;
-	cout << geneStorage[2].gID() << endl;
+	sortGene(geneStorage);
 	system("pause");
 	return 0;
 }
