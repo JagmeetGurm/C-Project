@@ -12,6 +12,33 @@
 
 using namespace std;
 
+class gene{
+public:
+	gene(int src, int dest, int dummy, string id, char strand){
+		this->src = src;
+		this->dest = dest;
+		this->dummy = dummy;
+		geneID = id;
+		this->strand = strand;
+
+
+	}
+	int sourceID(){
+		return src;
+	}
+	int destID(){
+		return dest;
+	}
+	string gID(){
+		return geneID;
+	}
+
+private:
+	int src, dest, dummy;
+	string geneID;
+	char strand;
+
+};
 int main()
 {
 	ifstream inputFile;
@@ -26,7 +53,7 @@ int main()
 			getline(inputFile, line);
 			//check the file being read
 			cout << line << endl;
-
+//
 
 		}
 	}
