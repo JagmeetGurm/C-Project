@@ -21,12 +21,12 @@ class gene{
 	
 
 public:
-	gene(int src, int dest, string id){
+	gene(int src, int dest, string id, int dummy, string strand){
 		this->src = src;
 		this->dest = dest;
-		//this->dummy = dummy;
+		this->dummy = dummy;
 		geneID = id;
-		//this->strand = strand;
+		this->strand = strand;
 
 
 	}
@@ -47,9 +47,23 @@ private:
 
 };
 
-void sortGene(vector<gene>& g){
+bool sortGene(gene& g1, gene& g2){
+	return (g1.sourceID() < g2.sourceID());
 	//sort(g.begin(), g.end());
-
+/*	int min;
+	for (int i = 0; i < g.size() - 1; i++){
+		int min = i;
+		for (int j = i + 1; j < g.size(); j++){
+			if (g[min].sourceID() > g[j].sourceID()){
+				min = j;
+			}
+		}
+	
+		gene temp = g[min];
+		g[min] = g[i];
+		g[i] = temp;
+	}
+*/	
 }
 int main()
 {
@@ -77,12 +91,16 @@ int main()
 //lets create the genes;
 			std::string::size_type sz;
 			
-			gene g(stoi(tokens[1]), stoi(tokens[2]), tokens[3]);
+			gene g(stoi(tokens[1]), stoi(tokens[2]), tokens[3], stoi(tokens[4]), tokens[5]);
 			geneStorage.push_back(g);
 		
 		}
 	}
-	sortGene(geneStorage);
+	cout << "Im here: " << endl;
+	sort(geneStorage.begin(), geneStorage.end(), sortGene);
+	for (int i = 0; i < 200; i++){
+		cout << geneStorage[i].sourceID() << endl;
+	}
 	system("pause");
 	return 0;
 }
