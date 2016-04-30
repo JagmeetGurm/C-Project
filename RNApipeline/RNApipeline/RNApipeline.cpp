@@ -39,6 +39,12 @@ public:
 	string gID(){
 		return geneID;
 	}
+	void setGID(string a){
+		geneID = a;
+	}
+	void setStrand(string b){
+		strand = b;
+	}
 
 private:
 	int src, dest, dummy;
@@ -49,21 +55,29 @@ private:
 
 bool sortGene(gene& g1, gene& g2){
 	return (g1.sourceID() < g2.sourceID());
-	//sort(g.begin(), g.end());
-/*	int min;
-	for (int i = 0; i < g.size() - 1; i++){
-		int min = i;
-		for (int j = i + 1; j < g.size(); j++){
-			if (g[min].sourceID() > g[j].sourceID()){
-				min = j;
-			}
-		}
 	
-		gene temp = g[min];
-		g[min] = g[i];
-		g[i] = temp;
+}
+
+void collapsed(vector<gene>& storage, vector<gene>& modified){
+	int i, j;
+	for (i = 0; i < storage.size() - 1; i++){
+
+		if (storage[i].sourceID() == storage[i + 1].sourceID()){
+			j = i + 1;
+			while (j<storage.size() && storage[i].sourceID() == storage[j].sourceID()){
+				j++;
+			}
+			j = j - 1;
+			storage[j].setGID("x");
+			storage[j].setStrand("+");
+			modified.push_back(storage[j]);
+			i = j;
+		}
+		else{
+			modified.push_back(storage[i]);
+		}
+		
 	}
-*/	
 }
 int main()
 {
@@ -72,7 +86,9 @@ int main()
 	ifstream inputFile;
 	string line;
 	vector<gene>geneStorage;
+	vector<gene>modifiedGene;
 	inputFile.open("HG19-refseq-exon-annot-chr1-2016");
+//	inputFile.open("test");
 	if (!inputFile){
 		cout << "sorry! can't open the file" << endl;
 
@@ -98,8 +114,10 @@ int main()
 	}
 	cout << "Im here: " << endl;
 	sort(geneStorage.begin(), geneStorage.end(), sortGene);
+	cout << "done: " << endl;
+	collapsed(geneStorage, modifiedGene);
 	for (int i = 0; i < 200; i++){
-		cout << geneStorage[i].sourceID() << endl;
+		cout << modifiedGene[i].sourceID() << endl;
 	}
 	system("pause");
 	return 0;
