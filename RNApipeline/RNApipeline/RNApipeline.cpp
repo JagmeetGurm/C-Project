@@ -68,6 +68,7 @@ void collapsed(vector<gene>& storage, vector<gene>& modified){
 				j++;
 			}
 			j = j - 1;
+			//reset their values(collapsed ones)
 			storage[j].setGID("x");
 			storage[j].setStrand("+");
 			modified.push_back(storage[j]);
