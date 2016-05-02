@@ -86,7 +86,7 @@ void geneCount(vector<gene>& exon, vector<gene>& bowtie){
 		for (int j = 0; j < bowtie.size(); j++){
 			if (exon[i].sourceID() <= bowtie[j].sourceID() && exon[i].destID() >= bowtie[j].destID())
 				exon[i].count++;
-			if (bowtie[j].destID() > exon[i+1].destID())
+			if (bowtie[j].destID() > exon[i].destID())
 				j = bowtie.size();
 		}
 	}
@@ -100,8 +100,8 @@ int main()
 	vector<gene>geneStorage;
 	vector<gene>boutGene;
 	vector<gene>modifiedGene;
-	inputFile.open("HG19-refseq-exon-annot-chr1-2016");
-//	inputFile.open("test");
+//	inputFile.open("HG19-refseq-exon-annot-chr1-2016");
+	inputFile.open("new 2");
 	if (!inputFile){
 		cout << "sorry! can't open the file" << endl;
 
