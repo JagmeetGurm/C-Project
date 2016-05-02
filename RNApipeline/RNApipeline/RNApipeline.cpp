@@ -45,9 +45,9 @@ public:
 	void setStrand(string b){
 		strand = b;
 	}
-
+	int count;
 private:
-	int src, dest, dummy, count;
+	int src, dest, dummy; 
 	string geneID;
 	string strand;
 
@@ -82,7 +82,14 @@ void collapsed(vector<gene>& storage, vector<gene>& modified){
 }
 
 void geneCount(vector<gene>& exon, vector<gene>& bowtie){
-
+	for (int i = 0; i < exon.size(); i++){
+		for (int j = 0; j < bowtie.size(); j++){
+			if (exon[i].sourceID() <= bowtie[j].sourceID() && exon[i].destID() >= bowtie[j].destID())
+				exon[i].count++;
+			if (bowtie[j].destID() > exon[i].sourceID())
+				j = bowtie.size();
+		}
+	}
 }
 int main()
 {
@@ -152,13 +159,13 @@ int main()
 	}
 	cout << "Im here again: " << endl;
 	geneCount(geneStorage, boutGene);
-
+	for (int i = 0; i < 200; i++){
+		cout << geneStorage[i].gID() <<"  "<<geneStorage[i].count<< endl;
+	}
 	
 
 	collapsed(geneStorage, modifiedGene);
-	for (int i = 0; i < 200; i++){
-		cout << modifiedGene[i].sourceID() << endl;
-	}
+	
 	system("pause");
 	return 0;
 }
