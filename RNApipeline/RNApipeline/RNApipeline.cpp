@@ -45,6 +45,13 @@ public:
 	void setStrand(string b){
 		strand = b;
 	}
+	
+	string retStrand(){
+		return strand;
+	}
+	int retDummy(){
+		return dummy;
+	}
 	int count;
 private:
 	int src, dest, dummy; 
@@ -91,17 +98,26 @@ void geneCount(vector<gene>& exon, vector<gene>& bowtie){
 		}
 	}
 }
+void print(vector<gene>& geneStorage){
+	ofstream outExon;
+	outExon.open("outExonCollapsed");
+	for (int i = 0; i < geneStorage.size(); i++){
+		outExon << "chr1 " << geneStorage[i].sourceID() << " " << geneStorage[i].destID() << " " << geneStorage[i].gID() << " "
+			<< geneStorage[i].retDummy() << " " << geneStorage[i].retStrand() << "\n";
+	}
+	outExon.close();
+}
 int main()
 {
 	
-
+	
 	ifstream inputFile, boutOutputFile;
 	string line, line2;
 	vector<gene>geneStorage;
 	vector<gene>boutGene;
 	vector<gene>modifiedGene;
-//	inputFile.open("HG19-refseq-exon-annot-chr1-2016");
-	inputFile.open("new 2");
+	inputFile.open("HG19-refseq-exon-annot-chr1-2016");
+//	inputFile.open("new 2");
 	if (!inputFile){
 		cout << "sorry! can't open the file" << endl;
 
@@ -154,18 +170,22 @@ int main()
 
 			gene g(stoi(tokens[1]), stoi(tokens[2]), tokens[3], stoi(tokens[4]), tokens[5]);
 			boutGene.push_back(g);
-
+			//cout << boutGene.size() << endl;
 		}
 	}
 	cout << "Im here again: " << endl;
+	collapsed(geneStorage, modifiedGene);
+	print(geneStorage);
+	cout << "done again: " << endl;
 	geneCount(geneStorage, boutGene);
-	for (int i = 0; i < 200; i++){
-		cout << geneStorage[i].gID() <<"  "<<geneStorage[i].count<< endl;
-	}
+	
+	
+	
 	
 
-	collapsed(geneStorage, modifiedGene);
 	
+
+
 	system("pause");
 	return 0;
 }
