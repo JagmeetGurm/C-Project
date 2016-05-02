@@ -86,7 +86,7 @@ void geneCount(vector<gene>& exon, vector<gene>& bowtie){
 		for (int j = 0; j < bowtie.size(); j++){
 			if (exon[i].sourceID() <= bowtie[j].sourceID() && exon[i].destID() >= bowtie[j].destID())
 				exon[i].count++;
-			if (bowtie[j].destID() > exon[i].sourceID())
+			if (bowtie[j].destID() > exon[i+1].destID())
 				j = bowtie.size();
 		}
 	}
