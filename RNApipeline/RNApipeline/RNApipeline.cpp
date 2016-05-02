@@ -27,7 +27,7 @@ public:
 		this->dummy = dummy;
 		geneID = id;
 		this->strand = strand;
-
+		count = 0;
 
 	}
 	int sourceID(){
@@ -47,7 +47,7 @@ public:
 	}
 
 private:
-	int src, dest, dummy;
+	int src, dest, dummy, count;
 	string geneID;
 	string strand;
 
@@ -80,13 +80,18 @@ void collapsed(vector<gene>& storage, vector<gene>& modified){
 		
 	}
 }
+
+void geneCount(vector<gene>& exon, vector<gene>& bowtie){
+
+}
 int main()
 {
 	
 
-	ifstream inputFile;
-	string line;
+	ifstream inputFile, boutOutputFile;
+	string line, line2;
 	vector<gene>geneStorage;
+	vector<gene>boutGene;
 	vector<gene>modifiedGene;
 	inputFile.open("HG19-refseq-exon-annot-chr1-2016");
 //	inputFile.open("test");
@@ -116,6 +121,40 @@ int main()
 	cout << "Im here: " << endl;
 	sort(geneStorage.begin(), geneStorage.end(), sortGene);
 	cout << "done: " << endl;
+
+	//reading the boutie output file
+
+
+	boutOutputFile.open("BTout-BED-75_Modified_Sorted");
+	//	inputFile.open("test");
+	if (!boutOutputFile){
+		cout << "sorry! can't open the file" << endl;
+
+	}
+	else{
+		while (!boutOutputFile.eof()){
+			getline(boutOutputFile, line);
+			//check the file being read
+			//	cout << line << endl;
+			//parsing the string line
+			std::istringstream buf(line);
+			std::istream_iterator<std::string> beg(buf), end;
+
+			std::vector<std::string> tokens(beg, end); // done!
+
+			//lets create the genes;
+			std::string::size_type sz;
+
+			gene g(stoi(tokens[1]), stoi(tokens[2]), tokens[3], stoi(tokens[4]), tokens[5]);
+			boutGene.push_back(g);
+
+		}
+	}
+	cout << "Im here again: " << endl;
+	geneCount(geneStorage, boutGene);
+
+	
+
 	collapsed(geneStorage, modifiedGene);
 	for (int i = 0; i < 200; i++){
 		cout << modifiedGene[i].sourceID() << endl;
