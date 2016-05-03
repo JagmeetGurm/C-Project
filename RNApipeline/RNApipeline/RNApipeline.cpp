@@ -4,7 +4,7 @@
 /*This project is done by Jagmeet S. Gurm as an assignment- 7 of CSCI 291T- Bioinformatics
 assigned by Dr. Park.
 The program takes two input files- HG19-refseq-exon-annot-chr1-2016 and 
-BTout-BED-75_Modified_Sorted and output two files-the exonCollapsed file and geneCount2
+BTout-BED-ModifiedSorted and output two files-the exonCollapsed file and geneCount2
 file. The program is written in C++ language and can be run in MS Visual Studio 
 environment by first building(F7) and then executing(F5).
 The program performs two of the 3 processes of RNA-Seq data analysis pipelining.
@@ -210,12 +210,12 @@ int main()
 		
 		}
 	}
-	cout << "Im here: " << endl;
+	
 	sort(geneStorage.begin(), geneStorage.end(), sortGene);
-	cout << "done: " << endl;
+	
 
 	//reading the boutie output file
-	boutOutputFile.open("BTout-BED-75_Modified_Sorted");
+	boutOutputFile.open("BTout-BED-ModifiedSorted");
 	//	inputFile.open("test");
 	if (!boutOutputFile){
 		cout << "sorry! can't open the file" << endl;
