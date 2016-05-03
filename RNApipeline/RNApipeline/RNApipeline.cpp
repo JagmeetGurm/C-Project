@@ -25,9 +25,6 @@ to gene level counting using the printGeneCount function.*/
 #include <iterator>
 #include <algorithm>
 
-
-
-
 using namespace std;
 
 /* Gene class represents the gene with all the attributes- srcID, 
@@ -35,10 +32,9 @@ destID, geneID, dummy, strand. The gene constructor is
 used to create a new gene_exon after reading from the file.
 And the class contains the setter and the getter function.*/
 class gene{
-	
 
 public:
-
+//gene constructor
 	gene(int src, int dest, string id, int dummy, string strand){
 		this->src = src;
 		this->dest = dest;
@@ -46,43 +42,56 @@ public:
 		geneID = id;
 		this->strand = strand;
 		count = 0;
-
 	}
+	//returns the source id fo the gene_exon
 	int sourceID(){
 		return src;
 	}
+	//returns the destination id of the gene_exon
 	int destID(){
 		return dest;
 	}
+	//returns the gene_exon id
 	string gID(){
 		return geneID;
 	}
+	//sets the gene id
 	void setGID(string a){
 		geneID = a;
 	}
+	//sets the strand value
 	void setStrand(string b){
 		strand = b;
 	}
-	
+	//returns the strand value
 	string retStrand(){
 		return strand;
 	}
+	//returns the dummy value
 	int retDummy(){
 		return dummy;
 	}
+	//to keep count of the read mapped
 	int count;
 private:
+	//private members of the class gene
 	int src, dest, dummy; 
 	string geneID;
 	string strand;
 
 };
 
+//function helping in the sorting fo the gene of the exon_gene file
 bool sortGene(gene& g1, gene& g2){
 	return (g1.sourceID() < g2.sourceID());
 	
 }
-
+/*This function collapses the exon annotation . It basically performs the 
+1st step of RNA-seq data analysis pipelining. The function recieves 
+the vector of genes-the gene_exon file and the bowtie file representing 
+the vector genes.
+The overlapping exons are collapsed and the each exon's name 
+and strand is replaced by 'x' and '+' respectively.*/
 void collapsed(vector<gene>& storage, vector<gene>& modified){
 	int i, j;
 	for (i = 0; i < storage.size() - 1; i++){
@@ -106,6 +115,9 @@ void collapsed(vector<gene>& storage, vector<gene>& modified){
 	}
 }
 
+/*this function does the read mapping of the bowtie output file onto 
+the gene_exon file. It receives a exon_gene file in the form of vector gene
+and another input bowtie file in the form of vector gene*/
 void exonCount(vector<gene>& exon, vector<gene>& bowtie){
 	for (int i = 0; i < exon.size(); i++){
 		for (int j = 0; j < bowtie.size(); j++){
@@ -117,6 +129,10 @@ void exonCount(vector<gene>& exon, vector<gene>& bowtie){
 	}
 }
 
+/*This function does the read mapping of the bowtie output file onto
+the gene file with "N"s.. It receives a exon_gene file in the form of vector gene
+and another input bowtie file in the form of vector gene and does
+the mapping while considering 'N's region covered along with exons.*/
 void geneCount(vector<gene>& exon, vector<gene>& bowtie){
 	for (int i = 0; i < exon.size()-1; i++){
 		for (int j = 0; j < bowtie.size(); j++){
@@ -127,6 +143,10 @@ void geneCount(vector<gene>& exon, vector<gene>& bowtie){
 		}
 	}
 }
+
+/*this function prints the collapsed exon to the 
+output file "outExonCollapsed. It receives the exon_gene file 
+in the form of a vector gene and prints out to the file.*/
 void print(vector<gene>& geneStorage){
 	ofstream outExon;
 	outExon.open("outExonCollapsed");
@@ -136,6 +156,11 @@ void print(vector<gene>& geneStorage){
 	}
 	outExon.close();
 }
+
+/*this function prints the gene count to the
+output file "outGeneCount2". It receives the exon_gene file
+in the form of a vector gene and prints out to the file the geneID and
+the count for each gene by considering the N region to the gene.*/
 void printGeneCount(vector<gene>& geneStorage){
 	ofstream outGene;
 	outGene.open("outGeneCount2");
@@ -154,13 +179,13 @@ void printGeneCount(vector<gene>& geneStorage){
 }
 int main()
 {
-	
-	
 	ifstream inputFile, boutOutputFile;
 	string line, line2;
 	vector<gene>geneStorage;
 	vector<gene>boutGene;
 	vector<gene>modifiedGene;
+
+	//reading the exon file
 	inputFile.open("HG19-refseq-exon-annot-chr1-2016");
 //	inputFile.open("new 2");
 	if (!inputFile){
@@ -170,8 +195,7 @@ int main()
 	else{
 		while (!inputFile.eof()){
 			getline(inputFile, line);
-			//check the file being read
-		//	cout << line << endl;
+			
 			//parsing the string line
 			std::istringstream buf(line);
 			std::istream_iterator<std::string> beg(buf), end;
@@ -179,7 +203,7 @@ int main()
 			std::vector<std::string> tokens(beg, end); // done!
 		
 //lets create the genes;
-			std::string::size_type sz;
+		
 			
 			gene g(stoi(tokens[1]), stoi(tokens[2]), tokens[3], stoi(tokens[4]), tokens[5]);
 			geneStorage.push_back(g);
@@ -191,8 +215,6 @@ int main()
 	cout << "done: " << endl;
 
 	//reading the boutie output file
-
-
 	boutOutputFile.open("BTout-BED-75_Modified_Sorted");
 	//	inputFile.open("test");
 	if (!boutOutputFile){
@@ -202,8 +224,7 @@ int main()
 	else{
 		while (!boutOutputFile.eof()){
 			getline(boutOutputFile, line);
-			//check the file being read
-			//	cout << line << endl;
+			
 			//parsing the string line
 			std::istringstream buf(line);
 			std::istream_iterator<std::string> beg(buf), end;
@@ -211,28 +232,24 @@ int main()
 			std::vector<std::string> tokens(beg, end); // done!
 
 			//lets create the genes;
-			std::string::size_type sz;
+			
 
 			gene g(stoi(tokens[1]), stoi(tokens[2]), tokens[3], stoi(tokens[4]), tokens[5]);
 			boutGene.push_back(g);
-			//cout << boutGene.size() << endl;
+			
 		}
 	}
-	cout << "Im here again: " << endl;
-//	collapsed(geneStorage, modifiedGene);
-//	print(geneStorage);
-
-//	exonCount(geneStorage, boutGene);
+	//calling the exon collapsed function
+	collapsed(geneStorage, modifiedGene);
+	//calling the print exon_file collapsed function to file
+	print(geneStorage);
+	//calling the function to count the exon read mapping
+	exonCount(geneStorage, boutGene);
+	//calling the function to count the gene read mapping
 	geneCount(geneStorage, boutGene);
-	//for (int i = 0; i < 200; i++){
-	//	cout << geneStorage[i].gID()<<" "<<geneStorage[i].count << endl;
-	//}
-	
-	cout << "done again: " << endl;
+	//printing to the output file the gene read mapping		
 	printGeneCount(geneStorage);
 	
-
-
 	system("pause");
 	return 0;
 }
