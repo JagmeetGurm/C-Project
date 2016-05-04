@@ -7,6 +7,10 @@ using System.Diagnostics;
 
 namespace othello
 {
+    class win{
+public string winner;
+        public int value;
+    }
     //the return values are wrapped around this result class
     class result
     {
@@ -16,6 +20,27 @@ namespace othello
     //game class represent the one tictac toe game
     class game
     {
+        public win winnerOfGame(){
+            win w=new win();
+            int userCount=0, compCount=0;
+            for(int i=0; i<8; i++){
+                for(int j=0; j<8; j++){
+                    if(board[i,j]=='O')
+                        userCount++;
+                    if(board[i,j]=='X')
+                        compCount++;
+                }
+            }
+            if(compCount==userCount){
+                w.value=userCount;
+                w.winner="draw";
+            }
+            else{
+            w.value=userCount>compCount? userCount:compCount;
+            w.winner=userCount>compCount? "user":"computer";
+            }
+            return w;
+        }
         //board represents the board of the game
         public char[,] board = new char[8, 8];
 
@@ -226,14 +251,22 @@ namespace othello
         //prints the current state fo the board
         public void currentBoard()
         {
+            string temp = "";
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    temp = temp + board[i, j] + "  |  ";
+                    //        Console.WriteLine(board[0, 0] + " | " + board[0, 1] + " | " + board[0, 2] + " | ");
+                    //Console.WriteLine(board[1, 0] + " | " + board[1, 1] + " | " + board[1, 2] + " | ");
+                    //Console.WriteLine(board[2, 0] + " | " + board[2, 1] + " | " + board[2, 2] + " | ");
 
-            Console.WriteLine(board[0, 0] + " | " + board[0, 1] + " | " + board[0, 2] + " | ");
-            Console.WriteLine(board[1, 0] + " | " + board[1, 1] + " | " + board[1, 2] + " | ");
-            Console.WriteLine(board[2, 0] + " | " + board[2, 1] + " | " + board[2, 2] + " | ");
 
-
+                }
+                temp = temp + "\n \n";
+            }
+            Console.WriteLine(temp); 
         }
-
         //decides whose move is it going to be-computer's or user's 
         public void move(int i)
         {
@@ -254,6 +287,7 @@ namespace othello
         }
 
 
+
         //checks if we have reached the final state or some body wins
         public int checkResult()
         {
@@ -261,31 +295,12 @@ namespace othello
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    if (board[i, j] == 'X' || board[i, j] == 'O')
-                        continue;
+                    if (board[i, j] == ' ')
+                       return 0;
+
                 }
             }
-                if ((board[0, 0] == board[0, 1] && board[0, 0] == board[0, 2] && board[0, 0] == 'X') ||
-                               (board[1, 0] == board[1, 1] && board[1, 0] == board[1, 2] && board[1, 0] == 'X') ||
-                            (board[2, 0] == board[2, 1] && board[2, 0] == board[2, 2] && board[2, 0] == 'X') ||
-                            (board[0, 0] == board[1, 0] && board[0, 0] == board[2, 0] && board[0, 0] == 'X') ||
-                             (board[0, 1] == board[1, 1] && board[0, 0] == board[2, 1] && board[0, 1] == 'X') ||
-                              (board[0, 2] == board[1, 2] && board[0, 2] == board[2, 2] && board[0, 2] == 'X') ||
-
-                               (board[0, 0] == board[1, 1] && board[0, 0] == board[2, 2] && board[0, 0] == 'X') ||
-                                (board[0, 2] == board[1, 1] && board[0, 2] == board[2, 0] && board[0, 2] == 'X'))
-                    return 1;
-                else if ((board[0, 0] == board[0, 1] && board[0, 0] == board[0, 2] && board[0, 0] == 'O') ||
-                    (board[1, 0] == board[1, 1] && board[1, 0] == board[1, 2] && board[1, 0] == 'O') ||
-                 (board[2, 0] == board[2, 1] && board[2, 0] == board[2, 2] && board[2, 0] == 'O') ||
-                 (board[0, 0] == board[1, 0] && board[0, 0] == board[2, 0] && board[0, 0] == 'O') ||
-                  (board[0, 1] == board[1, 1] && board[0, 0] == board[2, 1] && board[0, 1] == 'O') ||
-                   (board[0, 2] == board[1, 2] && board[0, 2] == board[2, 2] && board[0, 2] == 'O') ||
-
-                    (board[0, 0] == board[1, 1] && board[0, 0] == board[2, 2] && board[0, 0] == 'O') ||
-                     (board[0, 2] == board[1, 1] && board[0, 2] == board[2, 0] && board[0, 2] == 'O'))
-                    return -1;
-                else return 0;
+          return -1;  
         }
 
     }
@@ -313,10 +328,12 @@ namespace othello
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    g.board[i, j] = ' ';
+                    g.board[i, j] = 'i';
                 }
             }
-            for (int i = 0; i < 60; i++)
+            g.currentBoard();
+
+      /*      for (int i = 0; i < 60; i++)
             {
                 if (g.checkResult() == 0)
                 {
@@ -325,17 +342,13 @@ namespace othello
                 }
                 else i = 60;
             }
-            if (g.checkResult() == 1)
-            {
-                Console.WriteLine("Computer won. You lost.");
-            }
-            else if (g.checkResult() == -1)
-            {
+         win w=   g.winnerOfGame();
 
-                Console.WriteLine("You won. congrats.");
-            }
-            else
-                Console.WriteLine("Its a draw.");
+            
+                Console.WriteLine("The winner is:"+ w.winner+" and the value is: "+ w.value);
+            
+            Console.ReadLine();
+       * */
             Console.ReadLine();
         }
     }
