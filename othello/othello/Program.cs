@@ -11,6 +11,10 @@ namespace othello
 public string winner;
         public int value;
     }
+    class cell
+    {
+        public int x, y;
+    }
     //the return values are wrapped around this result class
     class result
     {
@@ -223,8 +227,9 @@ public string winner;
 
         //the computer makes the move through this function by calling minimax
         //does accept any parameter, nor gives an output
-        public void computerMove()
+        public cell computerMove()
         {
+            cell c = new cell();
             result r1 = new result();
             //   r1 = minimax(0, 0, 'X');
             r1 = prunning(0, 0, 'X', -10, 10);
@@ -232,11 +237,13 @@ public string winner;
                 board[r1.x, r1.y] = 'X';
             else board[r1.x, r1.y] = 'O';
             //board[r1.x, r1.y] = r1.val;
+            return c;
         }
 
         //the player makes the move followed by printing the board
-        public void playerMove()
+        public cell playerMove()
         {
+            cell c = new cell();
             // Trace.Assert(turn == 'O');
             // char move = ' ';
             Console.WriteLine("enter your move: ");
@@ -244,8 +251,11 @@ public string winner;
             string[] move = t.Split(',');
             int x = int.Parse(move[0]);
             int y = int.Parse(move[1]);
+            c.x = x;
+            c.y = y;
             board[x, y] = 'O';
             Trace.Assert(board[x, y] == 'O');
+            return c;
         }
 
         //prints the current state fo the board
@@ -257,15 +267,18 @@ public string winner;
                 for (int j = 0; j < 8; j++)
                 {
                     temp = temp + board[i, j] + "  |  ";
-                    //        Console.WriteLine(board[0, 0] + " | " + board[0, 1] + " | " + board[0, 2] + " | ");
-                    //Console.WriteLine(board[1, 0] + " | " + board[1, 1] + " | " + board[1, 2] + " | ");
-                    //Console.WriteLine(board[2, 0] + " | " + board[2, 1] + " | " + board[2, 2] + " | ");
-
-
+                    
                 }
                 temp = temp + "\n \n";
             }
             Console.WriteLine(temp); 
+        }
+        public void action(cell c, char turn)
+        {
+            //horizontal
+            int a = c.x + 1; //c.x is x coordinate
+            int b = c.y;
+
         }
         //decides whose move is it going to be-computer's or user's 
         public void move(int i)
@@ -273,14 +286,17 @@ public string winner;
             if (i % 2 == 1)
             {
 
-
-                playerMove();
+                turn = 'O';
+             cell c=   playerMove();
+                action(c, turn);
                 currentBoard();
 
             }
             else
             {
-                computerMove();
+                turn = 'X';
+                cell c= computerMove();
+                action(c, turn);
                 Console.WriteLine("computer move: ");
                 currentBoard();
             }
@@ -314,11 +330,7 @@ public string winner;
     {
         static void Main(string[] args)
         {
-            string initialState = "";
-            string start = "player";
-            char type = 'O';
-            int player = 1;
-            int opponent = 2;
+            
             //computer is X, player is O
             //computer is going first
             int choice = 2;//player is 2nd
@@ -331,9 +343,9 @@ public string winner;
                     g.board[i, j] = 'i';
                 }
             }
-            g.currentBoard();
+        //    g.currentBoard();
 
-      /*      for (int i = 0; i < 60; i++)
+            for (int i = 0; i < 60; i++)
             {
                 if (g.checkResult() == 0)
                 {
@@ -348,7 +360,7 @@ public string winner;
                 Console.WriteLine("The winner is:"+ w.winner+" and the value is: "+ w.value);
             
             Console.ReadLine();
-       * */
+       
             Console.ReadLine();
         }
     }
