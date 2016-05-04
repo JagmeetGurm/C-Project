@@ -273,11 +273,45 @@ public string winner;
             }
             Console.WriteLine(temp); 
         }
-        public void action(cell c, char turn)
+        public char turnOpp()
         {
-            //horizontal
+            if (turn == 'O')
+                return 'X';
+            else return 'O';
+        }
+        public void action(cell c, char turn)
+        { 
             int a = c.x + 1; //c.x is x coordinate
             int b = c.y;
+            int x=a+1;
+            //horizontal right side(+ve)
+            while (board[x, b] != turn)
+            {
+                board[x, b] = turnOpp();
+                x++;
+            }
+            //horizontal left side(-ve)
+            x = a - 1;
+            while (board[x, b] != turn)
+            {
+                board[x, b] = turnOpp();
+                x--;
+            }
+            //vertical up(+ve)
+            int y = b + 1;
+            while (board[a, y] != turn)
+            {
+                board[a, y] = turnOpp();
+                y++;
+
+            }
+            //verticl down(-ve)
+            y = b + 1;
+            while (board[a, y] != turn)
+            {
+                board[a, y] = turnOpp();
+                y--;
+            }
 
         }
         //decides whose move is it going to be-computer's or user's 
