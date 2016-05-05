@@ -277,47 +277,51 @@ public string winner;
         {
             if (turn == 'O')
                 return 'X';
-            else return 'O';
+            else
+                return 'O';
         }
         public void action(cell c, char turn)
         { 
-            int a = c.x + 1; //c.x is x coordinate
+            int a = c.x ; //c.x is x coordinate
             int b = c.y;
-            int x=a+1;
+            int y=b+1;
             //horizontal right side(+ve)
-            while (board[x, b] != turn)
+            while (board[a, y] == turnOpp())
             {
-                board[x, b] = turnOpp();
-                x++;
-            }
-            //horizontal left side(-ve)
-            x = a - 1;
-            while (board[x, b] != turn)
-            {
-                board[x, b] = turnOpp();
-                x--;
-            }
-            //vertical up(+ve)
-            int y = b + 1;
-            while (board[a, y] != turn)
-            {
-                board[a, y] = turnOpp();
+                board[a, y] = turn;
                 y++;
-
             }
-            //verticl down(-ve)
-            y = b + 1;
-            while (board[a, y] != turn)
+          //  board[x, b] = turn;
+            //horizontal left side(-ve)
+            y = b - 1;
+            while (board[a, y] == turnOpp())
             {
-                board[a, y] = turnOpp();
+                board[a, y] = turn;
                 y--;
             }
+        //    board[x, b] = turn;
+            //vertical up(+ve)
+            int x = a + 1;
+            while (board[x, b] == turnOpp())
+            {
+                board[x, b] = turn;
+                x++;
 
+            }
+          //  board[a, y] = turn;
+            //verticl down(-ve)
+            y = b + 1;
+            while (board[x, b] == turnOpp())
+            {
+                board[x, b] = turn;
+                x--;
+            }
+         //   board[a, y] = turn;
         }
         //decides whose move is it going to be-computer's or user's 
         public void move(int i)
         {
-            if (i % 2 == 1)
+            if (i % 2 == 0)
             {
 
                 turn = 'O';
@@ -374,10 +378,14 @@ public string winner;
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    g.board[i, j] = 'i';
+                    g.board[i, j] = ' ';
                 }
             }
         //    g.currentBoard();
+            g.board[3, 3] = 'X';
+            g.board[3, 4] = 'O';
+            g.board[4, 3] = 'O';
+            g.board[4, 4] = 'X';
 
             for (int i = 0; i < 60; i++)
             {
