@@ -75,9 +75,9 @@ public string winner;
                 bestValue = -10;
                 //      List<char[,]> adjList = new List<char[,]>();
                 //    Action( ref adjList, player);
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 8; i++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    for (int j = 0; j < 8; j++)
                     {
                         if (board[i, j] == ' ')
                         {//If legal,
@@ -231,11 +231,17 @@ public string winner;
         {
             cell c = new cell();
             result r1 = new result();
-            //   r1 = minimax(0, 0, 'X');
-            r1 = prunning(0, 0, 'X', -10, 10);
-            if (r1.val == 1 || r1.val == 0)
-                board[r1.x, r1.y] = 'X';
-            else board[r1.x, r1.y] = 'O';
+              r1 = minimax(0, 0, 'X');
+              c.x = r1.x;
+              c.y = r1.y;
+         //   r1 = prunning(0, 0, 'X', -10, 10);
+              if (validMove(c))
+              {
+                  if (r1.val == 1 || r1.val == 0)
+                      board[r1.x, r1.y] = 'X';
+                  else board[r1.x, r1.y] = 'O';
+              }
+              else move(1);
             //board[r1.x, r1.y] = r1.val;
             return c;
         }
@@ -400,7 +406,15 @@ public string winner;
 
                 }
             }
-          return -1;  
+            string w = winnerOfGame().winner;
+            if (w == "computer")
+            {
+                return 1;
+            }
+            else if (w == "user")
+                return -1;
+            else return 0;
+          
         }
 
     }
