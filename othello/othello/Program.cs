@@ -239,7 +239,50 @@ public string winner;
             //board[r1.x, r1.y] = r1.val;
             return c;
         }
-
+        public bool validMove(cell c)
+        {int a=c.x;
+        bool decision = false;
+            int b=c.y;
+            if (board[a, b] != ' ')
+                decision = false; ;
+            int y = b + 1;
+            //horizontal right side(+ve)
+            if (board[a, y] == turnOpp())
+            {
+              //  board[a, y] = turn;
+               // y++;
+                decision = true;
+            }
+            //  board[x, b] = turn;
+            //horizontal left side(-ve)
+            y = b - 1;
+            if (board[a, y] == turnOpp())
+            {
+         //       board[a, y] = turn;
+           //     y--;
+                decision=true;
+            }
+            //    board[x, b] = turn;
+            //vertical up(+ve)
+            int x = a + 1;
+           if (board[x, b] == turnOpp())
+            {
+              //  board[x, b] = turn;
+                //x++;
+                decision = true;
+            }
+            //  board[a, y] = turn;
+            //verticl down(-ve)
+            y = b + 1;
+           if (board[x, b] == turnOpp())
+            {
+          //      board[x, b] = turn;
+            //    x--;
+                decision = true;
+            }
+           return decision;
+            
+        }
         //the player makes the move followed by printing the board
         public cell playerMove()
         {
@@ -248,13 +291,16 @@ public string winner;
             // char move = ' ';
             Console.WriteLine("enter your move: ");
             string t = Console.ReadLine();
-            string[] move = t.Split(',');
-            int x = int.Parse(move[0]);
-            int y = int.Parse(move[1]);
+            string[] moveMade = t.Split(',');
+            int x = int.Parse(moveMade[0]);
+            int y = int.Parse(moveMade[1]);
             c.x = x;
             c.y = y;
-            board[x, y] = 'O';
-            Trace.Assert(board[x, y] == 'O');
+            if (validMove(c))
+                board[x, y] = 'O';
+            else
+                move(0);
+        //    Trace.Assert(board[x, y] == 'O');
             return c;
         }
 
