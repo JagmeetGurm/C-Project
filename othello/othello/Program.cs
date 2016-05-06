@@ -107,9 +107,9 @@ public string winner;
                 bestValue = 10;
                 //      List<char[,]> adjList = new List<char[,]>();
                 //    Action( ref adjList, player);
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 8; i++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    for (int j = 0; j < 8; j++)
                     {
                         if (board[i, j] == ' ')
                         {//If legal,
@@ -158,15 +158,19 @@ public string winner;
                 bestValue = -10;
                 //      List<char[,]> adjList = new List<char[,]>();
                 //    Action( ref adjList, player);
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 4; i++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    for (int j = 0; j < 4; j++)
                     {
                         if (board[i, j] == ' ')
                         {//If legal,
-                            board[i, j] = 'X';
+                            cell c = new cell();
+                            c.x = i; c.y = j;
+                            if (validMove(c))
+                                board[i, j] = 'X';
+                            else goto done;
 
-
+                            turn = 'O';
                             int score = prunning(i, j, 'O', alpha, beta).val;
                             if (score > alpha)
                             {
@@ -180,6 +184,8 @@ public string winner;
                             board[i, j] = ' ';//
                             if (alpha >= beta) break;
                         }
+                    done:
+                        ;//;
 
                     }
                 }
@@ -192,14 +198,18 @@ public string winner;
                 bestValue = 10;
                 //      List<char[,]> adjList = new List<char[,]>();
                 //    Action( ref adjList, player);
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 4; i++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    for (int j = 0; j < 4; j++)
                     {
                         if (board[i, j] == ' ')
                         {//If legal,
-                            board[i, j] = 'O';
-
+                            cell c = new cell();
+                            c.x = i; c.y = j;
+                            if (validMove(c))
+                                board[i, j] = 'O';
+                            else goto done2;
+                            turn = 'X';
                             int score = prunning(i, j, 'X', alpha, beta).val;
                             if (score < beta)
                             {
@@ -214,7 +224,7 @@ public string winner;
                             board[i, j] = ' ';//
                             if (alpha >= beta) break;
                         }
-
+                    done2: ;
                     }
                 }
                 //    return r2;
@@ -231,17 +241,18 @@ public string winner;
         {
             cell c = new cell();
             result r1 = new result();
-              r1 = minimax(0, 0, 'X');
-              c.x = r1.x;
-              c.y = r1.y;
-         //   r1 = prunning(0, 0, 'X', -10, 10);
-              if (validMove(c))
-              {
+          //    r1 = minimax(0, 0, 'X');
+              
+            r1 = prunning(0, 0, 'X', -10, 10);
+            c.x = r1.x;
+            c.y = r1.y;
+             // if (validMove(c))
+             // {
                   if (r1.val == 1 || r1.val == 0)
                       board[r1.x, r1.y] = 'X';
                   else board[r1.x, r1.y] = 'O';
-              }
-              else move(1);
+             // }
+           //   else move(1);
             //board[r1.x, r1.y] = r1.val;
             return c;
         }
@@ -253,38 +264,219 @@ public string winner;
                 decision = false; ;
             int y = b + 1;
             //horizontal right side(+ve)
-            if (board[a, y] == turnOpp())
+            if (y>=0 && y <= 7 && board[a, y] == turnOpp())
             {
               //  board[a, y] = turn;
                // y++;
-                decision = true;
+                for (int e = y ; e <= 7; e++)
+                {
+                    if (board[a, e] == turn)
+                    {
+                        int temp = e-1;
+                        while (temp != y-1)
+                        {
+                            if (board[a, temp] == turnOpp())
+                            {
+                                decision = true;
+                            }
+                            else decision = false;
+                            temp--;
+                        }
+                    }
+                }
             }
             //  board[x, b] = turn;
             //horizontal left side(-ve)
             y = b - 1;
-            if (board[a, y] == turnOpp())
+            if ( y>=0 && y<=7 && board[a, y] == turnOpp())
             {
          //       board[a, y] = turn;
            //     y--;
-                decision=true;
+                for (int e = y ; e <= 7; e++)
+                {
+                    if (board[a, e] == turn)
+                    {
+                        int temp = e+1;
+                        while (temp<8 && temp != y+1)
+                        {
+                            if (board[a, temp] == turnOpp())
+                            {
+                                decision = true;
+                            }
+                            else decision = false;
+                            temp++;
+                        }
+                    }
+                }
             }
             //    board[x, b] = turn;
-            //vertical up(+ve)
+            //vertical down(+ve)
             int x = a + 1;
-           if (board[x, b] == turnOpp())
+            if ( x >= 0 && x <= 7 && board[x, b] == turnOpp())
             {
-              //  board[x, b] = turn;
+                for (int e = x ; e <= 7; e++)
+                {
+                    if (board[e, b] == turn)
+                    {
+                        int temp = e-1;
+                        while (temp != x-1)
+                        {
+                            if (board[temp, b] == turnOpp())
+                            {
+                                decision = true;
+                            }
+                            else decision = false;
+                            temp--;
+                        }
+                    }
+                }
+                    //  board[x, b] = turn;
+                    //x++;
+                    
+            }
+            //diagonal left up
+            x = a - 1; y = b - 1;
+            if (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            {
+                for (int e = x; e >=0; e--)
+                {
+                  //  for (int f = y; f >=0; e--)
+                    //{
+
+
+                        if (board[e, e] == turn)
+                        {
+                            int temp = e + 1;//, temp2 = f + 1;
+
+                            while (temp != x +1 )
+                            {
+                                if (board[temp, temp] == turnOpp())
+                                {
+                                    decision = true;
+                                }
+                                else decision = false;
+                                temp++;// temp2++;
+                            }
+                        }
+                    }
+              //  }
+                //  board[x, b] = turn;
                 //x++;
-                decision = true;
+
+            }
+            //diagonal down right
+            x = a + 1; y = b + 1;
+            if (x >= 0 && x <= 7 &&  y>=0 && y<=7 && board[x, y] == turnOpp())
+            {
+                for (int e = x; e <= 7; e++)
+                {
+                  //  for (int f = y; f <= 7; f++)
+                    //{
+
+
+                        if (board[e, e] == turn)
+                        {
+                            int temp = e - 1;
+
+                            while (temp != x - 1 )
+                            {
+                                if (board[temp, temp] == turnOpp())
+                                {
+                                    decision = true;
+                                }
+                                else decision = false;
+                                temp--; 
+                            }
+                        }
+                    }
+                }
+                //  board[x, b] = turn;
+                //x++;
+
+           // }
+            //diagonal left down
+            x = a - 1; y = b + 1;
+            if (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            {
+                for (int e = x, f=y; e >= 0 && f<=7; e--, f++)
+                {
+                    //for (int f = y; f <= 7; f++)
+                    //{
+
+
+                        if (board[e, f] == turn)
+                        {
+                            int temp = e + 1, temp2 = f - 1;
+
+                            while (temp != x + 1 && temp2 != y - 1)
+                            {
+                                if (board[temp, temp2] == turnOpp())
+                                {
+                                    decision = true;
+                                }
+                                else decision = false;
+                                temp++; temp2--;
+                            }
+                        }
+                    }
+                
+                //  board[x, b] = turn;
+                //x++;
+
+            }
+//diagonal right up
+            x = a + 1; y = b - 1;
+            if (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            {
+                for (int e = x, f=y; e <= 7 && f>=0; e++, f--)
+                {
+                  //  for (int f = y; f >=0; f--)
+                   // {
+
+
+                        if (board[e, f] == turn)
+                        {
+                            int temp = e - 1, temp2 = f + 1;
+
+                            while (temp != x - 1 && temp2 != y + 1)
+                            {
+                                if (board[temp, temp2] == turnOpp())
+                                {
+                                    decision = true;
+                                }
+                                else decision = false;
+                                temp--; temp2++;
+                            }
+                        }
+                  //  }
+                }
+                //  board[x, b] = turn;
+                //x++;
+
             }
             //  board[a, y] = turn;
-            //verticl down(-ve)
-            y = b + 1;
-           if (board[x, b] == turnOpp())
+            //verticl up(-ve)
+            x = a -1;
+            if (x >= 0 && x <= 7 && board[x, b] == turnOpp())
             {
           //      board[x, b] = turn;
             //    x--;
-                decision = true;
+                for (int e = x ; e <= 7; e++)
+                {
+                    if (board[e, b] == turn)
+                    {
+                        int temp = e+1;
+                        while (temp != x+1)
+                        {
+                            if (board[temp, b] == turnOpp())
+                            {
+                                decision = true;
+                            }
+                            else decision = false;
+                            temp++;
+                        }
+                    }
+                }
             }
            return decision;
             
@@ -338,7 +530,7 @@ public string winner;
             int b = c.y;
             int y=b+1;
             //horizontal right side(+ve)
-            while (board[a, y] == turnOpp())
+            while (y >= 0 && y <= 7 && board[a, y] == turnOpp())
             {
                 board[a, y] = turn;
                 y++;
@@ -346,7 +538,7 @@ public string winner;
           //  board[x, b] = turn;
             //horizontal left side(-ve)
             y = b - 1;
-            while (board[a, y] == turnOpp())
+            while (y >= 0 && y <= 7 && board[a, y] == turnOpp())
             {
                 board[a, y] = turn;
                 y--;
@@ -354,7 +546,7 @@ public string winner;
         //    board[x, b] = turn;
             //vertical up(+ve)
             int x = a + 1;
-            while (board[x, b] == turnOpp())
+            while (x >= 0 && x <= 7 && board[x, b] == turnOpp())
             {
                 board[x, b] = turn;
                 x++;
@@ -362,13 +554,45 @@ public string winner;
             }
           //  board[a, y] = turn;
             //verticl down(-ve)
-            y = b + 1;
-            while (board[x, b] == turnOpp())
+            x = a - 1;
+            while (x >= 0 && x <= 7 && board[x, b] == turnOpp())
             {
                 board[x, b] = turn;
                 x--;
             }
          //   board[a, y] = turn;
+
+            //diagonal up left
+            x = a + 1; y = b + 1;
+            while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            {
+                board[x, y] = turn;
+                x++; y++;
+            }
+
+            //diagonal down right
+            x = a - 1; y = b -1;
+            while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            {
+                board[x, y] = turn;
+                x--; y--;
+            }
+            
+            //diagonal down up left
+            x = a + 1; y = b - 1;
+            while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            {
+                board[x, y] = turn;
+                x++; y--;
+            }
+
+            x = a - 1; y = b + 1;
+            while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            {
+                board[x, y] = turn;
+                x--; y++;
+            }
+
         }
         //decides whose move is it going to be-computer's or user's 
         public void move(int i)
