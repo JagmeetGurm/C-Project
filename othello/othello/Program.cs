@@ -266,8 +266,7 @@ public string winner;
             //horizontal right side(+ve)
             if (y>=0 && y <= 7 && board[a, y] == turnOpp())
             {
-              //  board[a, y] = turn;
-               // y++;
+             
                 for (int e = y ; e <= 7; e++)
                 {
                     if (board[a, e] == turn)
