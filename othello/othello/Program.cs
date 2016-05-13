@@ -451,7 +451,7 @@ public bool DiagDownLeft(cell c)
             {
                 y++;
                 if (y <= 7 && board[a, y] == turn)
-                    decision = true;
+                    return true;
                 else decision = false;
             }
            
@@ -484,7 +484,7 @@ public bool DiagDownLeft(cell c)
             {
                 y--;
                 if (y >= 0 && board[a, y] == turn)
-                    decision = true;
+                    return true;
                 else decision = false;
             }
            
@@ -519,7 +519,7 @@ public bool DiagDownLeft(cell c)
             {
                 x++;
                 if (x <= 7 && board[x, b] == turn)
-                    decision = true;
+                    return true;
                 else decision = false;
             }
             
@@ -554,7 +554,7 @@ public bool DiagDownLeft(cell c)
             {
                 x--;
                 if (x >= 0 && board[x, b] == turn)
-                    decision = true;
+                    return true;
                 else decision = false;
             }
            
@@ -567,7 +567,7 @@ public bool DiagDownLeft(cell c)
                 x--; 
                 y--;
                 if (x >= 0 && y >= 0 && board[x, y] == turn)
-                    decision = true;
+                    return true;
                 else decision = false;
             }
             
@@ -610,7 +610,7 @@ public bool DiagDownLeft(cell c)
                 x++;
                 y++;
                 if (x <= 7 && y <= 7 && board[x, y] == turn)
-                    decision = true;
+                    return true;
                 else decision = false;
             }
            
@@ -622,7 +622,7 @@ public bool DiagDownLeft(cell c)
                 x--;
                 y++;
                 if (x >= 0 && y <= 7 && board[x, y] == turn)
-                    decision = true;
+                    return true;
                 else decision = false;
             }
             
@@ -634,7 +634,7 @@ public bool DiagDownLeft(cell c)
                 x++;
                 y--;
                 if (x <= 7 && y >= 0 && board[x, y] == turn)
-                    decision = true;
+                    return true;
                 else decision = false;
             }
             
@@ -850,33 +850,43 @@ public bool DiagDownLeft(cell c)
 
             //diagonal down right 
             x = a + 1; y = b + 1;
-            while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            if (DiagRightDown(c))
             {
-                board[x, y] = turn;
-                x++; y++;
+                while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+                {
+                    board[x, y] = turn;
+                    x++; y++;
+                }
             }
-
             //diagonal up left
             x = a - 1; y = b -1;
-            while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            if (DiagLeftUp(c))
             {
-                board[x, y] = turn;
-                x--; y--;
+                while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+                {
+                    board[x, y] = turn;
+                    x--; y--;
+                }
             }
-            
             //diagonal down  left
             x = a + 1; y = b - 1;
-            while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            if (DiagDownLeft(c))
             {
-                board[x, y] = turn;
-                x++; y--;
+                while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+                {
+                    board[x, y] = turn;
+                    x++; y--;
+                }
             }
             //Diagnol up right
             x = a - 1; y = b + 1;
-            while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+            if (DiagRightUp(c))
             {
-                board[x, y] = turn;
-                x--; y++;
+                while (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[x, y] == turnOpp())
+                {
+                    board[x, y] = turn;
+                    x--; y++;
+                }
             }
 
         }
