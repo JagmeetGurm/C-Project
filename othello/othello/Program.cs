@@ -80,7 +80,7 @@ public string winner;
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if (board[i, j] == ' ')
+                        if (board[i, j] == '.')
                         {//If legal,
                             board[i, j] = 'w';
 
@@ -94,7 +94,7 @@ public string winner;
                                 r2.y = j;
                                 //  move = i;
                             }//Pick the one that's worst for the opponent
-                            board[i, j] = ' ';//
+                            board[i, j] = '.';//
                         }
 
                     }
@@ -113,7 +113,7 @@ public string winner;
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if (board[i, j] == ' ')
+                        if (board[i, j] == '.')
                         {//If legal,
                             board[i, j] = 'b';
 
@@ -126,7 +126,7 @@ public string winner;
                                 r2.y = j;
                                 //  move = i;
                             }//Pick the one that's worst for the opponent
-                            board[i, j] = ' ';//
+                            board[i, j] = '.';//
                         }
 
                     }
@@ -157,7 +157,7 @@ public string winner;
             }
             if (player == 'w')
             {
-                sum = sum + 1;
+               // sum = sum + 1;
                 bestValue = -10;
                 //      List<char[,]> adjList = new List<char[,]>();
                 //    Action( ref adjList, player);
@@ -165,40 +165,41 @@ public string winner;
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if (board[i, j] == ' ')
+                        if (board[i, j] == '.')
                         {//If legal,
                             cell c = new cell();
                             c.x = i; c.y = j;
                             if (validMove(c))
                             {
                                 board[i, j] = 'w';
-                                r2.x = i;
-                                r2.y = j;
-                                return r2;
-                              //  return r2;
-                             //   goto done;
+                                  r2.x = i;
+                                  r2.y = j;
+                                //    return r2;
+                                  return r2;
+                                //   goto done;
+                                  }
+                                    else goto done;
+
+                                turn = 'b';
+                                int score = prunning(i, j, 'b', depth - 1, alpha, beta).val;
+                                if (score > alpha)
+                                {
+                                    alpha = score;
+                                    //      bestValue = score;
+                                    r2.val = score;
+                                    r2.x = i;
+                                    r2.y = j;
+                                    //  move = i;
+                                }//Pick the one that's worst for the opponent
+                                turn = 'b';
+                                board[i, j] = '.';//
+                                if (alpha >= beta) break;
                             }
-                            else goto done;
+                                done:
+                                    ;//;
 
-                            turn = 'b';
-                            int score = prunning(i, j, 'b', depth-1,alpha, beta).val;
-                            if (score > alpha)
-                            {
-                                alpha = score;
-                                //      bestValue = score;
-                                r2.val = score;
-                                r2.x = i;
-                                r2.y = j;
-                                //  move = i;
-                            }//Pick the one that's worst for the opponent
-                            turn = 'b';
-                            board[i, j] = ' ';//
-                            if (alpha >= beta) break;
                         }
-                    done:
-                        ;//;
-
-                    }
+                    
                 }
                 return r2;
             }
@@ -206,7 +207,7 @@ public string winner;
 
             if (player == 'b')
             {
-                sum = sum + 1;
+              //  sum = sum + 1;
                 bestValue = 10;
                 //      List<char[,]> adjList = new List<char[,]>();
                 //    Action( ref adjList, player);
@@ -214,13 +215,14 @@ public string winner;
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if (board[i, j] == ' ')
+                        if (board[i, j] == '.')
                         {//If legal,
                             cell c = new cell();
                             c.x = i; c.y = j;
                             if (validMove(c))
                                 board[i, j] = 'b';
                             else goto done2;
+                            
                             turn = 'w';
                             int score = prunning(i, j, 'w', depth-1,alpha, beta).val;
                             if (score < beta)
@@ -234,7 +236,7 @@ public string winner;
                                 //  move = i;
                             }//Pick the one that's worst for the opponent
                             turn = 'w'; 
-                            board[i, j] = ' ';//
+                            board[i, j] = '.';//
                             if (alpha >= beta) break;
                         }
                     done2: ;
@@ -442,7 +444,7 @@ public bool DiagDownLeft(cell c)
        //     if(turn=='X')
           //  sum =sum +1;
             int b=c.y;
-            if (board[a, b] != ' ')
+            if (board[a, b] != '.')
                 return false;
               //  decision = false; ;
             int y = b + 1;
@@ -780,11 +782,13 @@ public bool DiagDownLeft(cell c)
         public void currentBoard()
         {
             string temp = "";
+            Console.WriteLine("   0 1 2 3 4 5 6 7 ");
             for (int i = 0; i < 8; i++)
             {
+                temp=temp+ i+ "  ";
                 for (int j = 0; j < 8; j++)
                 {
-                    temp = temp + board[i, j] + "  |  ";
+                    temp = temp + board[i, j] + " ";
                     
                 }
                 temp = temp + "\n \n";
@@ -906,7 +910,7 @@ public bool DiagDownLeft(cell c)
             {
                 turn = 'w';
                 cell c= computerMove();
-                Console.WriteLine("Moves: " + sum);
+             //   Console.WriteLine("Moves: " + sum);
                 action(c, turn);
                 Console.WriteLine("computer move: ");
                 currentBoard();
@@ -922,7 +926,7 @@ public bool DiagDownLeft(cell c)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    if (board[i, j] == ' ')
+                    if (board[i, j] == '.')
                        return 0;
 
                 }
@@ -959,7 +963,7 @@ public bool DiagDownLeft(cell c)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    g.board[i, j] = ' ';
+                    g.board[i, j] = '.';
                 }
             }
         //    g.currentBoard();
