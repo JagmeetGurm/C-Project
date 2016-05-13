@@ -457,28 +457,7 @@ public bool DiagDownLeft(cell c)
                 else decision = false;
             }
            
-            /*
-            if (y>=0 && y <= 7 && board[a, b] == ' ' && board[a, y] == turnOpp())
-            {
-             
-                for (int e = y ; e <= 7; e++)
-                {
-                    if (board[a, e] == turn)
-                    {
-                        int temp = e-1;
-                        while (temp <= 7 && temp != y - 1)
-                        {
-                            if (board[a, temp] == turnOpp())
-                            {
-                                decision = true;
-                            }
-                            else decision = false;
-                            temp--;
-                        }
-                    }
-                }
-            }
-             * */
+            
             //  board[x, b] = turn;
             //horizontal left side(-ve)
             y = b - 1;
@@ -491,29 +470,6 @@ public bool DiagDownLeft(cell c)
             }
            
 
-            /*
-            if (y >= 0 && y <= 7 && board[a, b] == ' ' && board[a, y] == turnOpp())
-            {
-         //       board[a, y] = turn;
-           //     y--;
-                for (int e = y ; e <= 7; e++)
-                {
-                    if (board[a, e] == turn)
-                    {
-                        int temp = e+1;
-                        while (temp<8 && temp != y+1)
-                        {
-                            if (board[a, temp] == turnOpp())
-                            {
-                                decision = true;
-                            }
-                            else decision = false;
-                            temp++;
-                        }
-                    }
-                }
-            }
-             * */
             //    board[x, b] = turn;
             //vertical down(+ve)
             int x = a + 1;
@@ -525,30 +481,7 @@ public bool DiagDownLeft(cell c)
                 else decision = false;
             }
             
-            /*
-            if (x >= 0 && x <= 7 && board[a, b] == ' ' && board[x, b] == turnOpp())
-            {
-                for (int e = x ; e <= 7; e++)
-                {
-                    if (board[e, b] == turn)
-                    {
-                        int temp = e-1;
-                        while (temp <= 7 && temp != x - 1)
-                        {
-                            if (board[temp, b] == turnOpp())
-                            {
-                                decision = true;
-                            }
-                            else decision = false;
-                            temp--;
-                        }
-                    }
-                }
-                    //  board[x, b] = turn;
-                    //x++;
-                    
-            }
-             * */
+            
 
             //vertical up
             x = a - 1;
@@ -574,37 +507,6 @@ public bool DiagDownLeft(cell c)
             }
             
 
-            /*
-            if (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[a, b] == ' ' && board[x, y] == turnOpp())
-            {
-                for (int e = x; e >=0; e--)
-                {
-                  //  for (int f = y; f >=0; e--)
-                    //{
-
-
-                        if (board[e, e] == turn)
-                        {
-                            int temp = e + 1;//, temp2 = f + 1;
-
-                            while (temp <= 7 && temp != x + 1)
-                            {
-                                if (board[temp, temp] == turnOpp())
-                                {
-                                    decision = true;
-                                }
-                                else decision = false;
-                                temp++;// temp2++;
-                            }
-                        }
-                    }
-              //  }
-                //  board[x, b] = turn;
-                //x++;
-
-            }
-             * 
-             */
             //diagonal down right
             x = a + 1; y = b + 1;
             while (x <= 7 && y <= 7 && board[x, y] == turnOpp())
@@ -639,121 +541,7 @@ public bool DiagDownLeft(cell c)
                     return true;
                 else decision = false;
             }
-            
-/*
-            if (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[a, b] == ' ' && board[x, y] == turnOpp())
-            {
-                for (int e = x; e <= 7; e++)
-                {
-                  //  for (int f = y; f <= 7; f++)
-                    //{
 
-
-                        if (board[e, e] == turn)
-                        {
-                            int temp = e - 1;
-
-                            while (temp <= 7 && temp != x - 1)
-                            {
-                                if (board[temp, temp] == turnOpp())
-                                {
-                                    decision = true;
-                                }
-                                else decision = false;
-                                temp--; 
-                            }
-                        }
-                    }
-                }
-                //  board[x, b] = turn;
-                //x++;
-
-           // }
-            //diagonal left down
-            x = a - 1; y = b + 1;
-            if (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[a, b] == ' ' && board[x, y] == turnOpp())
-            {
-                for (int e = x, f=y; e >= 0 && f<=7; e--, f++)
-                {
-                    //for (int f = y; f <= 7; f++)
-                    //{
-
-
-                        if (board[e, f] == turn)
-                        {
-                            int temp = e + 1, temp2 = f - 1;
-
-                            while (temp <= 7 && temp != x + 1 && temp2 != y - 1)
-                            {
-                                if (board[temp, temp2] == turnOpp())
-                                {
-                                    decision = true;
-                                }
-                                else decision = false;
-                                temp++; temp2--;
-                            }
-                        }
-                    }
-                
-                //  board[x, b] = turn;
-                //x++;
-
-            }
-//diagonal right up
-            x = a + 1; y = b - 1;
-            if (x >= 0 && x <= 7 && y >= 0 && y <= 7 && board[a, b] == ' ' && board[x, y] == turnOpp())
-            {
-                for (int e = x, f=y; e <= 7 && f>=0; e++, f--)
-                {
-                  //  for (int f = y; f >=0; f--)
-                   // {
-
-
-                        if (board[e, f] == turn)
-                        {
-                            int temp = e - 1, temp2 = f + 1;
-
-                            while (temp <= 7 && temp != x - 1 && temp2 != y + 1)
-                            {
-                                if (board[temp, temp2] == turnOpp())
-                                {
-                                    decision = true;
-                                }
-                                else decision = false;
-                                temp--; temp2++;
-                            }
-                        }
-                  //  }
-                }
-                //  board[x, b] = turn;
-                //x++;
-
-            }
-            //  board[a, y] = turn;
-            //verticl up(-ve)
-            x = a -1;
-            if (x >= 0 && x <= 7 && board[a, b] == ' ' && board[x, b] == turnOpp())
-            {
-          //      board[x, b] = turn;
-            //    x--;
-                for (int e = x ; e <= 7; e++)
-                {
-                    if (board[e, b] == turn)
-                    {
-                        int temp = e+1;
-                        while (temp<=7 && temp != x+1)
-                        {
-                            if (board[temp, b] == turnOpp())
-                            {
-                                decision = true;
-                            }
-                            else decision = false;
-                            temp++;
-                        }
-                    }
-                }
-            }
- * */
            return decision;
             
         }
