@@ -43,5 +43,57 @@ namespace GuessingGame
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            guessedNumber = int.Parse(textBox1.Text);
+            bool win = false;
+            bool wrong = false;
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Error! Please enter a number between 1-10");
+                textBox1.Clear();
+
+            }
+            else
+            {
+                if (guessedNumber > 0 && guessedNumber <= 10)
+                {
+                    if (guessedNumber == randomNumber)
+                    {
+                        win = true;
+                        if (win)
+                        {
+                            if (MessageBox.Show("You have won! Would like to play another game?", "you win", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                randomNumber = number.Next(1, 10);
+                                label3.Text = "3";
+                                textBox1.Clear();
+                            }
+                            else this.Close();
+                        }
+                        else { //do nothing
+                        }
+                    }
+                        else
+
+    {
+
+       wrong = true;
+
+    }
+
+    }
+
+                        else{
+                            MessageBox.Show("Please enter an integer from 1-10!", "Error!");
+
+    textBox1.Clear();
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }
