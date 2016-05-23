@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//this small game is build based on the tutorial: http://www.dreamincode.net/forums/topic/76122-c%23-tutorial-basic-gui-guessing-game/
+//to create GUI in c# for beginners.
 namespace GuessingGame
 {
     public partial class Form1 : Form
@@ -92,8 +95,76 @@ namespace GuessingGame
 
                         }
                     }
+            if (wrong == true)
+
+{
+
+    label3.Text = (int.Parse(label3.Text) - 1).ToString();
+
+    if (label3.Text == "0")
+
+    {
+
+    if (MessageBox.Show("You have lost! The randomized number was " + randomNumber + ". Would you like to play again ?", "You lost!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+    {
+
+        randomNumber = number.Next(1, 10);
+
+        label3.Text = "3";
+
+        textBox1.Clear();
+
+    }
+
+    else
+
+    {
+
+        this.Close();
+
+    }
+
+    }
+
+    else
+
+    {
+
+    if (guessedNumber > randomNumber)
+
+    {
+
+        MessageBox.Show("Lower!", "Wrong!");
+
+        textBox1.Clear();
+
+    }
+
+    else
+
+   {
+
+        MessageBox.Show("Higher!", "Wrong!");
+
+        textBox1.Clear();
+
+    }
+
+    }
+
+}
+
+else
+
+{
+
+    // Do nothing
+
+}
+
                 }
             }
         }
-    }
-}
+   
+
