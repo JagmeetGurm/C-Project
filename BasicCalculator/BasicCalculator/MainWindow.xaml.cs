@@ -59,67 +59,13 @@ namespace BasicCalculator
             Result.Text = input;
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
-        }
-
-        private void button3_Click(object sender, RoutedEventArgs e)
-        {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
-
-        }
-
-        private void button4_Click(object sender, RoutedEventArgs e)
-        {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
-        }
-
-        private void button5_Click(object sender, RoutedEventArgs e)
-        {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
-        }
-
-        private void button6_Click(object sender, RoutedEventArgs e)
-        {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
-        }
-
-        private void button7_Click(object sender, RoutedEventArgs e)
-        {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
-        }
-
-        private void button8_Click(object sender, RoutedEventArgs e)
-        {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
-        }
-
-        private void button9_Click(object sender, RoutedEventArgs e)
-        {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
-        }
+ 
 
         private void buttonClear_Click(object sender, RoutedEventArgs e)
         {
             Button button1 = (Button)sender;
             input += button1.Content.ToString();
+            input = "";
             Result.Text = "";
         }
 
@@ -130,12 +76,7 @@ namespace BasicCalculator
             Result.Text = input;
         }
 
-        private void buttonZero_Click(object sender, RoutedEventArgs e)
-        {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
-        }
+ 
 
         private void buttonMult_Click(object sender, RoutedEventArgs e)
         {
@@ -148,6 +89,7 @@ namespace BasicCalculator
         {
             Button button1 = (Button)sender;
             input += button1.Content.ToString();
+            Result.Text = input;
         }
 
         private void buttonSub_Click(object sender, RoutedEventArgs e)
