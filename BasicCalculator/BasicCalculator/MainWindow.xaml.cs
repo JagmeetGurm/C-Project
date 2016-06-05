@@ -25,6 +25,9 @@ namespace BasicCalculator
             InitializeComponent();
         }
          double result = 0;
+        double operand1 = 0;
+        double operand2 = 0;
+        string input = "";
 
         public double  calculation(double op1, double op2, string operand)
         {
@@ -48,6 +51,109 @@ namespace BasicCalculator
 
             }
             return result;
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        { Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void button7_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void button8_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void button9_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void buttonClear_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void buttonZero_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void buttonMult_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void buttonDiv_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void buttonSub_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void buttonDot_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
+        }
+
+        private void buttonEqual_Click(object sender, RoutedEventArgs e)
+        {
+            Button button1 = (Button)sender;
+            input += button1.Content.ToString();
         }
     }
 }
