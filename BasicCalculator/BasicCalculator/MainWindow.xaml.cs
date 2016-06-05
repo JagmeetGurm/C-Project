@@ -24,14 +24,14 @@ namespace BasicCalculator
         {
             InitializeComponent();
         }
-         double result = 0;
+        double result = 0;
         double operand1 = 0;
         double operand2 = 0;
         string input = "";
-
-        public double  calculation(double op1, double op2, string operand)
+        string oper;
+        public void calculation(double op1, double op2, string oper)
         {
-            switch (operand)
+            switch (oper)
             {
                 case "+":
                     result = op1 + op2;
@@ -43,14 +43,14 @@ namespace BasicCalculator
                     result = op1 * op2;
                     break;
                 case "/":
-                    result= op1 / op2;
+                    result = op1 / op2;
                     break;
                 default:
                     Console.WriteLine("Enter the correct operand, Please!");
                     break;
 
             }
-            return result;
+            Result.Text= result.ToString();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -152,8 +152,41 @@ namespace BasicCalculator
 
         private void buttonEqual_Click(object sender, RoutedEventArgs e)
         {
-            Button button1 = (Button)sender;
-            input += button1.Content.ToString();
+            //   Button button1 = (Button)sender;
+            //  input += button1.Content.ToString();
+
+            //    gettingOperators(input);
+            char[] delimiters = { '+', '-', '/', '*' };
+            string[] items = input.Split(delimiters);
+            operand1 = Double.Parse(items[0]);
+            operand2 = Double.Parse(items[1]);
+            if (input.Contains('+'))
+            {
+                oper = "+";
+            }
+            else if (input.Contains('+'))
+            {
+                oper = "-";
+
+            }
+            else if (input.Contains('-'))
+            {
+                oper = "-";
+
+            }
+
+            else if (input.Contains('*'))
+            {
+                oper = "*";
+
+            }
+            else 
+            {
+                oper = "/";
+
+            }
+            calculation(operand1, operand2, oper);
+
         }
     }
 }
