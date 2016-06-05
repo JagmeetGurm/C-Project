@@ -24,5 +24,30 @@ namespace BasicCalculator
         {
             InitializeComponent();
         }
+         double result = 0;
+
+        public double  calculation(double op1, double op2, string operand)
+        {
+            switch (operand)
+            {
+                case "+":
+                    result = op1 + op2;
+                    break;
+                case "-":
+                    result = op1 - op2;
+                    break;
+                case "*":
+                    result = op1 * op2;
+                    break;
+                case "/":
+                    result= op1 / op2;
+                    break;
+                default:
+                    Console.WriteLine("Enter the correct operand, Please!");
+                    break;
+
+            }
+            return result;
+        }
     }
 }
