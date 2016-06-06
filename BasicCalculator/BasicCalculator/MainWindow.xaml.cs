@@ -55,8 +55,25 @@ namespace BasicCalculator
 
         private void button1_Click(object sender, RoutedEventArgs e)
         { Button button1 = (Button)sender;
-            input += button1.Content.ToString();
-            Result.Text = input;
+            double temp = 0;
+          string val=   button1.Content.ToString();
+            if (Double.TryParse(val, out temp))
+            {
+                input += val;
+                Result.Text = input;
+            }
+            else Result.Text = "please enter the correct value again!"; 
+          /*  try
+            {
+                int intValue = 32;
+                object objValue = intValue;
+                string strValue;
+                strValue = objValue.ToString();
+            }
+            catch(Exception ex)
+            {
+                Result.Text = ex.Message;
+            }*/
         }
 
  
