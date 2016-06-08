@@ -15,6 +15,7 @@ namespace SalaryCalculationTestProject
             //Act
             decimal annualSalary = sc.GetAnnualSalary(50);
             //Assert
+            Assert.AreEqual(104000, annualSalary);
         }
     }
 }
