@@ -18,5 +18,11 @@ namespace Calculator
             return annualSalary;
 
         }
+        public decimal GetHourlyWage(decimal annualSalary)
+        {
+            decimal hourlyWage = annualSalary / hoursInYear;
+            return  hourlyWage;
+
+        }
     }
 }
