@@ -13,7 +13,7 @@ namespace SalaryCalculationTestProject
             SalaryCalculator sc = new SalaryCalculator();
 
             //Act
-
+            decimal annualSalary = sc.GetAnnualSalary(50);
             //Assert
         }
     }
