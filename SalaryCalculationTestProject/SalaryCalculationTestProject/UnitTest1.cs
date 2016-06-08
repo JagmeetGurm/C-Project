@@ -7,8 +7,13 @@ namespace SalaryCalculationTestProject
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AnnualSalaryTest()
         {
+            //Arrange
+
+            //Act
+
+            //Assert
         }
     }
 }
