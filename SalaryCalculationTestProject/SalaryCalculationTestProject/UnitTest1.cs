@@ -10,6 +10,7 @@ namespace SalaryCalculationTestProject
         public void AnnualSalaryTest()
         {
             //Arrange
+            SalaryCalculator sc = new SalaryCalculator();
 
             //Act
 
