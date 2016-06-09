@@ -9,24 +9,26 @@ namespace PolymorphismTest
 
     public class Employee
     {
-        public virtual void CalculateWeeklySalary(int hours, int wage)
+        public virtual string CalculateWeeklySalary(int hours, int wage)
         {
             var salary = 40 * wage;
-            Console.WriteLine("This employee is angry because he worked for {0} hrs." +
+           string result=String.Format("This employee is angry because he worked for {0} hrs." +
                 "But got paid for 40 hrs at {1}/hrs=$ {2} salary.", hours, wage, salary);
-            Console.WriteLine("----------");
+            Console.WriteLine("--- "+result+ "-------");
+            return result;
 
         }
     }
     public class Contractor : Employee
     {
-        public override void CalculateWeeklySalary(int hours, int wage)
+        public override string CalculateWeeklySalary(int hours, int wage)
         {
             var salary = hours * wage;
-            Console.WriteLine("\nThis HAPPY CONTRACTOR worked {0} hrs. " +
+          string result=String.Format("\nThis HAPPY CONTRACTOR worked {0} hrs. " +
                               "Paid for {0} hrs at $ {1}" +
                               "/hr = ${2} ", hours, wage, salary);
             Console.WriteLine("---------------------------------------------\n");
+            return result;
         }
     }
 
