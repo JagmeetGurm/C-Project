@@ -83,8 +83,8 @@ namespace DelegateExample
         {
 
             Balance b = new Balance();
-            b.balChanged += b.LogBalance;
-            b.balChanged += b.balWatch;
+          //  b.balChanged += b.LogBalance;
+           // b.balChanged += b.balWatch;
 
             /*      MyDelegate  m = add;
 
@@ -111,11 +111,7 @@ namespace DelegateExample
             obj.Val = temp;
 
     */
-            string str;
-            Console.WriteLine("enter the amt : ");
-            str = Console.ReadLine();
-            decimal deposit = decimal.Parse(str);
-            b.theBalance += deposit;
+            
 
             simpleDelegate sim = x => x * x;
             Console.WriteLine("simple delegate: {0}", sim(5));
@@ -124,6 +120,26 @@ namespace DelegateExample
                 Console.Write("the two arg lambda: {0}, {1}", x * 100, y);
             };
             sec(3, "hi");
+            Events obj = new Events();
+            b.balChanged  += (amt) =>
+            {
+                Console.WriteLine("the bank bal is : {0}", amt);
+
+            };
+            b.balChanged  += (amt) =>
+            {
+
+                if (amt >= 550)
+                    Console.WriteLine("you have reached goal! {0}", amt);
+
+            };
+
+
+            string str;
+            Console.WriteLine("enter the amt : ");
+            str = Console.ReadLine();
+            decimal deposit = decimal.Parse(str);
+            b.theBalance += deposit;
             Console.ReadKey();
         }
         static void objValueChanged(string val)
