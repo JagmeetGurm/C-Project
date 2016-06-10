@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace DelegateExample
 {
-   
+    public delegate void MyDelegate(int a, ref int b);
+    public delegate void EventHandler(string test);
+    class Events
+    {
+        public event EventHandler eventExample;
+    }
     class Program
     {
-        public delegate void MyDelegate(int a, ref int b);
+       
+        
         static void add(int a, int b)
         {
            Console.WriteLine( (a + b).ToString()+ " the first call");
