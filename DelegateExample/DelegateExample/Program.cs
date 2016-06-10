@@ -9,6 +9,10 @@ namespace DelegateExample
     public delegate void BalanceEventHandler(decimal theValue);
     public delegate void MyDelegate(int a, ref int b);
     public delegate void EventHandler(string test);
+    public delegate int simpleDelegate(int i);
+    public delegate void delegateSecond(int i, string pre);
+    public delegate bool expDelegate(int x);
+
     class Events
     {
         public event EventHandler ValueChanged;
@@ -53,6 +57,8 @@ namespace DelegateExample
                 Console.WriteLine("you have reached goal! {0}", amt);
         }
 }
+
+
     class Program
     {
        
@@ -72,6 +78,7 @@ namespace DelegateExample
         {
            Console.WriteLine( (a * b).ToString()+ " the second call");
         }
+
         static void Main(string[] args)
         {
 
@@ -109,6 +116,14 @@ namespace DelegateExample
             str = Console.ReadLine();
             decimal deposit = decimal.Parse(str);
             b.theBalance += deposit;
+
+            simpleDelegate sim = x => x * x;
+            Console.WriteLine("simple delegate: {0}", sim(5));
+            delegateSecond sec = (x, y) =>
+            {
+                Console.Write("the two arg lambda: {0}, {1}", x * 100, y);
+            };
+            sec(3, "hi");
             Console.ReadKey();
         }
         static void objValueChanged(string val)
