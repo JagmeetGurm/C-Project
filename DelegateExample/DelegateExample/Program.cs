@@ -9,27 +9,31 @@ namespace DelegateExample
    
     class Program
     {
-        public delegate string MyDelegate(int a, int b);
-        static string add(int a, int b)
+        public delegate void MyDelegate(int a, int b);
+        static void add(int a, int b)
         {
-            return (a + b).ToString();
+           Console.WriteLine( (a + b).ToString()+ " the first call");
 
         }
-        static string prod(int a, int b)
+        static void prod(int a, int b)
         {
-            return (a * b).ToString();
+           Console.WriteLine( (a * b).ToString()+ " the second call");
         }
         static void Main(string[] args)
         {
 
 
-            MyDelegate m = delegate (int a, int b){
-                return (a / b).ToString();
             
-            };
-          Console.WriteLine( $"Now call the annon div via delegate: {m(4,5) }");
-            m = prod;
-            Console.WriteLine($"Now call the product via delegate: {m(4, 5) }");
+          MyDelegate  m = add;
+
+            Console.WriteLine("Now call add via delegate:");
+                m(4, 5);
+            MyDelegate m2 = prod;
+            Console.WriteLine($"Now call the product via delegate:");
+            m2(4, 5) ;
+            MyDelegate m3 = m+m2;
+            Console.WriteLine($"Now call the chained delegate: ");
+            m3(4, 5);
             Console.ReadKey();
         }
     }
