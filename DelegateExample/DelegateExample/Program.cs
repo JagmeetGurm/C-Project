@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace DelegateExample
 {
-    public delegate string MyDelegate(int a, int b);
+   
     class Program
     {
+        public delegate string MyDelegate(int a, int b);
         static string add(int a, int b)
         {
             return (a + b).ToString();
@@ -22,8 +23,13 @@ namespace DelegateExample
         {
 
 
-            MyDelegate m = add;
-          Console.WriteLine( $"First call the add via delegate: {m(4,5) }");
+            MyDelegate m = delegate (int a, int b){
+                return (a / b).ToString();
+            
+            };
+          Console.WriteLine( $"Now call the annon div via delegate: {m(4,5) }");
+            m = prod;
+            Console.WriteLine($"Now call the product via delegate: {m(4, 5) }");
             Console.ReadKey();
         }
     }
