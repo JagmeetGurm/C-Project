@@ -9,11 +9,17 @@ namespace DelegateExample
    
     class Program
     {
-        public delegate void MyDelegate(int a, int b);
+        public delegate void MyDelegate(int a, ref int b);
         static void add(int a, int b)
         {
            Console.WriteLine( (a + b).ToString()+ " the first call");
 
+        }
+        static void changeValue(int a, ref int b)
+        {
+           string res = b.ToString();
+            b = b + 100;
+            Console.WriteLine("lets see if: {0} value changed", res);
         }
         static void prod(int a, int b)
         {
@@ -24,7 +30,7 @@ namespace DelegateExample
 
 
             
-          MyDelegate  m = add;
+    /*      MyDelegate  m = add;
 
             Console.WriteLine("Now call add via delegate:");
                 m(4, 5);
@@ -34,6 +40,13 @@ namespace DelegateExample
             MyDelegate m3 = m+m2;
             Console.WriteLine($"Now call the chained delegate: ");
             m3(4, 5);
+
+    */
+            int a = 10, b = 20;
+            MyDelegate ch = changeValue;
+            Console.WriteLine($"b's value before: {b}");
+            ch(a, ref b);
+            Console.WriteLine($"b's value now: {b}");
             Console.ReadKey();
         }
     }
