@@ -11,9 +11,9 @@
             <RowDefinition Height="340*"/>
             <RowDefinition Height="1041*"/>
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" HorizontalAlignment="Left" Height="100" Margin="10,10,-199,0" VerticalAlignment="Top" Width="318"/>
-        <MenuItem x:Name="FileMenu" Header="File" FontSize="20">
-            
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="715" Grid.RowSpan="2"/>
+        <MenuItem x:Name="FileMenu" Header="File" FontSize="20" Margin="0,0,0,0.2">
         </MenuItem>
+        
     </Grid>
 </Window>
