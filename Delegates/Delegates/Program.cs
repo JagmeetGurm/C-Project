@@ -1,3 +1,6 @@
+//this is based on the C# delegate tutorial from lynda.com referenced from: http://www.lynda.com/
+
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
