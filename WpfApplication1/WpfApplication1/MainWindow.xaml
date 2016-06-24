@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="725">
-    <Grid Margin="0,0,-6.6,-0.2">
+        Title="MainWindow" Height="550" Width="725">
+    <Grid Margin="0,0,-35.6,-3">
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
             <RowDefinition Height="187*"/>
@@ -15,6 +15,16 @@
             <MenuItem x:Name="FileMenu" Header="File" FontSize="20"/>
             <MenuItem x:Name="HelpMenu" Header="Help" FontSize="20"/>
         </Menu>
+        <Grid HorizontalAlignment="Left" Height="290" Margin="10,42.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="553">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="46*"/>
+                <RowDefinition Height="46*"/>
+                <RowDefinition Height="51*"/>
+                <RowDefinition Height="56*"/>
+                <RowDefinition Height="51*"/>
+            </Grid.RowDefinitions>
+        </Grid>
 
     </Grid>
 </Window>
