@@ -12,17 +12,35 @@
             <RowDefinition Height="187*"/>
         </Grid.RowDefinitions>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" VerticalAlignment="Top" Width="705" Grid.RowSpan="2">
-            <MenuItem x:Name="FileMenu" Header="File" FontSize="20"/>
+            <MenuItem x:Name="FileMenu" Header="File" FontSize="20">
+                <MenuItem Header="New" HorizontalAlignment="Left" Width="176"/>
+                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="176"/>
+            </MenuItem>
             <MenuItem x:Name="HelpMenu" Header="Help" FontSize="20"/>
         </Menu>
-        <Grid HorizontalAlignment="Left" Height="290" Margin="10,42.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="553">
+        <Grid HorizontalAlignment="Left" Background="Green" Margin="10,42.4,0,0" Grid.Row="1" Width="496" Height="380" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="43*" />
+                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="62*"/>
+                <ColumnDefinition Width="54*"/>
+                <ColumnDefinition Width="58*"/>
+                <ColumnDefinition Width="61*"/>
+                <ColumnDefinition Width="63*"/>
+                <ColumnDefinition Width="61*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="40*"/>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="48*"/>
+                <RowDefinition Height="38*"/>
+                <RowDefinition Height="45*"/>
                 <RowDefinition Height="46*"/>
-                <RowDefinition Height="46*"/>
+                <RowDefinition Height="48*"/>
                 <RowDefinition Height="51*"/>
-                <RowDefinition Height="56*"/>
-                <RowDefinition Height="51*"/>
+                <RowDefinition Height="39*"/>
+                <RowDefinition Height="32*"/>
             </Grid.RowDefinitions>
         </Grid>
 
