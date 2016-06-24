@@ -8,12 +8,13 @@
         Title="MainWindow" Height="450" Width="725">
     <Grid Margin="0,0,-6.6,-0.2">
         <Grid.RowDefinitions>
-            <RowDefinition Height="340*"/>
-            <RowDefinition Height="1041*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="187*"/>
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="715" Grid.RowSpan="2"/>
-        <MenuItem x:Name="FileMenu" Header="File" FontSize="20" Margin="0,0,0,0.2">
-        </MenuItem>
-        
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" VerticalAlignment="Top" Width="705" Grid.RowSpan="2">
+            <MenuItem x:Name="FileMenu" Header="File" FontSize="20"/>
+            <MenuItem x:Name="HelpMenu" Header="Help" FontSize="20"/>
+        </Menu>
+
     </Grid>
 </Window>
