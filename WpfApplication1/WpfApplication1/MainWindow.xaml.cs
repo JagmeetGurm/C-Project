@@ -23,6 +23,18 @@ namespace WpfApplication1
         public MainWindow()
         {
             InitializeComponent();
+            Grid grid = new Grid();
+            for (int i = 0; i <= 7; i++)
+            {
+                for (int j = 0; j <= 7; j++)
+                {
+                    Button b = new Button();
+                    b.Content = string.Format("Row: {0}, Column: {1}", i, j);
+                    Grid.SetRow(b, i);
+                    Grid.SetColumn(b, j);
+                    grid.Children.Add(b);
+                }
+            }
         }
     }
 }

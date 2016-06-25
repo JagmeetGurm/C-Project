@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="725">
+        Title="MainWindow" Height="750" Width="925">
     <Grid Margin="0,0,-35.6,-3">
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
@@ -18,30 +18,39 @@
             </MenuItem>
             <MenuItem x:Name="HelpMenu" Header="Help" FontSize="20"/>
         </Menu>
-        <Grid HorizontalAlignment="Left" Background="Green" Margin="10,42.4,0,0" Grid.Row="1" Width="496" Height="380" VerticalAlignment="Top">
+        <Grid HorizontalAlignment="Left" Background="Green" Margin="51,49.8,0,0" Grid.Row="1" Width="705" Height="538" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="43*" />
-                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="50*" />
                 <ColumnDefinition Width="50*"/>
-                <ColumnDefinition Width="62*"/>
-                <ColumnDefinition Width="54*"/>
-                <ColumnDefinition Width="58*"/>
-                <ColumnDefinition Width="61*"/>
-                <ColumnDefinition Width="63*"/>
-                <ColumnDefinition Width="61*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0*"/>
-                <RowDefinition Height="33*"/>
-                <RowDefinition Height="48*"/>
-                <RowDefinition Height="38*"/>
-                <RowDefinition Height="45*"/>
-                <RowDefinition Height="46*"/>
-                <RowDefinition Height="48*"/>
-                <RowDefinition Height="51*"/>
-                <RowDefinition Height="39*"/>
-                <RowDefinition Height="32*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
+            <Button x:Name="zeroZero" Content="" HorizontalAlignment="Left" Margin="13.2,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="1" Grid.Row="2"/>
+            <Button x:Name="zeroZero_Copy" Content="" HorizontalAlignment="Left" Margin="10.2,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="2" Grid.Row="2"/>
+            <Button x:Name="zeroZero_Copy1" Content="" HorizontalAlignment="Left" Margin="9.8,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="3" Grid.Row="2"/>
+            <Button x:Name="zeroZero_Copy2" Content="" HorizontalAlignment="Left" Margin="25.8,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="4" Grid.Row="2"/>
+            <Button x:Name="zeroZero_Copy3" Content="" HorizontalAlignment="Left" Margin="13.2,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2"/>
+            <Button x:Name="zeroZero_Copy4" Content="" HorizontalAlignment="Left" Margin="31,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="5" Grid.Row="2"/>
+            <Button x:Name="zeroZero_Copy5" Content="" HorizontalAlignment="Left" Margin="35.6,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="6" Grid.Row="2"/>
+            <Button x:Name="zeroZero_Copy6" Content="" HorizontalAlignment="Left" Margin="10.2,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="7" Grid.Row="2"/>
+            <Button x:Name="zeroZero_Copy7" Content="" HorizontalAlignment="Left" Margin="35.6,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="8" Grid.Row="2"/>
         </Grid>
 
     </Grid>
