@@ -13,6 +13,7 @@ namespace WpfApplication1
     /// </summary>
     //will be manipulating the graphical interface
     //will be adding some clicking functions
+    //will also be adding some convert functions
     public partial class App : Application
     {
     }
