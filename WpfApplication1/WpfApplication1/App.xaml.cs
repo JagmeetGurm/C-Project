@@ -11,6 +11,7 @@ namespace WpfApplication1
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
+    //will be manipulating the graphical interface
     public partial class App : Application
     {
     }
