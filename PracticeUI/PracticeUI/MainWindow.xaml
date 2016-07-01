@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeUI"
         mc:Ignorable="d"
-        Title="PracticeUI" >
+        Title="PracticeUI" Height="400" >
     <Grid>
         <Button Margin="20" >
-            <Image Name="DemoImage"  Stretch ="fill" Margin="100" />
+            <Image Name="DemoImage"  Stretch ="fill" Margin="100" Source="pack://siteoforigin:,,,/picture000.jpg" />
         </Button>   
     </Grid>
 </Window>
