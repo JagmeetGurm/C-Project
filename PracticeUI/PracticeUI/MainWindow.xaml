@@ -8,12 +8,12 @@
         Title="PracticeUI" Height="450" Width="400">
     <Grid Name="LayoutGrid">
         <StackPanel Margin="10"  >
-            <TextBlock Text="Frist Element" Margin="20"></TextBlock>
+            <TextBlock Text="First Element" Margin="20"></TextBlock>
             <TextBox Text="First Textbox" Margin="20,10"></TextBox>
             <TextBox Text="2nd Textbox" Margin="20, 10"></TextBox>
             
-            <Button Content="OK!" HorizontalAlignment="Right"></Button>
-            <Button Content="Cancel!" HorizontalAlignment="Right"></Button>
+            <Button Content="OK!" HorizontalAlignment="Right" Margin=" 20,40"  MinWidth="50"></Button>
+            <Button Content="Cancel!" HorizontalAlignment="Right" Margin="20,10" MinWidth="50"></Button>
         </StackPanel>
 
     </Grid>
