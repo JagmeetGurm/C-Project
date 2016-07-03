@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="PracticeUI" Height="450" Width="400">
    
+   
     <Grid Name="LayoutGrid">
         <StackPanel Margin="10"  >
             
@@ -18,13 +19,13 @@
             <Button Content="Cancel!" HorizontalAlignment="Right" Margin="20,10" MinWidth="50"></Button>
             <StackPanel Margin="20" >
                 <StackPanel.Resources>
-                    <Style  TargetType="Button">
+                    <Style TargetType="Button" >
                         <Setter Property="Background" Value="Red"></Setter>
                     </Style>
                 </StackPanel.Resources>
-                <Button Content="First Button" ></Button>
-                    
-                <Button Content="2nd Button"  ></Button>
+                <Button Content="First Button"  ></Button>
+
+                <Button Content="2nd Button" ></Button>
             </StackPanel>
         </StackPanel>
 
