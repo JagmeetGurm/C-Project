@@ -14,6 +14,10 @@
             
             <Button Content="OK!" HorizontalAlignment="Right" Margin=" 20,40"  MinWidth="50"></Button>
             <Button Content="Cancel!" HorizontalAlignment="Right" Margin="20,10" MinWidth="50"></Button>
+            <StackPanel Margin="20">
+                <Button Content="FirstButton"></Button>
+                <Button 
+            </StackPanel>
         </StackPanel>
 
     </Grid>

@@ -25,16 +25,6 @@ namespace PracticeUI
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        //dependency property being used 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            int row = (int)myButton.GetValue(Grid.RowProperty);
-            row = (row + 1) % LayoutGrid.RowDefinitions.Count;
-            myButton.SetValue(Grid.RowProperty, row);
-        }
+        
     }
 }
