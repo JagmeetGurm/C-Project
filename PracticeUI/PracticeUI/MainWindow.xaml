@@ -6,14 +6,10 @@
         xmlns:local="clr-namespace:PracticeUI"
         mc:Ignorable="d"
         Title="PracticeUI" Height="450" Width="400">
-    <!--<Style x: Key="ColoredButton" TargetType="Button"></Style>-->
+   
     <Grid Name="LayoutGrid">
         <StackPanel Margin="10"  >
-            <StackPanel.Resources>
-                <Style>
-                    
-                </Style>
-            </StackPanel.Resources>
+            
             <TextBlock Text="First Element" Margin="20"></TextBlock>
             <TextBox Text="First Textbox" Margin="20,10"></TextBox>
             <TextBox Text="2nd Textbox" Margin="20, 10"></TextBox>
@@ -21,9 +17,14 @@
             <Button Content="OK!" HorizontalAlignment="Right" Margin=" 20,40"  MinWidth="50"></Button>
             <Button Content="Cancel!" HorizontalAlignment="Right" Margin="20,10" MinWidth="50"></Button>
             <StackPanel Margin="20" >
-                <Button Content="First Button" 
-                    Style="{StaticResource ColoredButton}"    ></Button>
-                <Button Content="2nd Button"  Style="{StaticResource ColoredButton}" ></Button>
+                <StackPanel.Resources>
+                    <Style  TargetType="Button">
+                        <Setter Property="Background" Value="Red"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Content="First Button" ></Button>
+                    
+                <Button Content="2nd Button"  ></Button>
             </StackPanel>
         </StackPanel>
 
