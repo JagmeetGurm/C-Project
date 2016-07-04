@@ -27,9 +27,10 @@
 
                 <Button Content="2nd Button" ></Button>
                 <StackPanel Orientation="Horizontal">
-                <Slider HorizontalAlignment="Left" Width="50" Margin="10">
+                <Slider Name="demoSlider" HorizontalAlignment="Left" Width="50" Margin="10">
                 </Slider>
-                <TextBox HorizontalAlignment="Center" Width="40" Margin="10, 10"></TextBox>
+                <TextBox HorizontalAlignment="Center" Width="40" Margin="10, 10"
+                         Text="{Binding ElementName=demoSlider, Path=Value}"></TextBox>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
