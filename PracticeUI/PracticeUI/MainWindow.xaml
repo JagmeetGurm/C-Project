@@ -9,6 +9,7 @@
    
    
     <Grid Name="LayoutGrid">
+        <Border BorderBrush="Black" Margin="5" BorderThickness="5,5,5,5"></Border>
         <StackPanel Margin="10"  >
             
             <TextBlock Text="First Element" Margin="20"></TextBlock>
@@ -27,7 +28,7 @@
 
                 <Button Content="2nd Button" ></Button>
                 <StackPanel Orientation="Horizontal">
-                <Slider Name="demoSlider" HorizontalAlignment="Left" Width="50" Margin="10">
+                <Slider Name="demoSlider" HorizontalAlignment="Left" Width="50" Margin="10" >
                 </Slider>
                 <TextBox Name ="demoTextBox" HorizontalAlignment="Center" Width="40" Margin="10, 10"
                          Text="{Binding ElementName=demoSlider, Path=Value, Mode=TwoWay, StringFormat=0.00}"></TextBox>
