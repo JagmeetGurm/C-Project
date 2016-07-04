@@ -29,8 +29,8 @@
                 <StackPanel Orientation="Horizontal">
                 <Slider Name="demoSlider" HorizontalAlignment="Left" Width="50" Margin="10">
                 </Slider>
-                <TextBox HorizontalAlignment="Center" Width="40" Margin="10, 10"
-                         Text="{Binding ElementName=demoSlider, Path=Value}"></TextBox>
+                <TextBox Name ="demoTextBox" HorizontalAlignment="Center" Width="40" Margin="10, 10"
+                         Text="{Binding ElementName=demoSlider, Path=Value, Mode=TwoWay, StringFormat=0.00}"></TextBox>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
