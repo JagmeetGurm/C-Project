@@ -26,6 +26,8 @@
                 <Button Content="First Button"  ></Button>
 
                 <Button Content="2nd Button" ></Button>
+                <Slider HorizontalAlignment="Left" Width="50" Margin="0,10">
+                 </Slider>
             </StackPanel>
         </StackPanel>
 
