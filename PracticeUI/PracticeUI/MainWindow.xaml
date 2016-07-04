@@ -26,8 +26,11 @@
                 <Button Content="First Button"  ></Button>
 
                 <Button Content="2nd Button" ></Button>
-                <Slider HorizontalAlignment="Left" Width="50" Margin="0,10">
-                 </Slider>
+                <StackPanel Orientation="Horizontal">
+                <Slider HorizontalAlignment="Left" Width="50" Margin="10">
+                </Slider>
+                <TextBox HorizontalAlignment="Center" Width="40" Margin="10, 10"></TextBox>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
 
