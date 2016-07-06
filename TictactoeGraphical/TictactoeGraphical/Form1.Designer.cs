@@ -47,6 +47,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.button1.Location = new System.Drawing.Point(40, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 123);
@@ -56,6 +57,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.button2.Location = new System.Drawing.Point(217, 55);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(161, 123);
@@ -65,6 +67,7 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.button3.Location = new System.Drawing.Point(400, 55);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(161, 123);
@@ -74,6 +77,7 @@
             // 
             // button4
             // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.button4.Location = new System.Drawing.Point(40, 182);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(161, 123);
@@ -83,6 +87,7 @@
             // 
             // button5
             // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.button5.Location = new System.Drawing.Point(217, 184);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(161, 123);
@@ -92,6 +97,7 @@
             // 
             // button6
             // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.button6.Location = new System.Drawing.Point(400, 182);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(161, 123);
@@ -101,7 +107,8 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(40, 292);
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button7.Location = new System.Drawing.Point(40, 311);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(161, 123);
             this.button7.TabIndex = 6;
@@ -110,7 +117,8 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(217, 292);
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button8.Location = new System.Drawing.Point(217, 311);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(161, 123);
             this.button8.TabIndex = 7;
@@ -119,7 +127,8 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(400, 292);
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button9.Location = new System.Drawing.Point(400, 311);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(161, 123);
             this.button9.TabIndex = 8;
@@ -150,13 +159,13 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.newToolStripMenuItem.Text = "New";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

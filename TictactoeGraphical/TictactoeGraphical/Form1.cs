@@ -59,7 +59,8 @@ namespace TictactoeGraphical
 
         private void buttonClick(object sender, EventArgs e)
         {
-
+            Button myButton = (Button)sender;
+            myButton.Text = "O";
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
