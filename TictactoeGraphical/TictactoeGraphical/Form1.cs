@@ -16,5 +16,10 @@ namespace TictactoeGraphical
         {
             InitializeComponent();
         }
+
+        private void buttonClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
