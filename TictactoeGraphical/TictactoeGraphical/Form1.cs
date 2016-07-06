@@ -250,6 +250,15 @@ namespace TictactoeGraphical
             return r2;
         }
 
+        public void computerClick(int x, int y)
+        {
+            if(x==0 && y == 0)
+            {
+               Form1!button1.text = 'X';
+            }
+
+        }
+
         //the computer makes the move through this function by calling minimax
         //does accept any parameter, nor gives an output
         public void computerMove()
@@ -261,6 +270,7 @@ namespace TictactoeGraphical
                 board[r1.x, r1.y] = 'X';
             else board[r1.x, r1.y] = 'O';
             //board[r1.x, r1.y] = r1.val;
+            computerClick(r1.x, r1.y);
         }
 
         //the player makes the move followed by printing the board
