@@ -61,6 +61,16 @@ namespace TictactoeGraphical
         {
 
         }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("A TicTacToe game played between two players");
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
     class result
     {
