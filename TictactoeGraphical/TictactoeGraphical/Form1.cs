@@ -254,7 +254,7 @@ namespace TictactoeGraphical
         {
             if(x==0 && y == 0)
             {
-               Form1!button1.text = 'X';
+           //    Form1!button1.text = 'X';
             }
 
         }
