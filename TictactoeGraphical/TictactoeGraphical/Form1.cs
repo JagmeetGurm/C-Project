@@ -48,7 +48,8 @@ namespace TictactoeGraphical
                     }
                     else
                     {
-                       g. computerMove();
+                    result r=   g. computerMove();
+                        computerClick(r.x, r.y);
                         Console.WriteLine("computer move: ");
                       g.  currentBoard();
                     }
@@ -312,7 +313,7 @@ namespace TictactoeGraphical
 
         //the computer makes the move through this function by calling minimax
         //does accept any parameter, nor gives an output
-        public void computerMove()
+        public result computerMove()
         {
             result r1 = new result();
             //   r1 = minimax(0, 0, 'X');
@@ -321,8 +322,9 @@ namespace TictactoeGraphical
                 boardJim[r1.x, r1.y] = 'X';
             else boardJim[r1.x, r1.y] = 'O';
             //board[r1.x, r1.y] = r1.val;
-            Form1 f = new Form1();
-          f.computerClick(r1.x, r1.y);
+            //  Form1 f = new Form1();
+            //f.computerClick(r1.x, r1.y);
+            return r1;
         }
 
         //the player makes the move followed by printing the board
