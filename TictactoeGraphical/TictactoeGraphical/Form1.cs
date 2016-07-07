@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace TictactoeGraphical
 {
 
-    public partial class Form1 : Form
+    public partial  class Form1 : Form
     {
         public Form1()
         {
@@ -30,15 +30,28 @@ namespace TictactoeGraphical
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    g.board[i, j] = ' ';
+                    g.boardJim[i, j] = ' ';
                 }
             }
             for (int i = 0; i < 9; i++)
             {
                 if (g.checkResult() == 0)
                 {
-                    g.move(i);
+                    // g.move(i);
+                    if (i % 2 == 1)
+                    {
 
+
+                       g. playerMove();
+                       g. currentBoard();
+
+                    }
+                    else
+                    {
+                       g. computerMove();
+                        Console.WriteLine("computer move: ");
+                      g.  currentBoard();
+                    }
                 }
                 else i = 9;
             }
@@ -61,6 +74,7 @@ namespace TictactoeGraphical
         {
             Button myButton = (Button)sender;
             myButton.Text = "O";
+            myButton.Enabled = false;
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,6 +86,38 @@ namespace TictactoeGraphical
         {
             Application.Exit();
         }
+
+        public void computerClick(int x, int y)
+        {
+            if (x == 0 && y == 0)
+            {
+                    button1.Text = "X";
+            }
+            else if(x==0 && y==1)
+                button2.Text = "X";
+
+            else if (x == 0 && y == 2)
+                button3.Text = "X";
+
+            else if (x == 1 && y == 0)
+                button4.Text = "X";
+
+            else if (x == 1 && y == 1)
+                button5.Text = "X";
+
+            else if (x == 1 && y == 2)
+                button6.Text = "X";
+
+            else if (x == 2 && y == 0)
+                button7.Text = "X";
+
+            else if (x == 2 && y == 1)
+                button8.Text = "X";
+
+            else 
+                button9.Text = "X";
+
+        }
     }
     class result
     {
@@ -81,8 +127,9 @@ namespace TictactoeGraphical
 
     class game
     {
+        private Form1 f1;
         //board represents the board of the game
-        public char[,] board = new char[3, 3];
+        public char[,] boardJim = new char[3, 3];
 
         char turn;
         public void setTurn(char t)
@@ -115,9 +162,9 @@ namespace TictactoeGraphical
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        if (board[i, j] == ' ')
+                        if (boardJim[i, j] == ' ')
                         {//If legal,
-                            board[i, j] = 'X';
+                            boardJim[i, j] = 'X';
 
 
                             int score = minimax(i, j, 'O').val;
@@ -129,7 +176,7 @@ namespace TictactoeGraphical
                                 r2.y = j;
                                 //  move = i;
                             }//Pick the one that's worst for the opponent
-                            board[i, j] = ' ';//
+                            boardJim[i, j] = ' ';//
                         }
 
                     }
@@ -147,9 +194,9 @@ namespace TictactoeGraphical
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        if (board[i, j] == ' ')
+                        if (boardJim[i, j] == ' ')
                         {//If legal,
-                            board[i, j] = 'O';
+                            boardJim[i, j] = 'O';
 
                             int score = minimax(i, j, 'X').val;
                             if (score < bestValue)
@@ -160,7 +207,7 @@ namespace TictactoeGraphical
                                 r2.y = j;
                                 //  move = i;
                             }//Pick the one that's worst for the opponent
-                            board[i, j] = ' ';//
+                            boardJim[i, j] = ' ';//
                         }
 
                     }
@@ -198,9 +245,9 @@ namespace TictactoeGraphical
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        if (board[i, j] == ' ')
+                        if (boardJim[i, j] == ' ')
                         {//If legal,
-                            board[i, j] = 'X';
+                            boardJim[i, j] = 'X';
 
 
                             int score = prunning(i, j, 'O', alpha, beta).val;
@@ -213,7 +260,7 @@ namespace TictactoeGraphical
                                 r2.y = j;
                                 //  move = i;
                             }//Pick the one that's worst for the opponent
-                            board[i, j] = ' ';//
+                            boardJim[i, j] = ' ';//
                             if (alpha >= beta) break;
                         }
 
@@ -232,9 +279,9 @@ namespace TictactoeGraphical
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        if (board[i, j] == ' ')
+                        if (boardJim[i, j] == ' ')
                         {//If legal,
-                            board[i, j] = 'O';
+                            boardJim[i, j] = 'O';
 
                             int score = prunning(i, j, 'X', alpha, beta).val;
                             if (score < beta)
@@ -247,7 +294,7 @@ namespace TictactoeGraphical
 
                                 //  move = i;
                             }//Pick the one that's worst for the opponent
-                            board[i, j] = ' ';//
+                            boardJim[i, j] = ' ';//
                             if (alpha >= beta) break;
                         }
 
@@ -261,14 +308,7 @@ namespace TictactoeGraphical
             return r2;
         }
 
-        public void computerClick(int x, int y)
-        {
-            if(x==0 && y == 0)
-            {
-           //    Form1!button1.text = 'X';
-            }
-
-        }
+        
 
         //the computer makes the move through this function by calling minimax
         //does accept any parameter, nor gives an output
@@ -278,10 +318,11 @@ namespace TictactoeGraphical
             //   r1 = minimax(0, 0, 'X');
             r1 = prunning(0, 0, 'X', -10, 10);
             if (r1.val == 1 || r1.val == 0)
-                board[r1.x, r1.y] = 'X';
-            else board[r1.x, r1.y] = 'O';
+                boardJim[r1.x, r1.y] = 'X';
+            else boardJim[r1.x, r1.y] = 'O';
             //board[r1.x, r1.y] = r1.val;
-            computerClick(r1.x, r1.y);
+            Form1 f = new Form1();
+          f.computerClick(r1.x, r1.y);
         }
 
         //the player makes the move followed by printing the board
@@ -302,9 +343,9 @@ namespace TictactoeGraphical
         public void currentBoard()
         {
 
-            Console.WriteLine(board[0, 0] + " | " + board[0, 1] + " | " + board[0, 2] + " | ");
-            Console.WriteLine(board[1, 0] + " | " + board[1, 1] + " | " + board[1, 2] + " | ");
-            Console.WriteLine(board[2, 0] + " | " + board[2, 1] + " | " + board[2, 2] + " | ");
+            Console.WriteLine(boardJim[0, 0] + " | " + boardJim[0, 1] + " | " + boardJim[0, 2] + " | ");
+            Console.WriteLine(boardJim[1, 0] + " | " + boardJim[1, 1] + " | " + boardJim[1, 2] + " | ");
+            Console.WriteLine(boardJim[2, 0] + " | " + boardJim[2, 1] + " | " + boardJim[2, 2] + " | ");
 
 
         }
@@ -332,25 +373,25 @@ namespace TictactoeGraphical
         //checks if we have reached the final state or some body wins
         public int checkResult()
         {
-            if ((board[0, 0] == board[0, 1] && board[0, 0] == board[0, 2] && board[0, 0] == 'X') ||
-                           (board[1, 0] == board[1, 1] && board[1, 0] == board[1, 2] && board[1, 0] == 'X') ||
-                        (board[2, 0] == board[2, 1] && board[2, 0] == board[2, 2] && board[2, 0] == 'X') ||
-                        (board[0, 0] == board[1, 0] && board[0, 0] == board[2, 0] && board[0, 0] == 'X') ||
-                         (board[0, 1] == board[1, 1] && board[0, 0] == board[2, 1] && board[0, 1] == 'X') ||
-                          (board[0, 2] == board[1, 2] && board[0, 2] == board[2, 2] && board[0, 2] == 'X') ||
+            if ((boardJim[0, 0] == boardJim[0, 1] && boardJim[0, 0] == boardJim[0, 2] && boardJim[0, 0] == 'X') ||
+                           (boardJim[1, 0] == boardJim[1, 1] && boardJim[1, 0] == boardJim[1, 2] && boardJim[1, 0] == 'X') ||
+                        (boardJim[2, 0] == boardJim[2, 1] && boardJim[2, 0] == boardJim[2, 2] && boardJim[2, 0] == 'X') ||
+                        (boardJim[0, 0] == boardJim[1, 0] && boardJim[0, 0] == boardJim[2, 0] && boardJim[0, 0] == 'X') ||
+                         (boardJim[0, 1] == boardJim[1, 1] && boardJim[0, 0] == boardJim[2, 1] && boardJim[0, 1] == 'X') ||
+                          (boardJim[0, 2] == boardJim[1, 2] && boardJim[0, 2] == boardJim[2, 2] && boardJim[0, 2] == 'X') ||
 
-                           (board[0, 0] == board[1, 1] && board[0, 0] == board[2, 2] && board[0, 0] == 'X') ||
-                            (board[0, 2] == board[1, 1] && board[0, 2] == board[2, 0] && board[0, 2] == 'X'))
+                           (boardJim[0, 0] == boardJim[1, 1] && boardJim[0, 0] == boardJim[2, 2] && boardJim[0, 0] == 'X') ||
+                            (boardJim[0, 2] == boardJim[1, 1] && boardJim[0, 2] == boardJim[2, 0] && boardJim[0, 2] == 'X'))
                 return 1;
-            else if ((board[0, 0] == board[0, 1] && board[0, 0] == board[0, 2] && board[0, 0] == 'O') ||
-                (board[1, 0] == board[1, 1] && board[1, 0] == board[1, 2] && board[1, 0] == 'O') ||
-             (board[2, 0] == board[2, 1] && board[2, 0] == board[2, 2] && board[2, 0] == 'O') ||
-             (board[0, 0] == board[1, 0] && board[0, 0] == board[2, 0] && board[0, 0] == 'O') ||
-              (board[0, 1] == board[1, 1] && board[0, 0] == board[2, 1] && board[0, 1] == 'O') ||
-               (board[0, 2] == board[1, 2] && board[0, 2] == board[2, 2] && board[0, 2] == 'O') ||
+            else if ((boardJim[0, 0] == boardJim[0, 1] && boardJim[0, 0] == boardJim[0, 2] && boardJim[0, 0] == 'O') ||
+                (boardJim[1, 0] == boardJim[1, 1] && boardJim[1, 0] == boardJim[1, 2] && boardJim[1, 0] == 'O') ||
+             (boardJim[2, 0] == boardJim[2, 1] && boardJim[2, 0] == boardJim[2, 2] && boardJim[2, 0] == 'O') ||
+             (boardJim[0, 0] == boardJim[1, 0] && boardJim[0, 0] == boardJim[2, 0] && boardJim[0, 0] == 'O') ||
+              (boardJim[0, 1] == boardJim[1, 1] && boardJim[0, 0] == boardJim[2, 1] && boardJim[0, 1] == 'O') ||
+               (boardJim[0, 2] == boardJim[1, 2] && boardJim[0, 2] == boardJim[2, 2] && boardJim[0, 2] == 'O') ||
 
-                (board[0, 0] == board[1, 1] && board[0, 0] == board[2, 2] && board[0, 0] == 'O') ||
-                 (board[0, 2] == board[1, 1] && board[0, 2] == board[2, 0] && board[0, 2] == 'O'))
+                (boardJim[0, 0] == boardJim[1, 1] && boardJim[0, 0] == boardJim[2, 2] && boardJim[0, 0] == 'O') ||
+                 (boardJim[0, 2] == boardJim[1, 1] && boardJim[0, 2] == boardJim[2, 0] && boardJim[0, 2] == 'O'))
                 return -1;
             else return 0;
         }
