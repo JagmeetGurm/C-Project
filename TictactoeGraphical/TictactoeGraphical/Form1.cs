@@ -175,6 +175,11 @@ private void userTurn(string name)
         {
             MessageBox.Show("TicTacToe game is played between two players turn by turn");
         }
+
+        private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
     class result
     {
