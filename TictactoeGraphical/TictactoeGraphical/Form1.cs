@@ -180,6 +180,11 @@ private void userTurn(string name)
         {
             Application.Exit();
         }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
     class result
     {
