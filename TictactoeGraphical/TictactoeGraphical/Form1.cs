@@ -16,6 +16,9 @@ namespace TictactoeGraphical
         public Form1()
         {
             InitializeComponent();
+           // justtry();
+        }
+        public void justtry() { 
             string initialState = "";
             string start = "player";
             char type = 'O';
@@ -25,42 +28,42 @@ namespace TictactoeGraphical
             //computer is going first
             int choice = 2;//player is 2nd
             //computer is 1, player is -1
-            game g = new game();
+          //  game g = new game();
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    g.boardJim[i, j] = ' ';
+                    game.boardJim[i, j] = ' ';
                 }
             }
             for (int i = 0; i < 9; i++)
             {
-                if (g.checkResult() == 0)
+                if (game.checkResult() == 0)
                 {
                     // g.move(i);
-                    if (i % 2 == 1)
+                    if (i % 2 == 0)
                     {
 
 
-                       g. playerMove();
-                       g. currentBoard();
+                       game. playerMove();
+                       game. currentBoard();
 
                     }
                     else
                     {
-                    result r=   g. computerMove();
+                    result r=   game. computerMove();
                         computerClick(r.x, r.y);
                         Console.WriteLine("computer move: ");
-                      g.  currentBoard();
+                      game.  currentBoard();
                     }
                 }
                 else i = 9;
             }
-            if (g.checkResult() == 1)
+            if (game.checkResult() == 1)
             {
                 Console.WriteLine("Computer won. You lost.");
             }
-            else if (g.checkResult() == -1)
+            else if (game.checkResult() == -1)
             {
 
                 Console.WriteLine("You won. congrats.");
@@ -76,8 +79,37 @@ namespace TictactoeGraphical
             Button myButton = (Button)sender;
             myButton.Text = "O";
             myButton.Enabled = false;
+            userTurn(myButton.Name);
         }
+private void userTurn(string name)
+        {
+            if (name == button1.Name)
+                game.boardJim[0, 0] = 'O';
 
+            else if (name == button2.Name)
+                game.boardJim[0, 1] = 'O';
+
+            else if (name == button3.Name)
+                game.boardJim[0, 2] = 'O';
+
+            else if (name == button4.Name)
+                game.boardJim[1, 0] = 'O';
+
+            else if (name == button5.Name)
+                game.boardJim[1, 1] = 'O';
+
+            else if (name == button6.Name)
+                game.boardJim[1, 2] = 'O';
+
+            else if (name == button7.Name)
+                game.boardJim[2, 0] = 'O';
+
+            else if (name == button8.Name)
+                game.boardJim[2, 1] = 'O';
+
+            else game.boardJim[2, 2] = 'O';
+
+        }
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("A TicTacToe game played between two players");
@@ -126,14 +158,14 @@ namespace TictactoeGraphical
     }
 
 
-    class game
+  static  class game
     {
-        private Form1 f1;
+       
         //board represents the board of the game
-        public char[,] boardJim = new char[3, 3];
+        public  static char[,] boardJim = new char[3, 3];
 
-        char turn;
-        public void setTurn(char t)
+     static   char turn;
+        public static void  setTurn(char t)
         {
             turn = t;
         }
@@ -142,7 +174,7 @@ namespace TictactoeGraphical
         //Java Graphic Tutorial, http://www3.ntu.edu.sg/home/ehchua/programming/java/javagame_tictactoe_ai.html
         //PLAYING WITH GAME THEORY, https://gangsterveggies.wordpress.com/tag/alpha-beta-pruning/
         //algorithm helps the computer to pick best next move possible
-        public result minimax(int a, int b, char player)
+        public static result minimax(int a, int b, char player)
         {
             result r2 = new result();
             int x1 = -1, y1 = -1;
@@ -225,7 +257,7 @@ namespace TictactoeGraphical
         //PLAYING WITH GAME THEORY, https://gangsterveggies.wordpress.com/tag/alpha-beta-pruning/
 
         //improving the prunning algorithm
-        public result prunning(int a, int b, char player, int alpha, int beta)
+        public static result prunning(int a, int b, char player, int alpha, int beta)
         {
             result r2 = new result();
             int x1 = -1, y1 = -1;
@@ -313,7 +345,7 @@ namespace TictactoeGraphical
 
         //the computer makes the move through this function by calling minimax
         //does accept any parameter, nor gives an output
-        public result computerMove()
+        public static result computerMove()
         {
             result r1 = new result();
             //   r1 = minimax(0, 0, 'X');
@@ -328,7 +360,7 @@ namespace TictactoeGraphical
         }
 
         //the player makes the move followed by printing the board
-        public void playerMove()
+        public static void playerMove()
         {
             // Trace.Assert(turn == 'O');
             // char move = ' ';
@@ -342,7 +374,7 @@ namespace TictactoeGraphical
         }
 
         //prints the current state fo the board
-        public void currentBoard()
+        public static void currentBoard()
         {
 
             Console.WriteLine(boardJim[0, 0] + " | " + boardJim[0, 1] + " | " + boardJim[0, 2] + " | ");
@@ -353,7 +385,7 @@ namespace TictactoeGraphical
         }
 
         //decides whose move is it going to be-computer's or user's 
-        public void move(int i)
+        public static void move(int i)
         {
             if (i % 2 == 1)
             {
@@ -373,7 +405,7 @@ namespace TictactoeGraphical
 
 
         //checks if we have reached the final state or some body wins
-        public int checkResult()
+        public static int checkResult()
         {
             if ((boardJim[0, 0] == boardJim[0, 1] && boardJim[0, 0] == boardJim[0, 2] && boardJim[0, 0] == 'X') ||
                            (boardJim[1, 0] == boardJim[1, 1] && boardJim[1, 0] == boardJim[1, 2] && boardJim[1, 0] == 'X') ||
