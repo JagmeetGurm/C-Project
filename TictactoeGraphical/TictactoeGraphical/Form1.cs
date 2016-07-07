@@ -16,9 +16,9 @@ namespace TictactoeGraphical
         public Form1()
         {
             InitializeComponent();
-           // justtry();
+            justtry();
         }
-        public void justtry() { 
+        public static void justtry() { 
             string initialState = "";
             string start = "player";
             char type = 'O';
@@ -36,7 +36,7 @@ namespace TictactoeGraphical
                     game.boardJim[i, j] = ' ';
                 }
             }
-            for (int i = 0; i < 9; i++)
+/*            for (int i = 0; i < 9; i++)
             {
                 if (game.checkResult() == 0)
                 {
@@ -54,11 +54,13 @@ namespace TictactoeGraphical
                     result r=   game. computerMove();
                         computerClick(r.x, r.y);
                         Console.WriteLine("computer move: ");
-                      game.  currentBoard();
+                      game.currentBoard();
                     }
                 }
                 else i = 9;
-            }
+                
+
+            
             if (game.checkResult() == 1)
             {
                 Console.WriteLine("Computer won. You lost.");
@@ -71,7 +73,7 @@ namespace TictactoeGraphical
             else
                 Console.WriteLine("Its a draw.");
             Console.ReadLine();
-        
+  */      
     }
 
         private void buttonClick(object sender, EventArgs e)
@@ -79,7 +81,19 @@ namespace TictactoeGraphical
             Button myButton = (Button)sender;
             myButton.Text = "O";
             myButton.Enabled = false;
+           
             userTurn(myButton.Name);
+            if (game.checkResult() == 0)
+            {
+                result r = game.computerMove();
+                computerClick(r.x, r.y);
+                if (game.checkResult() == 1)
+                {
+                    Application.Exit();
+                }
+            }
+            else Application.Exit();
+            
         }
 private void userTurn(string name)
         {
@@ -150,6 +164,16 @@ private void userTurn(string name)
             else 
                 button9.Text = "X";
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TicTacToe game is played between two players turn by turn");
         }
     }
     class result
