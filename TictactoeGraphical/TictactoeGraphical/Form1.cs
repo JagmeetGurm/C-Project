@@ -18,6 +18,7 @@ namespace TictactoeGraphical
             InitializeComponent();
             justtry();
         }
+        static int count = 0;
         public static void justtry() { 
             string initialState = "";
             string start = "player";
@@ -81,21 +82,39 @@ namespace TictactoeGraphical
             Button myButton = (Button)sender;
             myButton.Text = "O";
             myButton.Enabled = false;
-           
+            //myButton.
+            //  myButton.BackColor = "192, 255, 192";
+            myButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            count++;
+            if (count == 9)
+                this.Enabled = false;
+
+
             userTurn(myButton.Name);
             if (game.checkResult() == 0)
             {
                 result r = game.computerMove();
                 computerClick(r.x, r.y);
+                count++;
+                if (count == 9)
+                    this.Enabled = false;
                 if (game.checkResult() == 1)
                 {
-                  //  Application.Exit();
+                    winnerBox.Text = "Computer!";
+                    foreach (Button button in this.Controls.OfType<Button>())
+                        button.Enabled = false;
+                    //  Application.Exit();
 
                 }
             }
-            else Application.Exit();
-            
-        }
+            else
+            {
+                winnerBox.Text = "User!";
+                foreach (Button button in this.Controls.OfType<Button>())
+                    button.Enabled = false;
+            }
+
+            }
 private void userTurn(string name)
         {
             if (name == button1.Name)
@@ -139,32 +158,57 @@ private void userTurn(string name)
         {
             if (x == 0 && y == 0)
             {
-                    button1.Text = "X";
+                button1.Text = "X";
+                button1.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             }
-            else if(x==0 && y==1)
+            else if (x == 0 && y == 1)
+            {
                 button2.Text = "X";
+                button2.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 
+            }
             else if (x == 0 && y == 2)
+            {
                 button3.Text = "X";
+                button3.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 
+            }
             else if (x == 1 && y == 0)
+            {
                 button4.Text = "X";
+                button4.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 
+            }
             else if (x == 1 && y == 1)
+            {
                 button5.Text = "X";
+                button5.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 
+            }
             else if (x == 1 && y == 2)
+            {
                 button6.Text = "X";
+                button6.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 
+            }
             else if (x == 2 && y == 0)
+            {
                 button7.Text = "X";
+                button7.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 
+            }
             else if (x == 2 && y == 1)
+            {
                 button8.Text = "X";
+                button8.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 
-            else 
+            }
+            else
+            {
                 button9.Text = "X";
+                button9.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -186,6 +230,8 @@ private void userTurn(string name)
         {
             Application.Restart();
         }
+
+        
     }
     class result
     {

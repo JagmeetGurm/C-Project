@@ -42,16 +42,16 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.turnBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.winnerBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.button1.Location = new System.Drawing.Point(40, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 123);
@@ -61,7 +61,8 @@
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+         //   this.button2.BackColor = System.Drawing.Color.LightCoral;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.button2.Location = new System.Drawing.Point(217, 55);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(161, 123);
@@ -71,7 +72,7 @@
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.button3.Location = new System.Drawing.Point(400, 55);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(161, 123);
@@ -81,7 +82,7 @@
             // 
             // button4
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.button4.Location = new System.Drawing.Point(40, 182);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(161, 123);
@@ -91,7 +92,7 @@
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.button5.Location = new System.Drawing.Point(217, 184);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(161, 123);
@@ -101,7 +102,7 @@
             // 
             // button6
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.button6.Location = new System.Drawing.Point(400, 182);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(161, 123);
@@ -111,7 +112,7 @@
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.button7.Location = new System.Drawing.Point(40, 311);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(161, 123);
@@ -121,7 +122,7 @@
             // 
             // button8
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.button8.Location = new System.Drawing.Point(217, 311);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(161, 123);
@@ -163,14 +164,14 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
             // 
@@ -181,12 +182,12 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // textBox1
+            // turnBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(667, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 10;
+            this.turnBox.Location = new System.Drawing.Point(667, 87);
+            this.turnBox.Name = "turnBox";
+            this.turnBox.Size = new System.Drawing.Size(100, 22);
+            this.turnBox.TabIndex = 10;
             // 
             // label1
             // 
@@ -207,22 +208,22 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Winner:";
             // 
-            // textBox2
+            // winnerBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(670, 214);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 13;
+            this.winnerBox.Location = new System.Drawing.Point(670, 214);
+            this.winnerBox.Name = "winnerBox";
+            this.winnerBox.Size = new System.Drawing.Size(100, 22);
+            this.winnerBox.TabIndex = 13;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 505);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.winnerBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.turnBox);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -259,10 +260,10 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox turnBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox winnerBox;
     }
 }
 
