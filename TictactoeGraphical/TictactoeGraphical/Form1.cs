@@ -89,7 +89,8 @@ namespace TictactoeGraphical
                 computerClick(r.x, r.y);
                 if (game.checkResult() == 1)
                 {
-                    Application.Exit();
+                  //  Application.Exit();
+
                 }
             }
             else Application.Exit();
@@ -382,8 +383,8 @@ private void userTurn(string name)
         public static result computerMove()
         {
             result r1 = new result();
-            //   r1 = minimax(0, 0, 'X');
-            r1 = prunning(0, 0, 'X', -10, 10);
+               r1 = minimax(0, 0, 'X');
+        //    r1 = prunning(0, 0, 'X', -10, 10);
             if (r1.val == 1 || r1.val == 0)
                 boardJim[r1.x, r1.y] = 'X';
             else boardJim[r1.x, r1.y] = 'O';
@@ -445,7 +446,7 @@ private void userTurn(string name)
                            (boardJim[1, 0] == boardJim[1, 1] && boardJim[1, 0] == boardJim[1, 2] && boardJim[1, 0] == 'X') ||
                         (boardJim[2, 0] == boardJim[2, 1] && boardJim[2, 0] == boardJim[2, 2] && boardJim[2, 0] == 'X') ||
                         (boardJim[0, 0] == boardJim[1, 0] && boardJim[0, 0] == boardJim[2, 0] && boardJim[0, 0] == 'X') ||
-                         (boardJim[0, 1] == boardJim[1, 1] && boardJim[0, 0] == boardJim[2, 1] && boardJim[0, 1] == 'X') ||
+                         (boardJim[0, 1] == boardJim[1, 1] && boardJim[0, 1] == boardJim[2, 1] && boardJim[0, 1] == 'X') ||
                           (boardJim[0, 2] == boardJim[1, 2] && boardJim[0, 2] == boardJim[2, 2] && boardJim[0, 2] == 'X') ||
 
                            (boardJim[0, 0] == boardJim[1, 1] && boardJim[0, 0] == boardJim[2, 2] && boardJim[0, 0] == 'X') ||
@@ -455,7 +456,7 @@ private void userTurn(string name)
                 (boardJim[1, 0] == boardJim[1, 1] && boardJim[1, 0] == boardJim[1, 2] && boardJim[1, 0] == 'O') ||
              (boardJim[2, 0] == boardJim[2, 1] && boardJim[2, 0] == boardJim[2, 2] && boardJim[2, 0] == 'O') ||
              (boardJim[0, 0] == boardJim[1, 0] && boardJim[0, 0] == boardJim[2, 0] && boardJim[0, 0] == 'O') ||
-              (boardJim[0, 1] == boardJim[1, 1] && boardJim[0, 0] == boardJim[2, 1] && boardJim[0, 1] == 'O') ||
+              (boardJim[0, 1] == boardJim[1, 1] && boardJim[0, 1] == boardJim[2, 1] && boardJim[0, 1] == 'O') ||
                (boardJim[0, 2] == boardJim[1, 2] && boardJim[0, 2] == boardJim[2, 2] && boardJim[0, 2] == 'O') ||
 
                 (boardJim[0, 0] == boardJim[1, 1] && boardJim[0, 0] == boardJim[2, 2] && boardJim[0, 0] == 'O') ||
