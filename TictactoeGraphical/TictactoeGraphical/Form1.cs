@@ -93,11 +93,12 @@ namespace TictactoeGraphical
                 else if (game.checkResult() == 1)
                     winnerBox.Text = " Computer!";
                 else winnerBox.Text = "It's a draw";
-
+                foreach (Button button in this.Controls.OfType<Button>())
+                    button.Enabled = false;
             }
 
             userTurn(myButton.Name);
-            if (game.checkResult() == 0)
+            if (game.checkResult() == 0 && count<9)
             {
                 result r = game.computerMove();
                 computerClick(r.x, r.y);
@@ -109,13 +110,14 @@ namespace TictactoeGraphical
                     else if (game.checkResult() == 1)
                         winnerBox.Text=" Computer!";
                     else winnerBox.Text="It's a draw";
-                   
+
+                    foreach (Button button in this.Controls.OfType<Button>())
+                        button.Enabled = false;
                 }   
                 
             }
           
-                foreach (Button button in this.Controls.OfType<Button>())
-                    button.Enabled = false;
+                
             
 
             }
