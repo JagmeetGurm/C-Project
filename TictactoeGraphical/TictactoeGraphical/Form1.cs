@@ -87,8 +87,14 @@ namespace TictactoeGraphical
             myButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             count++;
             if (count == 9)
-                this.Enabled = false;
+            {
+                if (game.checkResult() == -1)
+                    winnerBox.Text = "User";
+                else if (game.checkResult() == 1)
+                    winnerBox.Text = " Computer!";
+                else winnerBox.Text = "It's a draw";
 
+            }
 
             userTurn(myButton.Name);
             if (game.checkResult() == 0)
@@ -97,22 +103,20 @@ namespace TictactoeGraphical
                 computerClick(r.x, r.y);
                 count++;
                 if (count == 9)
-                    this.Enabled = false;
-                if (game.checkResult() == 1)
                 {
-                    winnerBox.Text = "Computer!";
-                    foreach (Button button in this.Controls.OfType<Button>())
-                        button.Enabled = false;
-                    //  Application.Exit();
-
-                }
+                    if (game.checkResult() == -1)
+                        winnerBox.Text = "User";
+                    else if (game.checkResult() == 1)
+                        winnerBox.Text=" Computer!";
+                    else winnerBox.Text="It's a draw";
+                   
+                }   
+                
             }
-            else
-            {
-                winnerBox.Text = "User!";
+          
                 foreach (Button button in this.Controls.OfType<Button>())
                     button.Enabled = false;
-            }
+            
 
             }
 private void userTurn(string name)
