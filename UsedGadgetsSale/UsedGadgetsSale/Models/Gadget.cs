@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+/*This project is being done using the template of Microsoft's tutorial
+  for web forms. Reference: http://www.asp.net/web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 
-namespace UsedGadgetsSale.Models
+ */
+ //each instance of gadget class will represent a row in Relational DB.
+namespace    UsedGadgetsSale.Models
 {
     public class Gadget
     {
