@@ -16,7 +16,16 @@ namespace UsedGadgetsSale.Models
 
         [Required, StringLength(100), Display(Name ="Gadet Description"), DataType(DataType.MultilineText)]
         public string Description { get; set; }
-        
+
+        public string ImagePath { get; set; }
+
+        [Display(Name = "Price")]
+        public double? UnitPrice { get; set; }
+
+        public int? CategoryID { get; set; }
+
+        public virtual Category Category { get; set; }
+
 
     }
 }
