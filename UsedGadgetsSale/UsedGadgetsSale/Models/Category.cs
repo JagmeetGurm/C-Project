@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 namespace UsedGadgetsSale.Models
 {
     public class Category
-    {
+    { //data annotations
         [ScaffoldColumn(false)]
         public int CategoryID { get; set; }
 
