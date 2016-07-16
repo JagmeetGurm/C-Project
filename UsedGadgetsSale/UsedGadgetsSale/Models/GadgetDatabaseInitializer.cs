@@ -35,13 +35,9 @@ namespace UsedGadgetsSale.Models
                 new Category
                 {
                     CategoryID = 4,
-                    CategoryName = "Boats"
+                    CategoryName = "Cameras"
                 },
-                new Category
-                {
-                    CategoryID = 5,
-                    CategoryName = "Rockets"
-                },
+                
             };
 
             return categories;
