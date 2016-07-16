@@ -43,20 +43,20 @@ namespace UsedGadgetsSale.Models
             return categories;
         }
 
-        private static List<Product> GetProducts()
+        private static List<Gadget> GetGadgets()
         {
-            var products = new List<Product> {
-                new Product
+            var products = new List<Gadget> {
+                new Gadget
                 {
-                    ProductID = 1,
-                    ProductName = "Convertible Car",
+                    GadgetID = 1,
+                    GadgetName = "Convertible Car",
                     Description = "This convertible car is fast! The engine is powered by a neutrino based battery (not included)." +
                                   "Power it up and let it go!",
                     ImagePath="carconvert.png",
                     UnitPrice = 22.50,
                     CategoryID = 1
                },
-                new Product
+                new Gadget
                 {
                     ProductID = 2,
                     ProductName = "Old-time Car",
