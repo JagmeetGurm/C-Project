@@ -6,12 +6,12 @@ using System.Data.Entity;
 namespace UsedGadgetsSale.Models
 {
     public class GadgetDatabaseInitializer
-   : DropCreateDatabaseIfModelChanges<ProductContext>
+   : DropCreateDatabaseIfModelChanges<GadgetContext>
     {
-        protected override void Seed(ProductContext context)
+        protected override void Seed(GadgetContext context)
         {
             GetCategories().ForEach(c => context.Categories.Add(c));
-            GetProducts().ForEach(p => context.Products.Add(p));
+            GetProducts().ForEach(p => context.Gadgets.Add(p));
         }
 
         private static List<Category> GetCategories()
@@ -20,17 +20,17 @@ namespace UsedGadgetsSale.Models
                 new Category
                 {
                     CategoryID = 1,
-                    CategoryName = "Cars"
+                    CategoryName = "CellPhones"
                 },
                 new Category
                 {
                     CategoryID = 2,
-                    CategoryName = "Planes"
+                    CategoryName = "TV"
                 },
                 new Category
                 {
                     CategoryID = 3,
-                    CategoryName = "Trucks"
+                    CategoryName = "Laptops"
                 },
                 new Category
                 {
