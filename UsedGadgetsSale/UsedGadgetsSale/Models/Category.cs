@@ -15,7 +15,7 @@ namespace UsedGadgetsSale.Models
         [Required, StringLength(100), Display(Name = "Name")]
         public string CategoryName { get; set; }
 
-        [Display(Name = "Product Description")]
+        [Display(Name = "Gadget Description")]
         public string Description { get; set; }
 
         public virtual ICollection<Gadget> Gadgets { get; set; }
