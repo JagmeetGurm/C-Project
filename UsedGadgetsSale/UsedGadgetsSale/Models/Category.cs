@@ -8,10 +8,10 @@ using System.ComponentModel.DataAnnotations;
 namespace UsedGadgetsSale.Models
 {
     public class Category
-    { //data annotations
+    { //data annotations: validates user input
         [ScaffoldColumn(false)]
         public int CategoryID { get; set; }
-
+        //data annotations: user input required
         [Required, StringLength(100), Display(Name = "Name")]
         public string CategoryName { get; set; }
 
