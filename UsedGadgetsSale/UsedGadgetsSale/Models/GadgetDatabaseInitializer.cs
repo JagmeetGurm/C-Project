@@ -86,9 +86,8 @@ namespace UsedGadgetsSale.Models
                 new Gadget
                 {
                     GadgetID = 5,
-                    GadgetName = "Old Style Racer",
-                    Description = "This old style racer can fly (with user assistance). Gravity controls flight duration." +
-                                  "No batteries required.",
+                    GadgetName="Samsung TV",
+                    Description = "50 inch color television.",
                     ImagePath="carracer.png",
                     UnitPrice = 34.95,
                     CategoryID = 1
