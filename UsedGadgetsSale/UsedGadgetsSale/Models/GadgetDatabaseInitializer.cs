@@ -95,8 +95,8 @@ namespace UsedGadgetsSale.Models
                 new Gadget
                 {
                     GadgetID = 6,
-                    GadgetName = "Ace Plane",
-                    Description = "Authentic airplane toy. Features realistic color and details.",
+                    GadgetName = "LG TV",
+                    Description = "30 inch color TV.",
                     ImagePath="planeace.png",
                     UnitPrice = 95.00,
                     CategoryID = 2
