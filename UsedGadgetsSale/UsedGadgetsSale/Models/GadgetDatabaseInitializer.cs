@@ -77,8 +77,8 @@ namespace UsedGadgetsSale.Models
                 new Gadget
                 {
                     GadgetID = 4,
-                    GadgetName = "Super Fast Car",
-                    Description = "Use this super fast car to entertain guests. Lights and doors work!",
+                    GadgetName = "Sony Camera",
+                    Description = "Sony's 14 Mpx camera with image stablizer",
                     ImagePath="carfaster.png",
                     UnitPrice = 8.95,
                     CategoryID = 1
