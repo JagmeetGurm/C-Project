@@ -18,7 +18,7 @@ namespace    UsedGadgetsSale.Models
         [Required, StringLength(100), Display(Name ="Name")]
         public string GadgetName { get; set; }
 
-        [Required, StringLength(100), Display(Name ="Gadet Description"), DataType(DataType.MultilineText)]
+        [Required, StringLength(1000), Display(Name ="Gadget Description"), DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         public string ImagePath { get; set; }

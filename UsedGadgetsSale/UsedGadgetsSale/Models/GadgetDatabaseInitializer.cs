@@ -49,8 +49,8 @@ namespace UsedGadgetsSale.Models
                 new Gadget
                 {
                     GadgetID = 1,
-                    GadgetName = "Convertible Car",
-                    Description = "This convertible car is fast! The engine is powered by a neutrino based battery (not included)." +
+                    GadgetName = "Flip Phone",
+                    Description = "It's a flip phone which opens upon flipping." +
                                   "Power it up and let it go!",
                     ImagePath="carconvert.png",
                     UnitPrice = 22.50,

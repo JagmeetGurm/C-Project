@@ -7,7 +7,7 @@ namespace UsedGadgetsSale.Models
 {
     public class GadgetContext:DbContext
     {
-        public GadgetContext() : base("WingtipToys")
+        public GadgetContext() : base("UsedGadgetsSale")
     {
         }
         public DbSet<Category> Categories { get; set; }
