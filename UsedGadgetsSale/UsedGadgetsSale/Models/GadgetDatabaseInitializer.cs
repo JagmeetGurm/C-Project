@@ -113,8 +113,8 @@ namespace UsedGadgetsSale.Models
                 new Gadget
                 {
                     GadgetID = 8,
-                    GadgetName = "Paper Plane",
-                    Description = "This paper plane is like no other paper plane. Some folding required.",
+                    GadgetName = "Asus Laptop",
+                    Description = "11 inch Asus Tiachi dual-screen laptop.",
                     ImagePath="planepaper.png",
                     UnitPrice = 2.95,
                     CategoryID = 2
