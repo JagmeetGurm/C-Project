@@ -104,8 +104,8 @@ namespace UsedGadgetsSale.Models
                 new Gadget
                 {
                     GadgetID = 7,
-                    GadgetName = "Glider",
-                    Description = "This fun glider is made from real balsa wood. Some assembly required.",
+                    GadgetName = "Acer Laptop",
+                    Description = "Acer's 15 inch laptop.",
                     ImagePath="planeglider.png",
                     UnitPrice = 4.95,
                     CategoryID = 2
