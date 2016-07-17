@@ -59,8 +59,8 @@ namespace UsedGadgetsSale.Models
                 new Gadget
                 {
                     GadgetID = 2,
-                    GadgetName = "Old-time Car",
-                    Description = "There's nothing old about this toy car, except it's looks. Compatible with other old toy cars.",
+                    GadgetName = "Touch-screen phone",
+                    Description = "use the phone by touching the screen with your fingers.",
                     ImagePath="carearly.png",
                     UnitPrice = 15.95,
                      CategoryID = 1
