@@ -68,8 +68,8 @@ namespace UsedGadgetsSale.Models
                 new Gadget
                 {
                     GadgetID = 3,
-                    GadgetName = "Fast Car",
-                    Description = "Yes this car is fast, but it also floats in water.",
+                    GadgetName = "Nixon Camera",
+                    Description = "12 Mpx nixon camera with recorder.",
                     ImagePath="carfast.png",
                     UnitPrice = 32.99,
                     CategoryID = 1
