@@ -14,4 +14,3 @@ namespace UsedGadgetsSale.Models
         public DbSet<Gadget> Gadgets { get; set; }
     }
 }
-}

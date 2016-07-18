@@ -72,7 +72,7 @@ namespace UsedGadgetsSale.Models
                     Description = "12 Mpx nixon camera with recorder.",
                     ImagePath="carfast.png",
                     UnitPrice = 32.99,
-                    CategoryID = 1
+                    CategoryID = 4
                 },
                 new Gadget
                 {
@@ -81,7 +81,7 @@ namespace UsedGadgetsSale.Models
                     Description = "Sony's 14 Mpx camera with image stablizer",
                     ImagePath="carfaster.png",
                     UnitPrice = 8.95,
-                    CategoryID = 1
+                    CategoryID = 4
                 },
                 new Gadget
                 {
@@ -90,7 +90,7 @@ namespace UsedGadgetsSale.Models
                     Description = "50 inch color television.",
                     ImagePath="carracer.png",
                     UnitPrice = 34.95,
-                    CategoryID = 1
+                    CategoryID = 2
                 },
                 new Gadget
                 {
@@ -108,7 +108,7 @@ namespace UsedGadgetsSale.Models
                     Description = "Acer's 15 inch laptop.",
                     ImagePath="planeglider.png",
                     UnitPrice = 4.95,
-                    CategoryID = 2
+                    CategoryID = 3
                 },
                 new Gadget
                 {
@@ -117,7 +117,7 @@ namespace UsedGadgetsSale.Models
                     Description = "11 inch Asus Tiachi dual-screen laptop.",
                     ImagePath="planepaper.png",
                     UnitPrice = 2.95,
-                    CategoryID = 2
+                    CategoryID = 3
                 }
                 
             };
