@@ -122,7 +122,7 @@ namespace UsedGadgetsSale.Models
                 
             };
 
-            return Gadgets;
+            return gadgets;
         }
     }
 }
