@@ -180,6 +180,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="GadgetDetails.aspx" />
+    <Content Include="GadgetList.aspx" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -358,6 +360,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GadgetDetails.aspx.cs">
+      <DependentUpon>GadgetDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GadgetDetails.aspx.designer.cs">
+      <DependentUpon>GadgetDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GadgetList.aspx.cs">
+      <DependentUpon>GadgetList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GadgetList.aspx.designer.cs">
+      <DependentUpon>GadgetList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
