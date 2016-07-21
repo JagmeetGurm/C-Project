@@ -38,7 +38,7 @@
                             <tr>
                                 <td>
                                     <a href="ProductDetails.aspx?productID=<%#:Item.GadgetID%>">
-                                        <span>
+                                        <span class="GadgetName">
                                             <%#:Item.GadgetName%>
                                         </span>
                                     </a>
