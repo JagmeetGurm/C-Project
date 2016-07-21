@@ -12,5 +12,6 @@ namespace UsedGadgetsSale.Models
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Gadget> Gadgets { get; set; }
+        public DbSet<CartItem> ShoppingCartItems { get; set; }
     }
 }
