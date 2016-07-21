@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using UsedGadgetsSale.Models;
 using System.Web.ModelBinding;
 
-namespace WingtipToys
+namespace UsedGadgetsSale
 {
     public partial class GadgetList : System.Web.UI.Page
     {
@@ -16,7 +16,7 @@ namespace WingtipToys
 
         }
 
-        public IQueryable<Gadget> GetGagets([QueryString("id")] int? categoryId)
+        public IQueryable<Gadget> GetGadgets([QueryString("id")] int? categoryId)
         {
             var _db = new UsedGadgetsSale.Models.GadgetContext();
             IQueryable<Gadget> query = _db.Gadgets;

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UsingGadgetsSale {
+namespace UsedGadgetsSale {
     
     
-    public partial class ProductList {
+    public partial class GadgetList {
         
         /// <summary>
         /// gadgetList control.

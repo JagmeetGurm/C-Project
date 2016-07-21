@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Gadgets" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" 
-         CodeBehind="GadgetList.aspx.cs" Inherits="UsingGadgetsSale.ProductList" %>
+         CodeBehind="GadgetList.aspx.cs" Inherits="UsedGadgetsSale.GadgetList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <section>
         <div>
@@ -8,7 +8,7 @@
             </hgroup>
 
             <asp:ListView ID="gadgetList" runat="server" 
-                DataKeyNames="ProductID" GroupItemCount="4"
+                DataKeyNames="GadgetID" GroupItemCount="4"
                 ItemType="UsedGadgetsSale.Models.Gadget" SelectMethod="Getgadgets">
                 <EmptyDataTemplate>
                     <table >
@@ -30,14 +30,14 @@
                         <table>
                             <tr>
                                 <td>
-                                    <a href="GadgetDetails.aspx?productID=<%#:Item.GadgetID%>">
+                                    <a href="GadgetDetails.aspx?gadgetID=<%#:Item.GadgetID%>">
                                         <img src="/Catalog/Images/Thumbs/<%#:Item.ImagePath%>"
                                             width="100" height="75" style="border: solid" /></a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="ProductDetails.aspx?productID=<%#:Item.GadgetID%>">
+                                    <a href="GadgetDetails.aspx?gadgetID=<%#:Item.GadgetID%>">
                                         <span class="GadgetName">
                                             <%#:Item.GadgetName%>
                                         </span>
