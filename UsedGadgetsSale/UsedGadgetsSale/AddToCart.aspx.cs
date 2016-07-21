@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Diagnostics;
 using UsedGadgetsSale.Logic;
 
-
 namespace UsedGadgetsSale
 {
     public partial class AddToCart : System.Web.UI.Page
@@ -26,8 +25,8 @@ namespace UsedGadgetsSale
             }
             else
             {
-                Debug.Fail("ERROR : We should never get to AddToCart.aspx without a GadgetId.");
-                throw new Exception("ERROR : It is illegal to load AddToCart.aspx without setting a GadgetId.");
+                Debug.Fail("ERROR : We should never get to AddToCart.aspx without a ProductId.");
+                throw new Exception("ERROR : It is illegal to load AddToCart.aspx without setting a ProductId.");
             }
             Response.Redirect("ShoppingCart.aspx");
         }

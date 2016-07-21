@@ -17,7 +17,7 @@ namespace UsedGadgetsSale.Models
 
         public System.DateTime DateCreated { get; set; }
 
-        public int ProductId { get; set; }
+        public int GadgetId { get; set; }
 
         public virtual Gadget Gadget { get; set; }
 

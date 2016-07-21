@@ -21,14 +21,14 @@ namespace UsedGadgetsSale.Logic
 
             var cartItem = _db.ShoppingCartItems.SingleOrDefault(
                 c => c.CartId == ShoppingCartId
-                && c.ProductId == id);
+                && c.GadgetId == id);
             if (cartItem == null)
             {
                 // Create a new cart item if no cart item exists.                 
                 cartItem = new CartItem
                 {
                     ItemId = Guid.NewGuid().ToString(),
-                    ProductId = id,
+                    GadgetId = id,
                     CartId = ShoppingCartId,
                     Gadget = _db.Gadgets.SingleOrDefault(
                    p => p.GadgetID == id),
@@ -80,6 +80,20 @@ namespace UsedGadgetsSale.Logic
 
             return _db.ShoppingCartItems.Where(
                 c => c.CartId == ShoppingCartId).ToList();
+        }
+
+        public decimal GetTotal()
+        {
+            ShoppingCartId = GetCartId();
+            // Multiply product price by quantity of that product to get        
+            // the current price for each of those products in the cart.  
+            // Sum all product price totals to get the cart total.   
+            decimal? total = decimal.Zero;
+            total = (decimal?)(from cartItems in _db.ShoppingCartItems
+                               where cartItems.CartId == ShoppingCartId
+                               select (int?)cartItems.Quantity *
+                               cartItems.Gadget.UnitPrice).Sum();
+            return total ?? decimal.Zero;
         }
     }
 }

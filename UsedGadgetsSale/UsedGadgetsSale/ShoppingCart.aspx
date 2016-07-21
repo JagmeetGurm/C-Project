@@ -6,7 +6,7 @@
         CssClass="table table-striped table-bordered" >   
         <Columns>
         <asp:BoundField DataField="GadgetID" HeaderText="ID" SortExpression="GadgetID" />        
-        <asp:BoundField DataField="Gadget.ProductName" HeaderText="Name" />        
+        <asp:BoundField DataField="Gadget.GadgetName" HeaderText="Name" />        
         <asp:BoundField DataField="Gadget.UnitPrice" HeaderText="Price (each)" DataFormatString="{0:c}"/>     
         <asp:TemplateField   HeaderText="Quantity">            
                 <ItemTemplate>
