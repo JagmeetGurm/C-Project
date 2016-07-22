@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using System.Linq;
 using UsedGadgetsSale.Models;
+using UsedGadgetsSale.Logic;
+
 namespace UsedGadgetsSale
 {
     public partial class SiteMaster : MasterPage
@@ -72,6 +74,15 @@ namespace UsedGadgetsSale
         {
 
         }
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
+            {
+                string cartStr = string.Format("Cart ({0})", usersShoppingCart.GetCount());
+                cartCount.InnerText = cartStr;
+            }
+        }
+
         public IQueryable<Category> GetCategories()
         {
             var _db = new UsedGadgetsSale.Models.GadgetContext();
