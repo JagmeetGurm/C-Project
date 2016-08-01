@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RevisingWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="500">
-    <Grid x:Name="myGrid" MouseUp="myMouseUpEvent" Background="AliceBlue">
+    <Grid x:Name="myGrid"  Background="AliceBlue">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center"  Text="Hello, WPF!" VerticalAlignment="Center"/>
         <Button FontWeight="Bold"   Margin="219,210,116.4,36.8" Click="myButtonClick">
             <WrapPanel>
@@ -16,12 +16,21 @@
         </Button>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap"  VerticalAlignment="Top">This is a TextBlock <Hyperlink NavigateUri="https://www.google.com" RequestNavigate="Hyperlink_RequestNavigate">control</Hyperlink>  and it comes with a very long text</TextBlock >
         <StackPanel HorizontalAlignment="Left" Height="161" Margin="26,43,0,0" VerticalAlignment="Top" Width="151">
-            <Label x:Name="name" Content="_Name:" Margin="5" Target="{Binding ElementName=enterName}" Padding="5"/>
+            <Label x:Name="name" Margin="5" Target="{Binding ElementName=enterName}" Padding="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_green.png" />
+                    <AccessText Text="_Name:"/>
+                </StackPanel>
+            </Label>
             <TextBox x:Name="enterName" Height="23" TextWrapping="Wrap" Margin="5,0" Padding="5,0" />
 
             <Label x:Name="email" Content="_Email:" Margin="5" Padding="5" Target="{Binding ElementName=enterEmail}" RenderTransformOrigin="0.495,1.685"/>
-            <TextBox x:Name="enterEmail" Height="23" Padding="5, 0" TextWrapping="Wrap" Margin="5,0" />
+            <TextBox x:Name="enterEmail" Height="23" Padding="5, 0"  AcceptsReturn="True" SpellCheck.IsEnabled="True" Language="en-US" TextWrapping="Wrap" Margin="5,0" />
 
         </StackPanel>
+        <DockPanel HorizontalAlignment="Left" Height="100" LastChildFill="False" Margin="392,80,0,0" VerticalAlignment="Top" Width="100">
+            <TextBox SelectionChanged="myDockSelCh"  DockPanel.Dock="top" Margin="5" ></TextBox>
+            <TextBox x:Name="outputBox" AcceptsReturn="True" IsReadOnly="True" TextWrapping="Wrap" DockPanel.Dock="Top" Margin="5"></TextBox>
+        </DockPanel>
     </Grid>
 </Window>

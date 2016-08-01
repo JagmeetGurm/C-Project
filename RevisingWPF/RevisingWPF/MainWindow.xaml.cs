@@ -28,11 +28,11 @@ namespace RevisingWPF
             InitializeComponent();
         }
 
-        private void myMouseUpEvent(object sender, MouseButtonEventArgs e)
+  /*      private void myMouseUpEvent(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("you clicked me at " + e.GetPosition(this).ToString());
         }
-
+*/
         private void myButtonClick(object sender, RoutedEventArgs e)
         {
             string tempString = null;
@@ -52,8 +52,19 @@ namespace RevisingWPF
         {
             System.Diagnostics.Process.Start(e.Uri.AbsoluteUri);
         }
+
+        private void myDockSelCh(object sender, RoutedEventArgs e)
+        {
+            TextBox tBox = (TextBox)sender;
+            outputBox.Text = "selection starts at " + tBox.SelectionStart+Environment.NewLine;
+            outputBox.Text += "selection: " + tBox.SelectedText;
+        }
+
+
+
+
         //global exception handling
         // tempString.Trim();
-    
+
     }
 }
