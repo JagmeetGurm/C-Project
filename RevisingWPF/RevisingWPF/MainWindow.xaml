@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:RevisingWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <Grid x:Name="myGrid" MouseUp="myMouseUpEvent" Background="AliceBlue">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center"  Text="Hello, WPF!" VerticalAlignment="Center"/>
-        <Button FontWeight="Bold"   Margin="219,210,116.4,36.8">
+        <Button FontWeight="Bold"   Margin="219,210,116.4,36.8" Click="myButtonClick">
             <WrapPanel>
                 <TextBlock Foreground="Blue">Multi</TextBlock>
                 <TextBlock Foreground="Red">Color</TextBlock>

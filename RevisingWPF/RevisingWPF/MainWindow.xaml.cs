@@ -24,5 +24,16 @@ namespace RevisingWPF
         {
             InitializeComponent();
         }
+
+        private void myMouseUpEvent(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("you clicked me at " + e.GetPosition(this).ToString());
+        }
+
+        private void myButtonClick(object sender, RoutedEventArgs e)
+        {
+            string s = null;
+            s.Trim();
+        }
     }
 }
