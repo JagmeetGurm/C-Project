@@ -33,7 +33,16 @@ namespace RevisingWPF
         private void myButtonClick(object sender, RoutedEventArgs e)
         {
             string s = null;
-            s.Trim();
+            try
+            {
+                s.Trim();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("A handled exception just occured: " + ex.Message, 
+                   " Exception Sample");
+
+            }
         }
     }
 }
