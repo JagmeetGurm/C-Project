@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+//This revision is done with the help of WPF tutorial referenced from:
+// http://www.wpf-tutorial.com/
+ 
 namespace RevisingWPF
 {
     /// <summary>
@@ -32,17 +35,25 @@ namespace RevisingWPF
 
         private void myButtonClick(object sender, RoutedEventArgs e)
         {
-            string s = null;
+            string tempString = null;
+            //local exception handling
             try
             {
-                s.Trim();
+                tempString.Trim();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("A handled exception just occured: " + ex.Message, 
+                MessageBox.Show("A handled exception just occured: " + ex.Message,
                    " Exception Sample");
 
             }
         }
+            private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Uri.AbsoluteUri);
+        }
+        //global exception handling
+        // tempString.Trim();
+    
     }
 }
