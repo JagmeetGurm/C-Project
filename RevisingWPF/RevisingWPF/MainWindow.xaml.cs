@@ -79,6 +79,19 @@ namespace RevisingWPF
             }
         }
 
+        private void singlecheck(object sender, RoutedEventArgs e)
+        {
+            allFeatures.IsChecked = null;
+            if(firstOp.IsChecked==true && secondOp.IsChecked==true && thirdOp.IsChecked == true)
+            {
+                allFeatures.IsChecked = true;
+            }
+            if (firstOp.IsChecked == false && secondOp.IsChecked == false && thirdOp.IsChecked == false)
+            {
+                allFeatures.IsChecked = false;
+            }
+        }
+
 
 
 

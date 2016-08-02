@@ -30,12 +30,17 @@
             <Label x:Name="label" Content="options" FontWeight="Bold"/>
             <StackPanel>
                 <CheckBox IsThreeState="True" Name="allFeatures" Unchecked="allFeatures_changed" Checked="allFeatures_changed" >Enable All</CheckBox>
-            <StackPanel HorizontalAlignment="center"  >
-            <CheckBox Name="firstOp" >First option</CheckBox>
-            <CheckBox Name="secondOp">Second option</CheckBox>
-            <CheckBox Name="thirdOp">Third option</CheckBox>
+                <StackPanel HorizontalAlignment="center"  >
+                    <CheckBox Name="firstOp" Checked="singlecheck" Unchecked="singlecheck" >First option</CheckBox>
+                    <CheckBox Name="secondOp" Checked="singlecheck" Unchecked="singlecheck">Second option</CheckBox>
+                    <CheckBox Name="thirdOp" Checked="singlecheck" Unchecked="singlecheck">Third option</CheckBox>
                 </StackPanel>
             </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="77" Margin="51,170,0,0" VerticalAlignment="Top" Width="88">
+            <RadioButton GroupName="radioButton" Content="RadioButton"/>
+            <RadioButton GroupName="radioButton" Content="RadioButton"/>
+            <RadioButton x:Name="radioButton2" Content="RadioButton"/>
         </StackPanel>
 
     </Grid>
