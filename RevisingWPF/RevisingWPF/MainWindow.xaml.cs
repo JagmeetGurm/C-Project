@@ -62,7 +62,21 @@ namespace RevisingWPF
 
         private void allFeatures_changed(object sender, RoutedEventArgs e)
         {
+            CheckBox enableAll = (CheckBox)sender;
+            if (enableAll.IsChecked==true)
+            {
+                firstOp.IsChecked = true;
+                secondOp.IsChecked = true;
+                thirdOp.IsChecked = true;
 
+            }
+            if (enableAll.IsChecked == false)
+            {
+                firstOp.IsChecked = false;
+                secondOp.IsChecked = false;
+                thirdOp.IsChecked = false;
+
+            }
         }
 
 

@@ -29,11 +29,11 @@
         <StackPanel  Height="92" Margin="200,160,50,0"  Width="132">
             <Label x:Name="label" Content="options" FontWeight="Bold"/>
             <StackPanel>
-            <CheckBox IsThreeState="True" Name="allFeatures" Unchecked="allFeatures_changed" Checked="allFeatures_changed" >Enable All</CheckBox>
-            <StackPanel HorizontalAlignment="center" >
-            <CheckBox >First option</CheckBox>
-            <CheckBox >Second option</CheckBox>
-            <CheckBox >Third option</CheckBox>
+                <CheckBox IsThreeState="True" Name="allFeatures" Unchecked="allFeatures_changed" Checked="allFeatures_changed" >Enable All</CheckBox>
+            <StackPanel HorizontalAlignment="center"  >
+            <CheckBox Name="firstOp" >First option</CheckBox>
+            <CheckBox Name="secondOp">Second option</CheckBox>
+            <CheckBox Name="thirdOp">Third option</CheckBox>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
