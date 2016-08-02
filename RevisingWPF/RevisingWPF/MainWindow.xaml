@@ -8,14 +8,8 @@
         Title="MainWindow" Height="300" Width="500">
     <Grid x:Name="myGrid"  Background="AliceBlue">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center"  Text="Hello, WPF!" VerticalAlignment="Center"/>
-        <Button FontWeight="Bold"   Margin="219,210,116.4,36.8" Click="myButtonClick">
-            <WrapPanel>
-                <TextBlock Foreground="Blue">Multi</TextBlock>
-                <TextBlock Foreground="Red">Color</TextBlock>
-            </WrapPanel>
-        </Button>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap"  VerticalAlignment="Top">This is a TextBlock <Hyperlink NavigateUri="https://www.google.com" RequestNavigate="Hyperlink_RequestNavigate">control</Hyperlink>  and it comes with a very long text</TextBlock >
-        <StackPanel HorizontalAlignment="Left" Height="161" Margin="26,43,0,0" VerticalAlignment="Top" Width="151">
+        <StackPanel HorizontalAlignment="Left" Height="137" Margin="26,43,0,0" VerticalAlignment="Top" Width="151">
             <Label x:Name="name" Margin="5" Target="{Binding ElementName=enterName}" Padding="5">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_green.png" />
@@ -28,9 +22,21 @@
             <TextBox x:Name="enterEmail" Height="23" Padding="5, 0"  AcceptsReturn="True" SpellCheck.IsEnabled="True" Language="en-US" TextWrapping="Wrap" Margin="5,0" />
 
         </StackPanel>
-        <DockPanel HorizontalAlignment="Left" Height="100" LastChildFill="False" Margin="392,80,0,0" VerticalAlignment="Top" Width="100">
+        <DockPanel HorizontalAlignment="Left" Height="63" LastChildFill="False" Margin="392,80,0,0" VerticalAlignment="Top" Width="80">
             <TextBox SelectionChanged="myDockSelCh"  DockPanel.Dock="top" Margin="5" ></TextBox>
             <TextBox x:Name="outputBox" AcceptsReturn="True" IsReadOnly="True" TextWrapping="Wrap" DockPanel.Dock="Top" Margin="5"></TextBox>
         </DockPanel>
+        <StackPanel  Height="92" Margin="200,160,50,0"  Width="132">
+            <Label x:Name="label" Content="options" FontWeight="Bold"/>
+            <StackPanel>
+            <CheckBox IsThreeState="True" Name="allFeatures" Unchecked="allFeatures_changed" Checked="allFeatures_changed" >Enable All</CheckBox>
+            <StackPanel HorizontalAlignment="center" >
+            <CheckBox >First option</CheckBox>
+            <CheckBox >Second option</CheckBox>
+            <CheckBox >Third option</CheckBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Window>

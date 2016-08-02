@@ -60,6 +60,11 @@ namespace RevisingWPF
             outputBox.Text += "selection: " + tBox.SelectedText;
         }
 
+        private void allFeatures_changed(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
 
 
