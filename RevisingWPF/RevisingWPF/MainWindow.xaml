@@ -41,7 +41,10 @@
             <RadioButton GroupName="radioButton" Content="RadioButton"/>
             <RadioButton GroupName="radioButton" Content="RadioButton"/>
             <RadioButton x:Name="radioButton2" Content="RadioButton"/>
+
         </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="45" Margin="167,202,0,0" VerticalAlignment="Top" Width="58"/>
+        <PasswordBox  MaxLength="5"  Width="50" HorizontalAlignment="Left" Margin="191,217,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
