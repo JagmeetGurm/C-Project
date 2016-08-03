@@ -8,35 +8,10 @@
         Title="MainWindow" Height="300" Width="500">
     <Grid x:Name="myGrid"  Background="AliceBlue">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center"  Text="Hello, WPF!" VerticalAlignment="Center"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap"  VerticalAlignment="Top">This is a TextBlock <Hyperlink NavigateUri="https://www.google.com" RequestNavigate="Hyperlink_RequestNavigate">control</Hyperlink>  and it comes with a very long text</TextBlock >
-        <StackPanel HorizontalAlignment="Left" Height="137" Margin="26,43,0,0" VerticalAlignment="Top" Width="151">
-            <Label x:Name="name" Margin="5" Target="{Binding ElementName=enterName}" Padding="5">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_green.png" />
-                    <AccessText Text="_Name:"/>
-                </StackPanel>
-            </Label>
-            <TextBox x:Name="enterName" Height="23" TextWrapping="Wrap" Margin="5,0" Padding="5,0" />
-
-            <Label x:Name="email" Content="_Email:" Margin="5" Padding="5" Target="{Binding ElementName=enterEmail}" RenderTransformOrigin="0.495,1.685"/>
-            <TextBox x:Name="enterEmail" Height="23" Padding="5, 0"  AcceptsReturn="True" SpellCheck.IsEnabled="True" Language="en-US" TextWrapping="Wrap" Margin="5,0" />
-
-        </StackPanel>
         <DockPanel HorizontalAlignment="Left" Height="63" LastChildFill="False" Margin="392,80,0,0" VerticalAlignment="Top" Width="80">
             <TextBox SelectionChanged="myDockSelCh"  DockPanel.Dock="top" Margin="5" ></TextBox>
             <TextBox x:Name="outputBox" AcceptsReturn="True" IsReadOnly="True" TextWrapping="Wrap" DockPanel.Dock="Top" Margin="5"></TextBox>
         </DockPanel>
-        <StackPanel  Height="92" Margin="200,160,50,0"  Width="132">
-            <Label x:Name="label" Content="options" FontWeight="Bold"/>
-            <StackPanel>
-                <CheckBox IsThreeState="True" Name="allFeatures" Unchecked="allFeatures_changed" Checked="allFeatures_changed" >Enable All</CheckBox>
-                <StackPanel HorizontalAlignment="center"  >
-                    <CheckBox Name="firstOp" Checked="singlecheck" Unchecked="singlecheck" >First option</CheckBox>
-                    <CheckBox Name="secondOp" Checked="singlecheck" Unchecked="singlecheck">Second option</CheckBox>
-                    <CheckBox Name="thirdOp" Checked="singlecheck" Unchecked="singlecheck">Third option</CheckBox>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="77" Margin="51,170,0,0" VerticalAlignment="Top" Width="88">
             <RadioButton GroupName="radioButton" Content="RadioButton"/>
             <RadioButton GroupName="radioButton" Content="RadioButton"/>
@@ -45,6 +20,28 @@
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="45" Margin="167,202,0,0" VerticalAlignment="Top" Width="58"/>
         <PasswordBox  MaxLength="5"  Width="50" HorizontalAlignment="Left" Margin="191,217,0,0" VerticalAlignment="Top"/>
+        <DockPanel >
+            <ToolBar  DockPanel.Dock="Top" x:Name="toolBar"  Margin="5,10,5,5" VerticalAlignment="Top">
+                <Button ToolTip="Create a new file" >File</Button>
+                <Button >
+                    <Button.Content>Open File</Button.Content>
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" FontSize="15">Opens the file</TextBlock>
+                            <TextBlock>Search your local directory</TextBlock>
+                            <Border BorderBrush="Silver" Margin="2,5" BorderThickness="1"/>
+                            <TextBlock>Press F1 for more help</TextBlock>
+                        </StackPanel>
+                    </Button.ToolTip>
+                </Button>
+            </ToolBar>
+            <StackPanel Height="80" Orientation="Horizontal" VerticalAlignment="Top" Width="236" Margin="0,-0.4,0,0">
+                <Button x:Name="button" Content="Button" VerticalAlignment="Top"/>
+                <Button x:Name="button2" Content="Button2" VerticalAlignment="center"/>
+                <Button x:Name="button3" Content="Button3" VerticalAlignment="Bottom"/>
 
+            </StackPanel>
+
+        </DockPanel>
     </Grid>
 </Window>

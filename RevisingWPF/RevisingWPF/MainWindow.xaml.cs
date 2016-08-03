@@ -60,7 +60,7 @@ namespace RevisingWPF
             outputBox.Text += "selection: " + tBox.SelectedText;
         }
 
-        private void allFeatures_changed(object sender, RoutedEventArgs e)
+   /*     private void allFeatures_changed(object sender, RoutedEventArgs e)
         {
             CheckBox enableAll = (CheckBox)sender;
             if (enableAll.IsChecked==true)
@@ -93,7 +93,7 @@ namespace RevisingWPF
         }
 
 
-
+    */
 
         //global exception handling
         // tempString.Trim();
