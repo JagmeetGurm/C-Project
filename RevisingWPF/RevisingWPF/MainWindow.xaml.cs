@@ -33,32 +33,9 @@ namespace RevisingWPF
             MessageBox.Show("you clicked me at " + e.GetPosition(this).ToString());
         }
 */
-        private void myButtonClick(object sender, RoutedEventArgs e)
-        {
-            string tempString = null;
-            //local exception handling
-            try
-            {
-                tempString.Trim();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("A handled exception just occured: " + ex.Message,
-                   " Exception Sample");
+        
 
-            }
-        }
-            private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
-            System.Diagnostics.Process.Start(e.Uri.AbsoluteUri);
-        }
-
-        private void myDockSelCh(object sender, RoutedEventArgs e)
-        {
-            TextBox tBox = (TextBox)sender;
-            outputBox.Text = "selection starts at " + tBox.SelectionStart+Environment.NewLine;
-            outputBox.Text += "selection: " + tBox.SelectedText;
-        }
+        
 
    /*     private void allFeatures_changed(object sender, RoutedEventArgs e)
         {
