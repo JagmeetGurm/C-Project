@@ -7,12 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="500">
     <Grid x:Name="myGrid"  Background="AliceBlue">
+        <StackPanel HorizontalAlignment="Left" Height="148" Margin="41,25,0,0" VerticalAlignment="Top" Width="392"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="81" Margin="44,26,0,0" VerticalAlignment="Top" Width="287" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.564"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="1.014"/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+            <Label x:Name="labelFirstName" Content="First Name : " Margin="0,0,0,50.6" Width="100" FontSize="16"/>
+        </StackPanel>
+        <Label x:Name="labelLastName" Content="Last Name :" HorizontalAlignment="Left" Margin="149,25,0,212.4"  Width="100" FontSize="16"/>
 
 
-        <DockPanel >
-            <StackPanel Height="179" VerticalAlignment="Top" Width="351">
-                <Label x:Name="labelFirstName" Content="First Name :"  Margin="0,0,228.2,0" FontSize="16"/>
-            </StackPanel>
-        </DockPanel>
     </Grid>
 </Window>
