@@ -10,15 +10,23 @@ namespace RevisingWPF
     {
         //delegate is a reference to a method.
         public delegate int Del(int firstNo, int secondNo, string operand);
-public static int checkOperand(string operand)
-        {
 
-        }
         //create a method for the delegate
         public static int calculateResult(int firstNo, int secondNo, string operand)
         {
             int result = 0;
-         result=   checkOperand(operand);
+            if (operand == "+")
+            {
+               result= firstNo + secondNo;
+            }
+            else if (operand == "-")
+            {
+                result = firstNo - secondNo;
+            }
+            else
+            {
+                result = firstNo * secondNo;
+            }
             return result;
         }
     }
