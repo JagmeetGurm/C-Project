@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="500">
     <Grid x:Name="myGrid"  Background="AliceBlue">
-        <Label x:Name="labelFirstName" Content="First Name*:" HorizontalAlignment="Left" Margin="48,26,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="labelFirstName" Content="First Name*:" HorizontalAlignment="Left" Margin="48,26,0,0" VerticalAlignment="Top" FontSize="16" Background="White"/>
         <Label x:Name="labelLastName" Content="LastName* :" HorizontalAlignment="Left" Margin="260,26,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="48,63,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="txtFirstName_TextChanged"/>
         <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="260,63,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="txtLastName_TextChanged"/>

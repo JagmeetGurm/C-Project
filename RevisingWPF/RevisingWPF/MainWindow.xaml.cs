@@ -26,6 +26,7 @@ namespace RevisingWPF
         public MainWindow()
         {
             InitializeComponent();
+
         }
         private void ValidateName()
        {
