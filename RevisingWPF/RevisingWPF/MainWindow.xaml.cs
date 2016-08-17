@@ -12,10 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static RevisingWPF.delegateClass;
 
 //This revision is done with the help of WPF tutorial referenced from:
 // http://www.wpf-tutorial.com/
- 
+
 namespace RevisingWPF
 {
     /// <summary>
@@ -26,7 +27,9 @@ namespace RevisingWPF
         public MainWindow()
         {
             InitializeComponent();
-
+            Del handler = calculateResult;
+           System.Console.Write("hi there");
+        Console.WriteLine(    handler(5, 6, "+"));
         }
         private void ValidateName()
        {

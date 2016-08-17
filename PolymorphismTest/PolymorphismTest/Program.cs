@@ -39,19 +39,22 @@ namespace PolymorphismTest
         {
             const int hr = 55, wage = 70;
 
-            List<Employee> listEmployees = GetEmployees();
+            List<Employee> listEmployees = Utils.GetEmployees();
             foreach (var e in listEmployees)
                 e.CalculateWeeklySalary(hr, wage);
             Console.ReadKey();
         }
-        private static List<Employee> GetEmployees()
-        {
-            var emp = new Employee();
-            var cont = new Contractor();
-            var everyone = new List<Employee> { emp, cont };
-            return everyone;
-        }
-       
     }
 
-}
+
+        public static class Utils {
+            public static List<Employee> GetEmployees()
+            {
+                var emp = new Employee();
+                var cont = new Contractor();
+                var everyone = new List<Employee> { emp, cont };
+                return everyone;
+            }
+
+        }
+    }

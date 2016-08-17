@@ -15,8 +15,8 @@ namespace PolymorphismUnitTestProject
             int wage = 70;
             int salary = 40*wage;
             Employee e = new Employee();
-            string expectedResponse= String.Format("This employee is angry because he worked for {0} hrs." +
-                "But got paid for 40 hrs at {1}/hrs=$ {2} salary.", hours, wage, salary);
+            string expectedResponse = $"This employee is angry because he worked for {hours} hrs." +
+                $"But got paid for 40 hrs at {wage}/hrs=$ {salary} salary.";
             //act
             string response = e.CalculateWeeklySalary(hours, wage);
             //assert
@@ -32,9 +32,8 @@ namespace PolymorphismUnitTestProject
             int wage = 70;
             int salary = hours*wage;
             Contractor c= new Contractor();
-            string expectedResponse = String.Format("\nThis HAPPY CONTRACTOR worked {0} hrs. " +
-                              "Paid for {0} hrs at $ {1}" +
-                              "/hr = ${2} ", hours, wage, salary);
+            string expectedResponse = $"\nThis HAPPY CONTRACTOR worked {hours} hrs. " +
+                              $"Paid for {wage} hrs at $ {salary}" +$"/hr = ${2} ";
             //act
             string response = c.CalculateWeeklySalary(hours, wage);
             //assert

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="925">
-    <Grid Margin="0,0,-35.6,-3">
+        Title="Just Practice" Height="750" Width="925">
+    <Grid Margin="10,0,3.4,-3.2">
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
             <RowDefinition Height="187*"/>
@@ -42,7 +42,7 @@
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="zeroZero" Content="" HorizontalAlignment="Left" Margin="13.2,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="1" Grid.Row="2"/>
+            <Button x:Name="zeroZero" Content="" HorizontalAlignment="center" Margin="13.2,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="1" Grid.Row="2"/>
             <Button x:Name="zeroZero_Copy" Content="" HorizontalAlignment="Left" Margin="10.2,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="2" Grid.Row="2"/>
             <Button x:Name="zeroZero_Copy1" Content="" HorizontalAlignment="Left" Margin="9.8,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="3" Grid.Row="2"/>
             <Button x:Name="zeroZero_Copy2" Content="" HorizontalAlignment="Left" Margin="25.8,9.6,0,0" VerticalAlignment="Top" Width="41" Height="48" RenderTransformOrigin="2.26,0.331" Grid.Column="4" Grid.Row="2"/>

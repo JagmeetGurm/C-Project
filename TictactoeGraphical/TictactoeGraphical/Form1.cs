@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TictactoeGraphical
-{
+{ 
 
     public partial  class Form1 : Form
     {
@@ -17,18 +17,12 @@ namespace TictactoeGraphical
         {
             InitializeComponent();
             justtry();
+
         }
+       public  string valueLabel;
         static int count = 0;
         public static void justtry() { 
-            string initialState = "";
-            string start = "player";
-            char type = 'O';
-            int player = 1;
-            int opponent = 2;
-            //computer is X, player is O
-            //computer is going first
-            int choice = 2;//player is 2nd
-            //computer is 1, player is -1
+            
           //  game g = new game();
             for (int i = 0; i < 3; i++)
             {
@@ -37,56 +31,20 @@ namespace TictactoeGraphical
                     game.boardJim[i, j] = ' ';
                 }
             }
-/*            for (int i = 0; i < 9; i++)
-            {
-                if (game.checkResult() == 0)
-                {
-                    // g.move(i);
-                    if (i % 2 == 0)
-                    {
 
-
-                       game. playerMove();
-                       game. currentBoard();
-
-                    }
-                    else
-                    {
-                    result r=   game. computerMove();
-                        computerClick(r.x, r.y);
-                        Console.WriteLine("computer move: ");
-                      game.currentBoard();
-                    }
-                }
-                else i = 9;
-                
-
-            
-            if (game.checkResult() == 1)
-            {
-                Console.WriteLine("Computer won. You lost.");
-            }
-            else if (game.checkResult() == -1)
-            {
-
-                Console.WriteLine("You won. congrats.");
-            }
-            else
-                Console.WriteLine("Its a draw.");
-            Console.ReadLine();
-  */      
     }
 
         private void buttonClick(object sender, EventArgs e)
         {
-            Button myButton = (Button)sender;
+            
+              Button myButton = (Button)sender;
             myButton.Text = "O";
             myButton.Enabled = false;
             //myButton.
             //  myButton.BackColor = "192, 255, 192";
             myButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             count++;
-            if (count == 9)
+            if (count == 9|| game.checkResult()!=0)
             {
                 if (game.checkResult() == -1)
                     winnerBox.Text = "User";
@@ -100,10 +58,11 @@ namespace TictactoeGraphical
             userTurn(myButton.Name);
             if (game.checkResult() == 0 && count<9)
             {
-                result r = game.computerMove();
+               
+                  result r = game.computerMove();
                 computerClick(r.x, r.y);
                 count++;
-                if (count == 9)
+                if (count == 9 || game.checkResult() != 0)
                 {
                     if (game.checkResult() == -1)
                         winnerBox.Text = "User";
@@ -166,54 +125,55 @@ private void userTurn(string name)
             {
                 button1.Text = "X";
                 button1.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+                button1.Enabled = false;
             }
             else if (x == 0 && y == 1)
             {
                 button2.Text = "X";
                 button2.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-
+                button2.Enabled = false;
             }
             else if (x == 0 && y == 2)
             {
                 button3.Text = "X";
                 button3.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-
+                button3.Enabled = false;
             }
             else if (x == 1 && y == 0)
             {
                 button4.Text = "X";
                 button4.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-
+                button4.Enabled = false;
             }
             else if (x == 1 && y == 1)
             {
                 button5.Text = "X";
                 button5.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-
+                button5.Enabled = false;
             }
             else if (x == 1 && y == 2)
             {
                 button6.Text = "X";
                 button6.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-
+                button6.Enabled = false;
             }
             else if (x == 2 && y == 0)
             {
                 button7.Text = "X";
                 button7.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-
+                button7.Enabled = false;
             }
             else if (x == 2 && y == 1)
             {
                 button8.Text = "X";
                 button8.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-
+                button8.Enabled = false;
             }
             else
             {
                 button9.Text = "X";
                 button9.BackColor = System.Drawing.Color.LightCoral;// System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-
+                button9.Enabled = false;
             }
         }
 
@@ -237,7 +197,16 @@ private void userTurn(string name)
             Application.Restart();
         }
 
-        
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+             valueLabel = tb.Text;
+        }
     }
     class result
     {
@@ -428,14 +397,47 @@ private void userTurn(string name)
             return r2;
         }
 
-        
+        public static result level1()
+{
+            result r2 = new result();
+            int x1 = -1, y1 = -1;
+          //  int bestValue = (player == 'X') ? -10 : 10;
+            if (checkResult() != 0)
+            {
+                r2.x = 0;
+                r2.y = 0;
+                r2.val = checkResult();
+                return r2;
+            }
 
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (boardJim[i, j] == ' ')
+                    {//If legal,
+                        boardJim[i, j] = 'X';
+                    }
+                }
+            }
+
+                        return r2;
+        }
         //the computer makes the move through this function by calling minimax
         //does accept any parameter, nor gives an output
         public static result computerMove()
-        {
+        { //Form1 tempF = new Form1();
+
             result r1 = new result();
-               r1 = minimax(0, 0, 'X');
+          //  if (tempF.valueLabel == "3")
+           // {
+                r1 = minimax(0, 0, 'X');
+            //}
+      //      if (tempF.valueLabel == "1")
+        //    {
+          //      level1();
+            //    return r1;
+            //}
         //    r1 = prunning(0, 0, 'X', -10, 10);
             if (r1.val == 1 || r1.val == 0)
                 boardJim[r1.x, r1.y] = 'X';

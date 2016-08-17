@@ -21,7 +21,7 @@ public string winner;
         public int val, x, y;
     }
 
-    //game class represent the one tictac toe game
+    //game class represent the one othello game
     class game
     {
         public win winnerOfGame(){
@@ -63,7 +63,7 @@ public string winner;
             result r2 = new result();
             int x1 = -1, y1 = -1;
             int bestValue = (player == 'w') ? -10 : 10;
-            if (checkResult() != 0)
+            if (depth==0||checkResult() != 0)
             {
                 r2.x = a;
                 r2.y = b;
@@ -82,9 +82,17 @@ public string winner;
                     {
                         if (board[i, j] == '.')
                         {//If legal,
-                            board[i, j] = 'w';
+                            cell c = new cell();
+                            c.x = i; c.y = j;
+                            if (validMove(c))
+                            {
+                                board[i, j] = 'w';
+                            }
 
+                            else goto done;
+                         //   board[i, j] = 'w';
 
+                            turn = 'b';
                             int score = minimax(i, j, depth-1,'b').val;
                             if (score > bestValue)
                             {
@@ -96,7 +104,7 @@ public string winner;
                             }//Pick the one that's worst for the opponent
                             board[i, j] = '.';//
                         }
-
+                    done: ;
                     }
                 }
                 return r2;
@@ -115,8 +123,15 @@ public string winner;
                     {
                         if (board[i, j] == '.')
                         {//If legal,
-                            board[i, j] = 'b';
+                            cell c = new cell();
+                            c.x = i; c.y = j;
+                            if (validMove(c))
+                            {
+                                board[i, j] = 'b';
+                            }
 
+                            else goto done;
+                            turn = 'w';
                             int score = minimax(i, j, depth-1,'w').val;
                             if (score < bestValue)
                             {
@@ -128,6 +143,7 @@ public string winner;
                             }//Pick the one that's worst for the opponent
                             board[i, j] = '.';//
                         }
+                    done: ;
 
                     }
                 }
@@ -172,13 +188,13 @@ public string winner;
                             if (validMove(c))
                             {
                                 board[i, j] = 'w';
-                                  r2.x = i;
-                                  r2.y = j;
+                                //  r2.x = i;
+                                 // r2.y = j;
                                 //    return r2;
-                                  return r2;
+                                 // return r2;
                                 //   goto done;
-                                  }
-                                    else goto done;
+                                 }
+                                   else goto done;
 
                                 turn = 'b';
                                 int score = prunning(i, j, 'b', depth - 1, alpha, beta).val;
@@ -191,7 +207,7 @@ public string winner;
                                     r2.y = j;
                                     //  move = i;
                                 }//Pick the one that's worst for the opponent
-                                turn = 'b';
+                             //   turn = 'b';
                                 board[i, j] = '.';//
                                 if (alpha >= beta) break;
                             }
@@ -235,7 +251,7 @@ public string winner;
 
                                 //  move = i;
                             }//Pick the one that's worst for the opponent
-                            turn = 'w'; 
+                           // turn = 'w'; 
                             board[i, j] = '.';//
                             if (alpha >= beta) break;
                         }
@@ -256,22 +272,24 @@ public string winner;
         {
             cell c = new cell();
             result r1 = new result();
-          //    r1 = minimax(0, 0, 'X');
+              r1 = minimax(0, 0, 5,'w');
               
-            r1 = prunning(0, 0, 'w',5, -10, 10);
+            //r1 = prunning(0, 0, 'w',5, -10, 10);
             c.x = r1.x;
             c.y = r1.y;
              // if (validMove(c))
              // {
-              //    if (r1.val == 1 || r1.val == 0)
+                 if (r1.val == 1 || r1.val == 0)
                       board[r1.x, r1.y] = 'w';
-               //   else board[r1.x, r1.y] = 'b';
+                 else board[r1.x, r1.y] = 'b';
              // }
            //   else move(1);
             //board[r1.x, r1.y] = r1.val;
             return c;
         }
         public int sum=0;
+
+  //check if right horizontal side      
 public bool horRight(cell c){
 int a=c.x;
       
@@ -291,7 +309,7 @@ int a=c.x;
             }
             return decision;
 }
-
+//check if left horizontal side     
 public bool horLeft(cell c)
 {
     int a = c.x;
@@ -313,6 +331,7 @@ public bool horLeft(cell c)
     return decision;
 }
 
+//check if vert up side     
 public bool vertUp(cell c)
 {
     int a = c.x;
@@ -333,6 +352,7 @@ public bool vertUp(cell c)
     return decision;
 }
 
+//check if vert down side     
 public bool vertDown(cell c)
 {
     int a = c.x;
@@ -353,7 +373,7 @@ public bool vertDown(cell c)
     return decision;
 }
 
-
+//check if diagonal left up side     
 public bool DiagLeftUp(cell c)
 {
     int a = c.x;
@@ -375,7 +395,7 @@ public bool DiagLeftUp(cell c)
     return decision;
 }
 
-
+//check if diagonal right down side
 public bool DiagRightDown(cell c)
 {
     int a = c.x;
@@ -397,6 +417,7 @@ public bool DiagRightDown(cell c)
     return decision;
 }
 
+//check if diagonal right up side
 public bool DiagRightUp(cell c)
 {
     int a = c.x;
@@ -417,6 +438,7 @@ public bool DiagRightUp(cell c)
     return decision;
 }
 
+//check if diagonal left down side
 public bool DiagDownLeft(cell c)
 {
     int a = c.x;
@@ -437,7 +459,7 @@ public bool DiagDownLeft(cell c)
     return decision;
 }
 
-
+//checking if move is vallid
         public bool validMove(cell c)
         {int a=c.x;
         bool decision = false;
@@ -581,7 +603,8 @@ public bool DiagDownLeft(cell c)
                 }
                 temp = temp + "\n \n";
             }
-            Console.WriteLine(temp); 
+            Console.WriteLine(temp);
+          //  Console.WriteLine("move: " + sum);
         }
         public char turnOpp()
         {
@@ -699,9 +722,11 @@ public bool DiagDownLeft(cell c)
                 turn = 'w';
                 cell c= computerMove();
              //   Console.WriteLine("Moves: " + sum);
+                turn = 'w';
                 action(c, turn);
                 Console.WriteLine("computer move: ");
                 currentBoard();
+                Console.WriteLine("Move: " + sum);
             }
         }
 
@@ -719,6 +744,7 @@ public bool DiagDownLeft(cell c)
 
                 }
             }
+          
             string w = winnerOfGame().winner;
             if (w == "computer")
             {
@@ -742,10 +768,8 @@ public bool DiagDownLeft(cell c)
         static void Main(string[] args)
         {
             
-            //computer is X, player is O
-            //computer is going first
-            int choice = 2;//player is 2nd
-            //computer is 1, player is -1
+            //user is 'b', computer is 'w'
+            //first move is of user
             game g = new game();
             for (int i = 0; i < 8; i++)
             {
